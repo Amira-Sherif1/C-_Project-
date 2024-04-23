@@ -28,7 +28,7 @@ class Sign :public shape
 public:
 	Sign(game* r_pGame, point ref);
 	virtual void draw() const;
-	//virtual void ResizeUp();
+	/*virtual void ResizeUp()*/;
 	//virtual void ResizeDown();
 
 
@@ -64,8 +64,8 @@ class Butterfly : public shape {
 	circle* cir1;
 	circle* cir2;
 	circle* cir3;
-	circle* cir4;
-	circle* cir5;
+	circle* cir4; 
+	circle* cir5; 
 	Rect* rect;
 
 public:

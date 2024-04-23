@@ -167,7 +167,6 @@ void game::run()
 
 
 void game::ToolbarClicker(toolbarItem t) {
-	window* w = getWind();
 	string text;
 	switch (t) {
 	case(ITM_SIGN):
@@ -224,7 +223,7 @@ void game::ToolbarClicker(toolbarItem t) {
 	}
 	pWind->SetPen(BLACK);
 	pWind->SetFont(20, BOLD | ITALICIZED, BY_NAME, "Arial");
-	pWind->DrawString(0, config.windHeight - 40, text);
+	pWind->DrawString(10, config.windHeight - 40, text);
 	Sleep(500);
 	clearStatusBar();
 	}
