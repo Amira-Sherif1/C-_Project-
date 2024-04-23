@@ -1,5 +1,6 @@
 #include "game.h"
 #include "gameConfig.h"
+#include "toolbar.h"
 
 
 
@@ -62,6 +63,7 @@ void game::createGrid()
 
 operation* game::createRequiredOperation(toolbarItem clickedItem)
 {
+	void ToolbarClicker();	//creates the text of the item
 	operation* op=nullptr;
 	switch (clickedItem)
 	{
@@ -156,8 +158,73 @@ void game::run()
 
 			//4-Redraw the grid after each action
 			shapesGrid->draw();
-
+			
+			ToolbarClicker(clickedItem);
 		}	
 
 	} while (clickedItem!=ITM_EXIT);
 }
+
+
+void game::ToolbarClicker(toolbarItem t) {
+	window* w = getWind();
+	string text;
+	switch (t) {
+	case(ITM_SIGN):
+		text = "You Pressed on Sign item";
+		break;
+	case(Itm_Tree):
+		text = "You Pressed on Tree item";
+		break;
+	case(ITM_Boat):
+		text = "You Pressed on Boat item";
+		break;
+	case(ITM_Butterfly):
+		text = "You Pressed on Butterfly item";
+		break;
+	case(ITM_moon):
+		text = "You Pressed on Moon item";
+		break;
+	case(ITM_rocket):
+		text = "You Pressed on Rocket item";
+		break;
+	case(ITM_cone):
+		text = "You Pressed on Cone item";
+		break;
+	case(Itm_increase):
+		text = "You Pressed on Increase item";
+		break;
+	case(Itm_decrease):
+		text = "You Pressed on Decrease item";
+		break;
+	case(Itm_rotate):
+		text = "You Pressed on Rotate item";
+		break;
+	case(ITM_flip):
+		text = "You Pressed on Flip item";
+		break;
+	case(Itm_refresh):
+		text = "You Pressed on Refresh item";
+		break;
+	case(Itm_hint):
+		text = "You Pressed on Hint item";
+		break;
+	case(Itm_delet):
+		text = "You Pressed on Delete item";
+		break;
+	case(Itm_S_G_LEVEL):
+		text = "You Pressed on Select Game Level item";
+		break;
+	case(Itm_load):
+		text = "You Pressed on Load item";
+		break;
+	case(Itm_SAVE):
+		text = "You Pressed on Save item";
+		break;
+	}
+	pWind->SetPen(BLACK);
+	pWind->SetFont(20, BOLD | ITALICIZED, BY_NAME, "Arial");
+	pWind->DrawString(0, config.windHeight - 40, text);
+	Sleep(500);
+	clearStatusBar();
+	}
