@@ -16,7 +16,8 @@ void Sign::draw() const
 	base->draw();
 	top->draw();
 }
-
+void Sign::ResizeUp(){}
+void Sign::ResizeDown(){}
 
 
 /////////////////////////calss Tree/////////////
@@ -42,5 +43,7 @@ void Tree::draw() const
 	T4->draw();
 	root->draw();
 }
+void Tree::ResizeUp(){}
+void Tree::ResizeDown() {}
 
 
