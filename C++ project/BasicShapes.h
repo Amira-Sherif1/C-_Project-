@@ -21,6 +21,7 @@ public:
 	virtual void draw() const;
 	virtual void ResizeUp() ;
 	virtual void ResizeDown();
+	virtual void move(string step);
 };
 
 
@@ -35,6 +36,7 @@ public:
 	virtual void draw() const;
 	virtual void ResizeUp();
 	virtual void ResizeDown();
+	virtual void move(string step);
 };
 
 
@@ -48,5 +50,6 @@ public:
 	virtual void draw() const;
 	virtual void ResizeUp() ;
 	virtual void ResizeDown();
+	virtual void move(string step);
 
 };

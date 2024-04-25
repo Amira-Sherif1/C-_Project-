@@ -31,7 +31,7 @@ public:
 
 	virtual void ResizeUp();
 	virtual void ResizeDown();
-
+	virtual void move(string step);
 };
 class Tree : public shape {
 	Rect* root;
@@ -44,7 +44,7 @@ public:
 	virtual void draw() const;
 	virtual void ResizeUp();
 	virtual void ResizeDown();
-
+	virtual void move(string step);
 };
 class Boat :public shape {
 	Rect* rect1;
@@ -58,6 +58,7 @@ public:
 	virtual void draw() const;
 	virtual void ResizeUp();
 	virtual void ResizeDown();
+	virtual void move(string step);
 };
 
 class Butterfly : public shape {
@@ -73,4 +74,5 @@ public:
 	virtual void draw()const;
 	virtual void ResizeUp();
 	virtual void ResizeDown();
+	virtual void move(string step);
 };

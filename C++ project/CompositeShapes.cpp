@@ -26,7 +26,11 @@ void Sign::ResizeUp() {
 	config.sighShape.topWdth *= 2;
 	//top = new Rect();
 }
-
+void Sign::move(string step) {
+	base->move(step);
+	top->move(step);
+	draw();
+}
 
 
 
@@ -55,6 +59,31 @@ void Tree::draw() const
 }
 void Tree::ResizeUp(){}
 void Tree::ResizeDown() {}
+void Tree::move(string step) {
+	if (step == "PgUp")
+	{
+		RefPoint.y = RefPoint.y - config.gridSpacing;
+	}
+	else if (step == "PgDn")
+	{
+		RefPoint.y = RefPoint.y + config.gridSpacing;
+	}
+	else if (step == "End")
+	{
+		RefPoint.x = RefPoint.x + config.gridSpacing;
+	}
+	else if (step == "Home")
+	{
+		RefPoint.x = RefPoint.x - config.gridSpacing;
+	}
+	T1->move(step);
+	T2->move(step);
+	T3->move(step);
+	T4->move(step);
+	root->move(step);
+	draw();
+}
+
 
 Butterfly::Butterfly(game* r_pgame, point ref) : shape(r_pgame, ref){
 	point cir1_ref{ ref.x + config.Butterfly.circ1_rad - config.Butterfly.rec_width, ref.y + config.Butterfly.rec_len /4};
@@ -80,3 +109,28 @@ void Butterfly::draw() const{
 }
 void Butterfly::ResizeUp(){}
 void Butterfly::ResizeDown() {}
+void Butterfly::move(string step) {
+	if (step == "PgUp")
+	{
+		RefPoint.y = RefPoint.y - config.gridSpacing;
+	}
+	else if (step == "PgDn")
+	{
+		RefPoint.y = RefPoint.y + config.gridSpacing;
+	}
+	else if (step == "End")
+	{
+		RefPoint.x = RefPoint.x + config.gridSpacing;
+	}
+	else if (step == "Home")
+	{
+		RefPoint.x = RefPoint.x - config.gridSpacing;
+	}
+	cir2->move(step);
+	cir5->move(step);
+	cir1->move(step);
+	cir4->move(step);
+	cir3->move(step);
+	rect->move(step);
+	draw();
+}

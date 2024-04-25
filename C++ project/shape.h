@@ -37,7 +37,7 @@ public:
     virtual void draw() const=0;//for a shape to draw itself on the screen
 	virtual void ResizeUp()=0;
 	virtual void ResizeDown() = 0;
-	
+	virtual void move(string step) = 0 ;		//Move the shape
 								  
 							  
 	//-- The following functions should be supported by the shape class
@@ -46,7 +46,7 @@ public:
 
 	//virtual void rotate() = 0;	//Rotate the shape
 	//virtual void resize() = 0;	//Resize the shape
-	//virtual void move() = 0;		//Move the shape
+	
 	//virtual void save(ofstream &OutFile) = 0;	//Save the shape parameters to the file
 	//virtual void load(ifstream &Infile) = 0;	//Load the shape parameters to the file
 

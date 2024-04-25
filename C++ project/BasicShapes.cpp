@@ -36,7 +36,25 @@ void Rect::ResizeDown()
 	wdth /= 2;
 	draw();
 }
-
+ void Rect:: move(string step){
+	 if (step == "PgUp")
+	 {
+		 RefPoint.y = RefPoint.y - config.gridSpacing;
+	 }
+	 else if (step == "PgDn")
+	 {
+		 RefPoint.y = RefPoint.y + config.gridSpacing;
+	 }
+	 else if (step == "End")
+	 {
+		 RefPoint.x = RefPoint.x + config.gridSpacing;
+	 }
+	 else if (step == "Home")
+	 {
+		 RefPoint.x = RefPoint.x - config.gridSpacing;
+	 }
+ 
+ }
 
 ////////////////////////////////////////////////////  class circle  ///////////////////////////////////////
 //TODO: Add implementation for class circle here
@@ -61,7 +79,25 @@ void circle::ResizeDown() {
 	rad /= 2;
 	draw();
 }
+void circle::move(string step) {
 
+	if (step == "PgUp")
+	{
+		RefPoint.y = RefPoint.y - config.gridSpacing;
+	}
+	if (step == "PgDn")
+	{
+		RefPoint.y = RefPoint.y + config.gridSpacing;
+	}
+	if (step == "End")
+	{
+		RefPoint.x = RefPoint.x + config.gridSpacing;
+	}
+	if (step == "Home")
+	{
+		RefPoint.x = RefPoint.x - config.gridSpacing;
+	}
+}
 
 ////////////////////////////////////////////////////  class triangle  ///////////////////////////////////////
 //TODO: Add implementation for class triangle here
@@ -92,4 +128,23 @@ void Triangle::ResizeDown() {
 	length /= 2;
 	hight /= 2;
 	draw();
+}
+void Triangle::move(string step) {
+
+	if (step == "PgUp")
+	{
+		RefPoint.y = RefPoint.y - config.gridSpacing;
+	}
+	if (step == "PgDn")
+	{
+		RefPoint.y = RefPoint.y + config.gridSpacing;
+	}
+	if (step == "End")
+	{
+		RefPoint.x = RefPoint.x + config.gridSpacing;
+	}
+	if (step == "Home")
+	{
+		RefPoint.x = RefPoint.x - config.gridSpacing;
+	}
 }
