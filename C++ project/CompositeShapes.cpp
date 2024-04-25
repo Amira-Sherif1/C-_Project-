@@ -19,6 +19,16 @@ void Sign::draw() const
 void Sign::ResizeUp(){}
 void Sign::ResizeDown(){}
 
+//void Sign::ResizeUp() {
+//	config.sighShape.baseHeight *= 2;
+//	config.sighShape.baseWdth *= 2;
+//	config.sighShape.topHeight *= 2;
+//	config.sighShape.topWdth *= 2;
+//	/*top = new Rect()*/;
+//}
+
+
+
 
 /////////////////////////calss Tree/////////////
 
@@ -46,4 +56,25 @@ void Tree::draw() const
 void Tree::ResizeUp(){}
 void Tree::ResizeDown() {}
 
-
+Butterfly::Butterfly(game* r_pgame, point ref) : shape(r_pgame, ref){
+	point cir1_ref{ ref.x + config.Butterfly.circ1_rad - config.Butterfly.rec_width, ref.y + config.Butterfly.rec_len /4};
+	point cir4_ref{ ref.x - config.Butterfly.circ1_rad + config.Butterfly.rec_width, ref.y + config.Butterfly.rec_len / 4 };
+	point cir2_ref{ ref.x + config.Butterfly.circ1_rad - config.Butterfly.rec_width, ref.y - config.Butterfly.rec_len / 4 };
+	point cir5_ref{ ref.x - config.Butterfly.circ1_rad + config.Butterfly.rec_width, ref.y - config.Butterfly.rec_len / 4 };
+	point cir3_ref{ ref.x , ref.y + config.Butterfly.rec_len / 2 };
+	point rect_ref{ ref.x,ref.y };
+	cir1 = new circle( r_pgame,cir1_ref,config.Butterfly.circ1_rad );
+	cir2 = new circle(r_pgame, cir2_ref, config.Butterfly.circ2_rad);
+	cir3= new circle(r_pgame, cir3_ref, config.Butterfly.circ3_rad);
+	cir4 = new circle(r_pgame, cir4_ref, config.Butterfly.circ1_rad);
+	cir5 = new circle(r_pgame, cir5_ref, config.Butterfly.circ2_rad);
+	rect = new Rect(r_pgame, rect_ref, config.Butterfly.rec_len,config.Butterfly.rec_width);
+}
+void Butterfly::draw() const{
+	cir2->draw();
+	cir5->draw();
+	cir1->draw();
+	cir4->draw();
+	cir3->draw();
+	rect->draw();
+}

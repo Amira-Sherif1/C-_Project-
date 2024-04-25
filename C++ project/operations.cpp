@@ -53,3 +53,21 @@ void operAddTree::Act() {
 	pGrid->setActiveShape(ptr);
 
 }
+
+//operAddButterfly::operAddButterfly(game* p_Game) : operation(p_Game)
+//{
+//}
+//void operAddButterfly::Act() {
+//	window* win = pGame->getWind();
+//
+//	int xw = config.RefX - config.RefX % config.gridSpacing;
+//	int yw = config.RefY - config.RefX % config.gridSpacing;
+//
+//	point ButterflyPointRef = { xw , yw };
+//
+//	shape* btfl = new Butterfly(pGame, ButterflyPointRef);
+//
+//	grid* gg = pGame->getGrid();
+//	gg->setActiveShape(btfl);
+//
+//}
