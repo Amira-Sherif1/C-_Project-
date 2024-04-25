@@ -36,6 +36,7 @@ void Rect::ResizeDown()
 	wdth /= 2;
 	draw();
 }
+
  void Rect:: move(string step){
 	 if (step == "PgUp")
 	 {
@@ -55,6 +56,12 @@ void Rect::ResizeDown()
 	 }
  
  }
+void Rect::rotate() {
+	int uuu=hght;
+	hght = wdth;
+	wdth = uuu;
+}
+
 
 ////////////////////////////////////////////////////  class circle  ///////////////////////////////////////
 //TODO: Add implementation for class circle here
@@ -129,6 +136,7 @@ void Triangle::ResizeDown() {
 	hight /= 2;
 	draw();
 }
+
 void Triangle::move(string step) {
 
 	if (step == "PgUp")
@@ -147,4 +155,14 @@ void Triangle::move(string step) {
 	{
 		RefPoint.x = RefPoint.x - config.gridSpacing;
 	}
+}
+
+void Triangle::rotate() {
+	int temp = length;
+	length = hight;
+	hight = temp;
+
+	RefPoint.x = RefPoint.x - hight;
+	RefPoint.y = RefPoint.y + length / 2;
+
 }
