@@ -16,16 +16,16 @@ void Sign::draw() const
 	base->draw();
 	top->draw();
 }
-void Sign::ResizeUp(){}
+//void Sign::ResizeUp(){}
 void Sign::ResizeDown(){}
 
-//void Sign::ResizeUp() {
-//	config.sighShape.baseHeight *= 2;
-//	config.sighShape.baseWdth *= 2;
-//	config.sighShape.topHeight *= 2;
-//	config.sighShape.topWdth *= 2;
-//	/*top = new Rect()*/;
-//}
+void Sign::ResizeUp() {
+	config.sighShape.baseHeight *= 2;
+	config.sighShape.baseWdth *= 2;
+	config.sighShape.topHeight *= 2;
+	config.sighShape.topWdth *= 2;
+	//top = new Rect();
+}
 
 
 
@@ -78,3 +78,5 @@ void Butterfly::draw() const{
 	cir3->draw();
 	rect->draw();
 }
+void Butterfly::ResizeUp(){}
+void Butterfly::ResizeDown() {}

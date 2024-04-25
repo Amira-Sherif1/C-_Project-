@@ -32,11 +32,6 @@ public:
 	virtual void ResizeUp();
 	virtual void ResizeDown();
 
-	/*virtual void ResizeUp()*/;
-	//virtual void ResizeDown();
-
-
-
 };
 class Tree : public shape {
 	Rect* root;

@@ -181,11 +181,11 @@ void game::ToolbarClicker(toolbarItem t) {
 	case(ITM_Butterfly):
 		text = "You Pressed on Butterfly item";
 		break;
-	case(ITM_moon):
-		text = "You Pressed on Moon item";
+	case(ITM_Home):
+		text = "You Pressed on Home item";
 		break;
-	case(ITM_rocket):
-		text = "You Pressed on Rocket item";
+	case(ITM_Cat):
+		text = "You Pressed on Cat item";
 		break;
 	case(ITM_cone):
 		text = "You Pressed on Cone item";
