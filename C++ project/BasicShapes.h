@@ -21,6 +21,7 @@ public:
 	virtual void draw() const;
 	virtual void ResizeUp() ;
 	virtual void ResizeDown();
+	void rotate();
 };
 
 
@@ -48,5 +49,5 @@ public:
 	virtual void draw() const;
 	virtual void ResizeUp() ;
 	virtual void ResizeDown();
-
+	void rotate();
 };

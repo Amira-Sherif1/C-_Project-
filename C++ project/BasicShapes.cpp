@@ -36,7 +36,11 @@ void Rect::ResizeDown()
 	wdth /= 2;
 	draw();
 }
-
+void Rect::rotate() {
+	int uuu=hght;
+	hght = wdth;
+	wdth = uuu;
+}
 
 ////////////////////////////////////////////////////  class circle  ///////////////////////////////////////
 //TODO: Add implementation for class circle here
@@ -92,4 +96,12 @@ void Triangle::ResizeDown() {
 	length /= 2;
 	hight /= 2;
 	draw();
+}
+void Triangle::rotate() {
+	int temp = length;
+	length = hight;
+	hight = temp;
+
+	RefPoint.x = RefPoint.x - hight;
+	RefPoint.y = RefPoint.y + length / 2;
 }

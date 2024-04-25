@@ -63,3 +63,26 @@ toolbarItem toolbar::getItemClicked(int x)
 
 }
 
+void toolbar::drawInitialInfo()
+{
+	window* pWind = pGame->getWind();
+	pWind->SetPen(DARKBLUE);
+	pWind->DrawString(10, 5, "Lives: 5");
+	pWind->DrawString(150, 5, "Score: 0");
+	pWind->DrawString(300, 5, "Level: 1");
+}
+
+void toolbar::updateInfo(int lives, int score, int level)
+{
+	window* pWind = pGame->getWind();
+	pWind->SetPen(config.bkGrndColor);
+	pWind->SetBrush(config.bkGrndColor);
+	pWind->DrawRectangle(10, 5, 145, height, FILLED);
+	pWind->DrawRectangle(150, 5, 295, height, FILLED);
+	pWind->DrawRectangle(300, 5, 445, height, FILLED);
+
+	pWind->SetPen(DARKBLUE);
+	pWind->DrawString(10, 5, "Lives: " + to_string(lives));
+	pWind->DrawString(150, 5, "Score: " + to_string(score));
+	pWind->DrawString(300, 5, "Level: " + to_string(level));
+}
