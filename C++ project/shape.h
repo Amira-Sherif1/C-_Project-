@@ -35,8 +35,8 @@ public:
     shape(game* r_pGame, point ref);
 	void setRefPoint(point p);
     virtual void draw() const=0;//for a shape to draw itself on the screen
-	//virtual void ResizeUp()=0;
-	//virtual void ResizeDown() = 0;
+	virtual void ResizeUp()=0;
+	virtual void ResizeDown() = 0;
 	
 								  
 							  

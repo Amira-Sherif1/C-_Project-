@@ -28,8 +28,8 @@ class Sign :public shape
 public:
 	Sign(game* r_pGame, point ref);
 	virtual void draw() const;
-	//virtual void ResizeUp();
-	//virtual void ResizeDown();
+	virtual void ResizeUp();
+	virtual void ResizeDown();
 
 
 };
@@ -42,8 +42,8 @@ class Tree : public shape {
 public:
 	Tree(game* r_pGame, point ref);
 	virtual void draw() const;
-	//virtual void ResizeUp();
-	//virtual void ResizeDown();
+	virtual void ResizeUp();
+	virtual void ResizeDown();
 
 };
 class Boat :public shape {
@@ -56,8 +56,8 @@ class Boat :public shape {
 public:
 	Boat(game* r_pgame, point ref);
 	virtual void draw() const;
-	//virtual void ResizeUp();
-	//virtual void ResizeDown();
+	virtual void ResizeUp();
+	virtual void ResizeDown();
 };
 
 class Butterfly : public shape {
@@ -71,6 +71,6 @@ class Butterfly : public shape {
 public:
 	Butterfly(game* r_pgame, point ref);
 	virtual void draw()const;
-	//virtual void ResizeUp();
-	//virtual void ResizeDown();
+	virtual void ResizeUp();
+	virtual void ResizeDown();
 };

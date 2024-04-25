@@ -24,7 +24,7 @@ void Rect::draw() const
 
 	pW->DrawRectangle(upperLeft.x, upperLeft.y, lowerBottom.x, lowerBottom.y, FILLED);
 }
-/*void Rect::ResizeUp()
+void Rect::ResizeUp()
 {
 	hght *= 2;
 	wdth *= 2;
@@ -36,7 +36,7 @@ void Rect::ResizeDown()
 	wdth /= 2;
 	draw();
 }
-*/
+
 
 ////////////////////////////////////////////////////  class circle  ///////////////////////////////////////
 //TODO: Add implementation for class circle here
@@ -52,7 +52,7 @@ void circle::draw() const
 	pW->SetBrush(fillColor);
 	pW->DrawCircle(RefPoint.x, RefPoint.y, rad, FILLED);
 }
-/*void circle::ResizeUp() {
+void circle::ResizeUp() {
 	rad *= 2;
 	draw();
 }
@@ -61,7 +61,7 @@ void circle::ResizeDown() {
 	rad /= 2;
 	draw();
 }
-*/
+
 
 ////////////////////////////////////////////////////  class triangle  ///////////////////////////////////////
 //TODO: Add implementation for class triangle here
@@ -83,7 +83,7 @@ void Triangle::draw()const {
 	p3.y = RefPoint.y - hight;
 	pW->DrawTriangle(p1.x, p1.y, p2.x, p2.y,p3.x,p3.y,FILLED);
 }
-/*void Triangle::ResizeUp() {
+void Triangle::ResizeUp() {
 	length *= 2;
 	hight *= 2;
 	draw();
@@ -92,4 +92,4 @@ void Triangle::ResizeDown() {
 	length /= 2;
 	hight /= 2;
 	draw();
-}*/
+}

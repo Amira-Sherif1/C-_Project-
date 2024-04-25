@@ -19,8 +19,8 @@ class Rect:public shape
 public:
 	Rect(game* r_pGame, point ref, int r_hght, int r_wdth);
 	virtual void draw() const;
-	//virtual void ResizeUp() ;
-	//virtual void ResizeDown();
+	virtual void ResizeUp() ;
+	virtual void ResizeDown();
 };
 
 
@@ -33,8 +33,8 @@ class circle :public shape
 public:	
 	circle(game* r_pGame, point ref, int r);	//add more parameters for the constructor if needed
 	virtual void draw() const;
-	//virtual void ResizeUp();
-	//virtual void ResizeDown();
+	virtual void ResizeUp();
+	virtual void ResizeDown();
 };
 
 
@@ -46,7 +46,7 @@ class Triangle : public shape
 public:
 	Triangle(game* r_pgame, int len,point ref);
 	virtual void draw() const;
-	//virtual void ResizeUp() ;
-	//virtual void ResizeDown();
+	virtual void ResizeUp() ;
+	virtual void ResizeDown();
 
 };

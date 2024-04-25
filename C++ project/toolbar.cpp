@@ -18,8 +18,8 @@ toolbar::toolbar(game* pG)
 	toolbarItemImages[Itm_Tree] = "images\\toolbarItems\\Tree.jpg";
 	toolbarItemImages[ITM_Boat] = "images\\toolbarItems\\Boat.jpg";
 	toolbarItemImages[ITM_Butterfly] = "images\\toolbarItems\\butterfly.jpg";
-	toolbarItemImages[ITM_moon] = "images\\toolbarItems\\moon.jpg";
-	toolbarItemImages[ITM_rocket] = "images\\toolbarItems\\rocket.jpg";
+	toolbarItemImages[ITM_Home] = "images\\toolbarItems\\Home.jpg";
+	toolbarItemImages[ITM_Cat] = "images\\toolbarItems\\Cat.jpg";
 	toolbarItemImages[ITM_cone] = "images\\toolbarItems\\cone.jpg";
 	toolbarItemImages[Itm_increase] = "images\\toolbarItems\\increase.jpg";
 	toolbarItemImages[Itm_decrease] = "images\\toolbarItems\\Decrease.jpg";
