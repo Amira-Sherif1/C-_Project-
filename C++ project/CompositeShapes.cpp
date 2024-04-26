@@ -13,7 +13,6 @@ Sign::Sign(game* r_pGame, point ref):shape(r_pGame, ref)
 
 void Sign::draw() const
 {
-
 	base->draw();
 	top->draw();
 }
@@ -57,6 +56,10 @@ void Sign::move(string step) {
 	base->move(step);
 	top->move(step);
 	draw();
+}
+void Sign::VerticalFlip() {
+	base->setRefPoint( { RefPoint.x, RefPoint.y -( config.sighShape.topHeight / 2 + config.sighShape.baseHeight / 2 )});
+	base->VerticalFlip();
 }
 
 
@@ -131,7 +134,18 @@ void Tree::move(string step) {
 	root->move(step);
 	draw();
 }
-
+void Tree::VerticalFlip() {
+	T1->setRefPoint({ RefPoint.x - config.Tree.trilen / 2,RefPoint.y });
+	T2->setRefPoint({ RefPoint.x - config.Tree.trilen / 2, RefPoint.y + config.Tree.trihigh * 1 / 3 });
+	T3->setRefPoint({ RefPoint.x - config.Tree.trilen / 2,RefPoint.y + config.Tree.trihigh * 2 / 3 });
+	T4->setRefPoint({ RefPoint.x - config.Tree.trilen / 2,RefPoint.y + config.Tree.trihigh * 1 });
+	root->setRefPoint({ RefPoint.x,RefPoint.y - config.Tree.recthight / 2 });
+	T1->VerticalFlip();
+	T2->VerticalFlip();
+	T3->VerticalFlip();
+	T4->VerticalFlip();
+	root->VerticalFlip();
+}
                  //////////////////////class Butterfly////////////////////////
 
 Butterfly::Butterfly(game* r_pgame, point ref) : shape(r_pgame, ref){
@@ -207,6 +221,14 @@ void Butterfly::move(string step) {
 	rect->move(step);
 	draw();
 }
+void Butterfly::VerticalFlip() {
+	cir1->setRefPoint({ RefPoint.x + config.Butterfly.circ1_rad - config.Butterfly.rec_width, RefPoint.y - config.Butterfly.rec_len / 4 });
+	cir4->setRefPoint({ RefPoint.x - config.Butterfly.circ1_rad + config.Butterfly.rec_width, RefPoint.y + config.Butterfly.rec_len / 4 });
+	cir2->setRefPoint({ RefPoint.x + config.Butterfly.circ1_rad - config.Butterfly.rec_width, RefPoint.y - config.Butterfly.rec_len / 4 });
+	cir5->setRefPoint({ RefPoint.x - config.Butterfly.circ1_rad + config.Butterfly.rec_width, RefPoint.y - config.Butterfly.rec_len / 4 });
+	cir3->setRefPoint({ RefPoint.x , RefPoint.y + config.Butterfly.rec_len / 2 });
+	rect->VerticalFlip();
+}
 
                       ////////////////////////class cone//////////////////////////////////
 
@@ -245,6 +267,10 @@ void Cone::move(string step) {
 	top->move(step);
 	base->move(step);
 	draw();
+}
+void Cone::VerticalFlip() {
+	base->setRefPoint({ RefPoint.x - config.cone.length / 2,RefPoint.y });
+	base->VerticalFlip();
 }
 
 
@@ -290,6 +316,13 @@ void Home::move(string step) {
 	Tri->move(step);
 	
 	draw();
+}
+void Home::VerticalFlip() {
+	Tri->setRefPoint({ RefPoint.x - config.Home.wdth / 2,RefPoint.y + config.Home.hght / 2 });
+	top->setRefPoint({ RefPoint.x - config.Home.wdth / 2,RefPoint.y + config.Home.hght / 2});
+	Tri->VerticalFlip();
+	top->VerticalFlip();
+	base->VerticalFlip();
 }
 
 
@@ -347,4 +380,13 @@ void Cat::move(string step) {
 	rFoot->move(step);
 	draw();
 }
-
+void Cat::VerticalFlip() {
+	ear1->setRefPoint({ RefPoint.x - config.Cat.base / 2,RefPoint.y + config.Cat.hght / 2 });
+	ear2->setRefPoint( { RefPoint.x + config.Cat.base / 2,RefPoint.y + config.Cat.hght / 2 });
+	lFoot->setRefPoint( { RefPoint.x + config.Cat.base / 2,RefPoint.y - config.Cat.hght / 2 });
+	rFoot->setRefPoint({ RefPoint.x - config.Cat.base / 2,RefPoint.y - config.Cat.hght / 2 });
+	face->VerticalFlip();
+	body->VerticalFlip();
+	ear1->VerticalFlip();
+	ear2->VerticalFlip();
+}

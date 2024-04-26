@@ -32,6 +32,7 @@ public:
 	virtual void ResizeUp();
 	virtual void ResizeDown();
 	virtual void move(string step);
+	virtual void VerticalFlip();
 };
 class Tree : public shape {
 	Rect* root;
@@ -45,6 +46,7 @@ public:
 	virtual void ResizeUp();
 	virtual void ResizeDown();
 	virtual void move(string step);
+	virtual void VerticalFlip();
 };
 class Boat :public shape {
 	Rect* rect1;
@@ -59,6 +61,7 @@ public:
 	virtual void ResizeUp();
 	virtual void ResizeDown();
 	virtual void move(string step);
+	virtual void VerticalFlip();
 };
 
 class Butterfly : public shape {
@@ -75,6 +78,7 @@ public:
 	virtual void ResizeUp();
 	virtual void ResizeDown();
 	virtual void move(string step);
+	virtual void VerticalFlip();
 };
 
                   
@@ -89,6 +93,7 @@ public:
 	virtual void ResizeUp();
 	virtual void ResizeDown();
 	virtual void move(string step);
+	virtual void VerticalFlip();
 };
 
 
@@ -103,6 +108,7 @@ public:
 	virtual void ResizeUp();
 	virtual void ResizeDown();
 	virtual void move(string step);
+	virtual void VerticalFlip();
 };
 
 
@@ -122,5 +128,6 @@ public:
 	virtual void ResizeUp();
 	virtual void ResizeDown();
 	virtual void move(string step);
+	virtual void VerticalFlip();
 };
 
