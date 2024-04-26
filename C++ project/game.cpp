@@ -72,6 +72,25 @@ operation* game::createRequiredOperation(toolbarItem clickedItem)
 		break;
 	case Itm_Tree:
 		op = new operAddTree(this);
+		break;
+	/*case ITM_Boat:
+		op = new operAddBoat(this);
+		break;*/
+	case ITM_Butterfly:
+		op = new operAddButterfly(this);
+		break;
+	case ITM_Home:
+		op = new operAddHome(this);
+		break;
+	case ITM_Cat:
+		op = new operAddCat(this);
+		break;
+	case ITM_cone:
+		op = new operAddCone(this);
+		break;
+	case Itm_delet:
+		op = new operDelete(this);
+		break;
 	}
 	return op;
 }

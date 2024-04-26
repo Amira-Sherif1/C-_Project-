@@ -54,20 +54,110 @@ void operAddTree::Act() {
 
 }
 
-//operAddButterfly::operAddButterfly(game* p_Game) : operation(p_Game)
-//{
-//}
-//void operAddButterfly::Act() {
-//	window* win = pGame->getWind();
-//
-//	int xw = config.RefX - config.RefX % config.gridSpacing;
-//	int yw = config.RefY - config.RefX % config.gridSpacing;
-//
-//	point ButterflyPointRef = { xw , yw };
-//
-//	shape* btfl = new Butterfly(pGame, ButterflyPointRef);
-//
-//	grid* gg = pGame->getGrid();
-//	gg->setActiveShape(btfl);
-//
-//}
+operAddButterfly::operAddButterfly(game* p_Game) : operation(p_Game)
+{
+}
+void operAddButterfly::Act() {
+	window* win = pGame->getWind();
+
+	int xw = config.RefX - config.RefX % config.gridSpacing;
+	int yw = config.RefY - config.RefX % config.gridSpacing;
+
+	point ButterflyPointRef = { xw , yw };
+
+	shape* btfl = new Butterfly(pGame, ButterflyPointRef);
+
+	grid* gg = pGame->getGrid();
+	gg->setActiveShape(btfl);
+
+}
+
+operAddCone::operAddCone(game* r_pGame) :operation(r_pGame)
+{
+}
+
+void operAddCone::Act()
+{
+	window* pw = pGame->getWind();
+
+
+	int xGrid = config.RefX - config.RefX % config.gridSpacing;
+	int yGrid = config.RefY - config.RefX % config.gridSpacing;
+
+
+
+	point coneRef = { xGrid,yGrid };
+
+	//create a cone 
+	shape* psh = new Cone(pGame, coneRef);
+
+	//Add the cone to the grid
+	grid* pGrid = pGame->getGrid();
+	pGrid->setActiveShape(psh);
+
+}
+
+
+//Home
+operAddHome::operAddHome(game* r_pGame) :operation(r_pGame)
+{
+}
+
+void operAddHome::Act()
+{
+	window* pw = pGame->getWind();
+
+
+	int xGrid = config.RefX - config.RefX % config.gridSpacing;
+	int yGrid = config.RefY - config.RefX % config.gridSpacing;
+
+
+
+	point HomeRef = { xGrid,yGrid };
+
+	//create a cone 
+	shape* psh = new Home(pGame, HomeRef);
+
+	//Add the cone to the grid
+	grid* pGrid = pGame->getGrid();
+	pGrid->setActiveShape(psh);
+
+}
+
+//Cat 
+
+operAddCat::operAddCat(game* r_pGame) :operation(r_pGame)
+{
+}
+
+void operAddCat::Act()
+{
+
+	window* pw = pGame->getWind();
+
+
+	int xGrid = config.RefX - config.RefX % config.gridSpacing;
+	int yGrid = config.RefY - config.RefX % config.gridSpacing;
+
+	point CatRef = { xGrid,yGrid };
+
+	//create a cone 
+	shape* psh = new Cat(pGame, CatRef);
+
+	//Add the cone to the grid
+	grid* pGrid = pGame->getGrid();
+	pGrid->setActiveShape(psh);
+
+}
+
+operDelete::operDelete(game* r_pGame) :operation(r_pGame)
+{
+
+}
+
+void operDelete::Act()
+{
+	window* pw = pGame->getWind();
+	grid* pGrid = pGame->getGrid();
+	pGrid->deleteShape();
+}

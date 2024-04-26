@@ -60,9 +60,9 @@ struct
 
 	struct {
 		int circ1_rad = 50;
-		int circ2_rad = 17;
+		int circ2_rad = 35;
 		int circ3_rad = 3;
-		int rec_width = 5, rec_len = 125;
+		int rec_width = 15, rec_len = 125;
 
 	}Butterfly;
 	struct {

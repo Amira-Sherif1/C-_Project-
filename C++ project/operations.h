@@ -46,4 +46,35 @@ public:
 	operAddButterfly(game* r_pgame);
 	virtual void Act();
 };
+class operAddCone :public operation
+{
+public:
+	operAddCone(game* r_pGame);
+	virtual void Act();
+};
+
+
+class operAddHome :public operation
+{
+public:
+	operAddHome(game* r_pGame);
+	virtual void Act();
+};
+
+
+class operAddCat :public operation
+{
+public:
+	operAddCat(game* r_pGame);
+	virtual void Act();
+};
+
+
+class operDelete :public operation
+{
+public:
+	operDelete(game* r_pGame);
+	virtual void Act();
+};
+
 
