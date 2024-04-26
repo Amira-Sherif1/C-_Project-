@@ -61,6 +61,9 @@ void Rect::rotate() {
 	hght = wdth;
 	wdth = uuu;
 }
+void Rect::VerticalFlip() {
+	hght = hght * (-1);
+}
 
 
 ////////////////////////////////////////////////////  class circle  ///////////////////////////////////////
@@ -165,4 +168,7 @@ void Triangle::rotate() {
 	RefPoint.x = RefPoint.x - hight;
 	RefPoint.y = RefPoint.y + length / 2;
 
+}
+void Triangle::VerticalFlip() {
+	hight = (-1) * hight;
 }
