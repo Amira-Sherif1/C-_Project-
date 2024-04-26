@@ -17,11 +17,11 @@ void Sign::draw() const
 	top->draw();
 }
 
-void Sign::ResizeUp(){
+/*void Sign::ResizeUp() {
 	base->ResizeUp();
 	top->ResizeUp();
 	top->setRefPoint({ RefPoint.x,RefPoint.y +(config.sighShape.topHeight / 2 + config.sighShape.baseHeight / 2) * 2 });
-}
+}*/
 
 void Sign::ResizeDown(){
 	base->ResizeDown();
