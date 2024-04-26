@@ -17,8 +17,18 @@ void Sign::draw() const
 	base->draw();
 	top->draw();
 }
-//void Sign::ResizeUp(){}
-void Sign::ResizeDown(){}
+
+void Sign::ResizeUp(){
+	base->ResizeUp();
+	top->ResizeUp();
+	top->setRefPoint({ RefPoint.x,RefPoint.y +(config.sighShape.topHeight / 2 + config.sighShape.baseHeight / 2) * 2 });
+}
+
+void Sign::ResizeDown(){
+	base->ResizeDown();
+	top->ResizeDown();
+	top->setRefPoint({ RefPoint.x,RefPoint.y +( config.sighShape.topHeight / 2 + config.sighShape.baseHeight / 2) / 2 });
+}
 
 void Sign::ResizeUp() {
 	config.sighShape.baseHeight *= 2;
@@ -74,8 +84,29 @@ void Tree::draw() const
 	T4->draw();
 	root->draw();
 }
-void Tree::ResizeUp(){}
-void Tree::ResizeDown() {}
+void Tree::ResizeUp(){
+	root->ResizeUp();
+	T1->ResizeUp();
+	T2->ResizeUp();
+	T3->ResizeUp();
+	T4->ResizeUp();
+	T2->setRefPoint ( { RefPoint.x - config.Tree.trilen /2,RefPoint.y - config.Tree.trihigh *1 / 3 });
+	T3->setRefPoint ( { RefPoint.x - config.Tree.trilen /2 ,RefPoint.y - config.Tree.trihigh * 2 / 3 });
+	T4->setRefPoint ( { RefPoint.x - config.Tree.trilen /2,RefPoint.y - config.Tree.trihigh * 1 });
+	root->setRefPoint({ RefPoint.x,RefPoint.y + config.Tree.recthight });
+}
+void Tree::ResizeDown() {
+	root->ResizeDown();
+	T1->ResizeDown();
+	T2->ResizeDown();
+	T3->ResizeDown();
+	T4->ResizeDown();
+	T1->setRefPoint({ RefPoint.x - config.Tree.trilen /4,RefPoint.y });
+	T2->setRefPoint({ RefPoint.x - config.Tree.trilen /4,RefPoint.y - config.Tree.trihigh * 1 / 6 });
+	T3->setRefPoint({ RefPoint.x - config.Tree.trilen /4,RefPoint.y - config.Tree.trihigh * 1 / 3 });
+	T4->setRefPoint({ RefPoint.x - config.Tree.trilen /4,RefPoint.y - config.Tree.trihigh / 2 });
+	root->setRefPoint({ RefPoint.x,RefPoint.y + config.Tree.recthight/4 });
+}
 void Tree::move(string step) {
 	if (step == "PgUp")
 	{
@@ -104,11 +135,11 @@ void Tree::move(string step) {
                  //////////////////////class Butterfly////////////////////////
 
 Butterfly::Butterfly(game* r_pgame, point ref) : shape(r_pgame, ref){
-	point cir1_ref{ ref.x + config.Butterfly.circ1_rad - config.Butterfly.rec_width, ref.y + config.Butterfly.rec_len /4};
-	point cir4_ref{ ref.x - config.Butterfly.circ1_rad + config.Butterfly.rec_width, ref.y + config.Butterfly.rec_len / 4 };
-	point cir2_ref{ ref.x + config.Butterfly.circ1_rad - config.Butterfly.rec_width, ref.y - config.Butterfly.rec_len / 4 };
-	point cir5_ref{ ref.x - config.Butterfly.circ1_rad + config.Butterfly.rec_width, ref.y - config.Butterfly.rec_len / 4 };
-	point cir3_ref{ ref.x , ref.y + config.Butterfly.rec_len / 2 };
+	point cir1_ref{ ref.x + config.Butterfly.circ1_rad - config.Butterfly.rec_width, ref.y - config.Butterfly.rec_len /4};
+	point cir4_ref{ ref.x - config.Butterfly.circ1_rad + config.Butterfly.rec_width, ref.y - config.Butterfly.rec_len / 4 };
+	point cir2_ref{ ref.x + config.Butterfly.circ1_rad - config.Butterfly.rec_width, ref.y + config.Butterfly.rec_len / 4 };
+	point cir5_ref{ ref.x - config.Butterfly.circ1_rad + config.Butterfly.rec_width, ref.y + config.Butterfly.rec_len / 4 };
+	point cir3_ref{ ref.x , ref.y - config.Butterfly.rec_len / 2 };
 	point rect_ref{ ref.x,ref.y };
 	cir1 = new circle( r_pgame,cir1_ref,config.Butterfly.circ1_rad );
 	cir2 = new circle(r_pgame, cir2_ref, config.Butterfly.circ2_rad);
@@ -125,8 +156,32 @@ void Butterfly::draw() const{
 	cir3->draw();
 	rect->draw();
 }
-void Butterfly::ResizeUp(){}
-void Butterfly::ResizeDown() {}
+void Butterfly::ResizeUp(){
+	cir1->ResizeUp();
+	cir2->ResizeUp();
+	cir3->ResizeUp();
+	cir4->ResizeUp();
+	cir5->ResizeUp();
+	rect->ResizeUp();
+	cir1->setRefPoint({ RefPoint.x + config.Butterfly.circ1_rad - config.Butterfly.rec_width, RefPoint.y + config.Butterfly.rec_len / 4 });
+	cir4->setRefPoint({ RefPoint.x - config.Butterfly.circ1_rad + config.Butterfly.rec_width, RefPoint.y + config.Butterfly.rec_len / 4 });
+	cir2->setRefPoint({ RefPoint.x + config.Butterfly.circ1_rad - config.Butterfly.rec_width, RefPoint.y - config.Butterfly.rec_len / 4 });
+	cir5->setRefPoint({ RefPoint.x - config.Butterfly.circ1_rad + config.Butterfly.rec_width, RefPoint.y - config.Butterfly.rec_len / 4 });
+	cir3->setRefPoint({ RefPoint.x , RefPoint.y + config.Butterfly.rec_len / 2 });
+}
+void Butterfly::ResizeDown() {
+	cir1->ResizeDown();
+	cir2->ResizeDown();
+	cir3->ResizeDown();
+	cir4->ResizeDown();
+	cir5->ResizeDown();
+	rect->ResizeDown();
+	cir1->setRefPoint({ RefPoint.x + config.Butterfly.circ1_rad - config.Butterfly.rec_width, RefPoint.y + config.Butterfly.rec_len / 4 });
+	cir4->setRefPoint({ RefPoint.x - config.Butterfly.circ1_rad + config.Butterfly.rec_width, RefPoint.y + config.Butterfly.rec_len / 4 });
+	cir2->setRefPoint({ RefPoint.x + config.Butterfly.circ1_rad - config.Butterfly.rec_width, RefPoint.y - config.Butterfly.rec_len / 4 });
+	cir5->setRefPoint({ RefPoint.x - config.Butterfly.circ1_rad + config.Butterfly.rec_width, RefPoint.y - config.Butterfly.rec_len / 4 });
+	cir3->setRefPoint({ RefPoint.x , RefPoint.y + config.Butterfly.rec_len / 2 });
+}
 void Butterfly::move(string step) {
 	if (step == "PgUp")
 	{

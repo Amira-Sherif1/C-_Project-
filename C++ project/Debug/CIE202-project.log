@@ -1,0 +1,62 @@
+﻿cl : command line  warning D9035: option 'Gm' has been deprecated and will be removed in a future release
+  CompositeShapes.cpp
+C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\gameConfig.h(35,23): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'CompositeShapes.cpp')
+  
+C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\gameConfig.h(36,24): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'CompositeShapes.cpp')
+  
+C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\gameConfig.h(48,23): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'CompositeShapes.cpp')
+  
+C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\gameConfig.h(55,28): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'CompositeShapes.cpp')
+  
+C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\gameConfig.h(57,28): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'CompositeShapes.cpp')
+  
+cl : command line  warning D9035: option 'Gm' has been deprecated and will be removed in a future release
+  jutils.c
+  jquant2.c
+  jquant1.c
+  jmemnobs.c
+  jmemmgr.c
+C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\CMUgraphicsLib\jpeg\jmemmgr.c(1103,19): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\CMUgraphicsLib\jpeg\jmemmgr.c(1106,11): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  jidctred.c
+  jidctint.c
+  jidctfst.c
+  jidctflt.c
+  jerror.c
+C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\CMUgraphicsLib\jpeg\jerror.c(169,5): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\CMUgraphicsLib\jpeg\jerror.c(171,5): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  jdtrans.c
+  jdsample.c
+  jdpostct.c
+  jdphuff.c
+  jdmerge.c
+  jdmaster.c
+  jdmarker.c
+  jdmainct.c
+  jdinput.c
+  jdhuff.c
+  Generating Code...
+  Compiling...
+  jddctmgr.c
+  jdcolor.c
+  jdcoefct.c
+  jdatasrc.c
+  jdapistd.c
+  jdapimin.c
+  jcparam.c
+  jcomapi.c
+  jpegload.c
+C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\CMUgraphicsLib\jpegload.c(23,12): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  Generating Code...
+BasicShapes.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+CompositeShapes.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall Sign::ResizeDown(void)" (?ResizeDown@Sign@@UAEXXZ)
+CompositeShapes.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall Tree::ResizeUp(void)" (?ResizeUp@Tree@@UAEXXZ)
+CompositeShapes.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall Tree::ResizeDown(void)" (?ResizeDown@Tree@@UAEXXZ)
+CompositeShapes.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall Butterfly::ResizeUp(void)" (?ResizeUp@Butterfly@@UAEXXZ)
+CompositeShapes.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall Butterfly::ResizeDown(void)" (?ResizeDown@Butterfly@@UAEXXZ)
+.\Debug\CIE202-project.exe : fatal error LNK1120: 5 unresolved externals
