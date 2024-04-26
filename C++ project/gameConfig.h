@@ -65,6 +65,24 @@ struct
 		int rec_width = 5, rec_len = 125;
 
 	}Butterfly;
+	struct {
+		int radius = 40;
+		int length = 100;
+	}cone;
+	struct {
+
+		int hght = 120, wdth = 90;//base rectangle
+		int t_Len = 100;
+		int hght2 = 70, wdth2 = 40;// top rectangle
+	}Home;
+	struct
+	{
+		int len1 = 120; //body tri
+		int len2 = 20;  //ear tri
+		int hght = 60, base = 40;  // face
+		int rad = 10;  //feet
+
+	}Cat;
 
 }config;
 

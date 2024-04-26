@@ -76,3 +76,51 @@ public:
 	virtual void ResizeDown();
 	virtual void move(string step);
 };
+
+                  
+class Cone :public shape
+{
+	circle* top;
+	Triangle* base;
+public:
+	Cone(game* r_pGame, point ref);
+	virtual void draw() const;
+	//virtual void rotate();
+	virtual void ResizeUp();
+	virtual void ResizeDown();
+	virtual void move(string step);
+};
+
+
+class Home :public shape
+{
+	Triangle* Tri;
+	Rect* base;
+	Rect* top;
+public:
+	Home(game* r_pGame, point ref);
+	virtual void draw() const;
+	virtual void ResizeUp();
+	virtual void ResizeDown();
+	virtual void move(string step);
+};
+
+
+
+class Cat :public shape
+{
+	Triangle* body;
+	Triangle* ear1;
+	Triangle* ear2;
+	circle* lFoot;
+	circle* rFoot;
+	Rect* face;
+
+public:
+	Cat(game* r_pGame, point ref);
+	virtual void draw() const;
+	virtual void ResizeUp();
+	virtual void ResizeDown();
+	virtual void move(string step);
+};
+
