@@ -22,7 +22,7 @@ public:
 	virtual void ResizeUp() ;
 	virtual void ResizeDown();
 
-	virtual void move(string step);
+	virtual void move(char step);
 
 	void rotate();
 	virtual void VerticalFlip();
@@ -40,7 +40,7 @@ public:
 	virtual void draw() const;
 	virtual void ResizeUp();
 	virtual void ResizeDown();
-	virtual void move(string step);
+	virtual void move(char step);
 };
 
 
@@ -55,7 +55,7 @@ public:
 	virtual void ResizeUp() ;
 	virtual void ResizeDown();
 
-	virtual void move(string step);
+	virtual void move(char step);
 
 
 	void rotate();

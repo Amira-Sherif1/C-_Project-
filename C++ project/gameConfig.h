@@ -61,13 +61,14 @@ struct
 	struct {
 		int circ1_rad = 50;
 		int circ2_rad = 35;
-		int circ3_rad = 3;
+		int circ3_rad = 12;
 		int rec_width = 15, rec_len = 125;
 
 	}Butterfly;
 	struct {
-		int radius = 40;
+		int radius = 26;
 		int length = 100;
+		int high= length*cos(3.143);
 	}cone;
 	struct {
 
@@ -80,6 +81,7 @@ struct
 		int len1 = 120; //body tri
 		int len2 = 20;  //ear tri
 		int hght = 60, base = 40;  // face
+		int len = 70; //body  //b
 		int rad = 10;  //feet
 
 	}Cat;

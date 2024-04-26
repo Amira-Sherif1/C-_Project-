@@ -37,7 +37,7 @@ public:
     virtual void draw() const=0;//for a shape to draw itself on the screen
 	virtual void ResizeUp()=0;
 	virtual void ResizeDown() = 0;
-	virtual void move(string step) = 0 ;		//Move the shape
+	virtual void move(char step) = 0 ;		//Move the shape
 								  
 							  
 	//-- The following functions should be supported by the shape class

@@ -37,20 +37,20 @@ void Rect::ResizeDown()
 	draw();
 }
 
- void Rect:: move(string step){
-	 if (step == "PgUp")
+ void Rect:: move(char step){
+	 if (step == 72)
 	 {
 		 RefPoint.y = RefPoint.y - config.gridSpacing;
 	 }
-	 else if (step == "PgDn")
+	 if (step == 80)
 	 {
 		 RefPoint.y = RefPoint.y + config.gridSpacing;
 	 }
-	 else if (step == "End")
+	 if (step == 77)
 	 {
 		 RefPoint.x = RefPoint.x + config.gridSpacing;
 	 }
-	 else if (step == "Home")
+	 if (step == 75)
 	 {
 		 RefPoint.x = RefPoint.x - config.gridSpacing;
 	 }
@@ -89,21 +89,21 @@ void circle::ResizeDown() {
 	rad /= 2;
 	draw();
 }
-void circle::move(string step) {
+void circle::move(char step) {
 
-	if (step == "PgUp")
+	if (step == 72)
 	{
 		RefPoint.y = RefPoint.y - config.gridSpacing;
 	}
-	if (step == "PgDn")
+	if (step == 80)
 	{
 		RefPoint.y = RefPoint.y + config.gridSpacing;
 	}
-	if (step == "End")
+	if (step == 77)
 	{
 		RefPoint.x = RefPoint.x + config.gridSpacing;
 	}
-	if (step == "Home")
+	if (step == 75)
 	{
 		RefPoint.x = RefPoint.x - config.gridSpacing;
 	}
@@ -140,21 +140,21 @@ void Triangle::ResizeDown() {
 	draw();
 }
 
-void Triangle::move(string step) {
+void Triangle::move(char step) {
 
-	if (step == "PgUp")
+	if (step == 72)
 	{
 		RefPoint.y = RefPoint.y - config.gridSpacing;
 	}
-	if (step == "PgDn")
+	if (step == 80)
 	{
 		RefPoint.y = RefPoint.y + config.gridSpacing;
 	}
-	if (step == "End")
+	if (step == 77)
 	{
 		RefPoint.x = RefPoint.x + config.gridSpacing;
 	}
-	if (step == "Home")
+	if (step == 75)
 	{
 		RefPoint.x = RefPoint.x - config.gridSpacing;
 	}

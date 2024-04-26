@@ -21,8 +21,13 @@ void Sign::draw() const
 	base->ResizeUp();
 	top->ResizeUp();
 	top->setRefPoint({ RefPoint.x,RefPoint.y +(config.sighShape.topHeight / 2 + config.sighShape.baseHeight / 2) * 2 });
+<<<<<<< Updated upstream
 }*/
 
+=======
+}
+*/
+>>>>>>> Stashed changes
 void Sign::ResizeDown(){
 	base->ResizeDown();
 	top->ResizeDown();
@@ -36,20 +41,20 @@ void Sign::ResizeUp() {
 	config.sighShape.topWdth *= 2;
 	//top = new Rect();
 }
-void Sign::move(string step) {
-	if (step == "PgUp")
+void Sign::move(char step) {
+	if (step == 72)
 	{
 		RefPoint.y = RefPoint.y - config.gridSpacing;
 	}
-	else if (step == "PgDn")
+	if (step == 80)
 	{
 		RefPoint.y = RefPoint.y + config.gridSpacing;
 	}
-	else if (step == "End")
+	if (step == 77)
 	{
 		RefPoint.x = RefPoint.x + config.gridSpacing;
 	}
-	else if (step == "Home")
+	if (step == 75)
 	{
 		RefPoint.x = RefPoint.x - config.gridSpacing;
 	}
@@ -110,20 +115,20 @@ void Tree::ResizeDown() {
 	T4->setRefPoint({ RefPoint.x - config.Tree.trilen /4,RefPoint.y - config.Tree.trihigh / 2 });
 	root->setRefPoint({ RefPoint.x,RefPoint.y + config.Tree.recthight/4 });
 }
-void Tree::move(string step) {
-	if (step == "PgUp")
+void Tree::move(char step) {
+	if (step == 72)
 	{
 		RefPoint.y = RefPoint.y - config.gridSpacing;
 	}
-	else if (step == "PgDn")
+	if (step == 80)
 	{
 		RefPoint.y = RefPoint.y + config.gridSpacing;
 	}
-	else if (step == "End")
+	if (step == 77)
 	{
 		RefPoint.x = RefPoint.x + config.gridSpacing;
 	}
-	else if (step == "Home")
+	if (step == 75)
 	{
 		RefPoint.x = RefPoint.x - config.gridSpacing;
 	}
@@ -196,20 +201,20 @@ void Butterfly::ResizeDown() {
 	cir5->setRefPoint({ RefPoint.x - config.Butterfly.circ1_rad + config.Butterfly.rec_width, RefPoint.y - config.Butterfly.rec_len / 4 });
 	cir3->setRefPoint({ RefPoint.x , RefPoint.y + config.Butterfly.rec_len / 2 });
 }
-void Butterfly::move(string step) {
-	if (step == "PgUp")
+void Butterfly::move(char step) {
+	if (step == 72)
 	{
 		RefPoint.y = RefPoint.y - config.gridSpacing;
 	}
-	else if (step == "PgDn")
+	if (step == 80)
 	{
 		RefPoint.y = RefPoint.y + config.gridSpacing;
 	}
-	else if (step == "End")
+	if (step == 77)
 	{
 		RefPoint.x = RefPoint.x + config.gridSpacing;
 	}
-	else if (step == "Home")
+	if (step == 75)
 	{
 		RefPoint.x = RefPoint.x - config.gridSpacing;
 	}
@@ -240,27 +245,29 @@ Cone::Cone(game* r_pGame, point ref) :shape(pGame, ref)
 	base = new Triangle(r_pGame, config.cone.length, refTri);
 }
 
+
 void Cone::draw() const
 {
 	top->draw();
 	base->draw();
 }
+
 void Cone::ResizeUp() {}
 void Cone::ResizeDown() {}
-void Cone::move(string step) {
-	if (step == "PgUp")
+void Cone::move(char step) {
+	if (step == 72)
 	{
 		RefPoint.y = RefPoint.y - config.gridSpacing;
 	}
-	else if (step == "PgDn")
+	if (step == 80)
 	{
 		RefPoint.y = RefPoint.y + config.gridSpacing;
 	}
-	else if (step == "End")
+	if (step == 77)
 	{
 		RefPoint.x = RefPoint.x + config.gridSpacing;
 	}
-	else if (step == "Home")
+	if (step == 75)
 	{
 		RefPoint.x = RefPoint.x - config.gridSpacing;
 	}
@@ -294,20 +301,20 @@ void Home::draw() const
 }
 void Home::ResizeUp() {}
 void Home::ResizeDown() {}
-void Home::move(string step) {
-	if (step == "PgUp")
+void Home::move(char step) {
+	if (step == 72)
 	{
 		RefPoint.y = RefPoint.y - config.gridSpacing;
 	}
-	else if (step == "PgDn")
+	if (step == 80)
 	{
 		RefPoint.y = RefPoint.y + config.gridSpacing;
 	}
-	else if (step == "End")
+	if (step == 77)
 	{
 		RefPoint.x = RefPoint.x + config.gridSpacing;
 	}
-	else if (step == "Home")
+	if (step == 75)
 	{
 		RefPoint.x = RefPoint.x - config.gridSpacing;
 	}
@@ -331,15 +338,24 @@ void Home::VerticalFlip() {
 Cat::Cat(game* r_pGame, point ref) :shape(pGame, ref)
 {
 	point refFace = ref;
+<<<<<<< Updated upstream
 	point refbody = { ref.x- config.Cat.len1,ref.y+((config.Cat.hght)/2+ (config.Cat.len1 * cos(3.14 / 3))) };
 	point refEar1 = { ref.x - config.Cat.base / 2,ref.y - config.Cat.hght / 2 };
 	point refEar2 = { ref.x + config.Cat.base /2 -config.Cat.len2,ref.y - config.Cat.hght / 2 };
 	point refC1 = { ref.x + config.Cat.base - config.Cat.rad/ 2,ref.y + ((config.Cat.hght) / 2 + (config.Cat.len1 * cos(3.14 / 3))) };
 	point refC2 = { ref.x - config.Cat.base + config.Cat.rad / 2,ref.y + ((config.Cat.hght) / 2 + (config.Cat.len1 * cos(3.14 / 3))) };
 	face = new Rect(pGame, refFace, config.Cat.hght, config.Cat.base);
+=======
+	point refbody = { ref.x - config.Cat.len / 2,ref.y + config.Cat.len * cos(3.14 / 3) };
+	point refEar1 = { ref.x - config.Cat.base / 2,ref.y - config.Cat.hght / 2 };
+	point refEar2 = { ref.x + config.Cat.base / 2,ref.y - config.Cat.hght / 2 };
+	point refC1 = { ref.x + config.Cat.base / 2,ref.y + config.Cat.hght / 2 };
+	point refC2 = { ref.x - config.Cat.base / 2,ref.y + config.Cat.hght / 2 };
+	face = new Rect(r_pGame, refFace, config.Cat.hght, config.Cat.base); 
+>>>>>>> Stashed changes
 	body = new Triangle(r_pGame, config.Cat.len1, refbody);
 	ear1 = new Triangle(r_pGame, config.Cat.len2, refEar1);
-	ear2 = new Triangle(r_pGame, config.Cat.len2, refEar2);
+	ear2 = new Triangle(r_pGame ,config.Cat.len2, refEar2);
 	lFoot = new circle(r_pGame, refC1, config.Cat.rad);
 	rFoot = new circle(r_pGame, refC2, config.Cat.rad);
 }
@@ -355,20 +371,20 @@ void Cat::draw() const
 }
 void Cat::ResizeUp() {}
 void Cat::ResizeDown() {}
-void Cat::move(string step) {
-	if (step == "PgUp")
+void Cat::move(char step) {
+	if (step == 72)
 	{
 		RefPoint.y = RefPoint.y - config.gridSpacing;
 	}
-	else if (step == "PgDn")
+	if (step == 80)
 	{
 		RefPoint.y = RefPoint.y + config.gridSpacing;
 	}
-	else if (step == "End")
+	if (step == 77)
 	{
 		RefPoint.x = RefPoint.x + config.gridSpacing;
 	}
-	else if (step == "Home")
+	if (step == 75)
 	{
 		RefPoint.x = RefPoint.x - config.gridSpacing;
 	}
