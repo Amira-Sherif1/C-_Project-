@@ -25,7 +25,7 @@ public:
 	virtual void move(string step);
 
 	void rotate();
-
+	virtual void VerticalFlip();
 };
 
 
@@ -59,5 +59,6 @@ public:
 
 
 	void rotate();
+	virtual void VerticalFlip();
 
 };
