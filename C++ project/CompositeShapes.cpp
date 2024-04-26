@@ -24,10 +24,7 @@ void Sign::draw() const
 <<<<<<< Updated upstream
 }*/
 
-=======
-}
-*/
->>>>>>> Stashed changes
+
 void Sign::ResizeDown(){
 	base->ResizeDown();
 	top->ResizeDown();
@@ -338,21 +335,13 @@ void Home::VerticalFlip() {
 Cat::Cat(game* r_pGame, point ref) :shape(pGame, ref)
 {
 	point refFace = ref;
-<<<<<<< Updated upstream
 	point refbody = { ref.x- config.Cat.len1,ref.y+((config.Cat.hght)/2+ (config.Cat.len1 * cos(3.14 / 3))) };
 	point refEar1 = { ref.x - config.Cat.base / 2,ref.y - config.Cat.hght / 2 };
 	point refEar2 = { ref.x + config.Cat.base /2 -config.Cat.len2,ref.y - config.Cat.hght / 2 };
 	point refC1 = { ref.x + config.Cat.base - config.Cat.rad/ 2,ref.y + ((config.Cat.hght) / 2 + (config.Cat.len1 * cos(3.14 / 3))) };
 	point refC2 = { ref.x - config.Cat.base + config.Cat.rad / 2,ref.y + ((config.Cat.hght) / 2 + (config.Cat.len1 * cos(3.14 / 3))) };
 	face = new Rect(pGame, refFace, config.Cat.hght, config.Cat.base);
-=======
-	point refbody = { ref.x - config.Cat.len / 2,ref.y + config.Cat.len * cos(3.14 / 3) };
-	point refEar1 = { ref.x - config.Cat.base / 2,ref.y - config.Cat.hght / 2 };
-	point refEar2 = { ref.x + config.Cat.base / 2,ref.y - config.Cat.hght / 2 };
-	point refC1 = { ref.x + config.Cat.base / 2,ref.y + config.Cat.hght / 2 };
-	point refC2 = { ref.x - config.Cat.base / 2,ref.y + config.Cat.hght / 2 };
 	face = new Rect(r_pGame, refFace, config.Cat.hght, config.Cat.base); 
->>>>>>> Stashed changes
 	body = new Triangle(r_pGame, config.Cat.len1, refbody);
 	ear1 = new Triangle(r_pGame, config.Cat.len2, refEar1);
 	ear2 = new Triangle(r_pGame ,config.Cat.len2, refEar2);

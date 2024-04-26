@@ -31,12 +31,9 @@ public:
 
 	virtual void ResizeUp();
 	virtual void ResizeDown();
-<<<<<<< Updated upstream
-	virtual void move(string step);
 	virtual void VerticalFlip();
-=======
 	virtual void move(char step);
->>>>>>> Stashed changes
+
 };
 class Tree : public shape {
 	Rect* root;
@@ -49,12 +46,9 @@ public:
 	virtual void draw() const;
 	virtual void ResizeUp();
 	virtual void ResizeDown();
-<<<<<<< Updated upstream
-	virtual void move(string step);
 	virtual void VerticalFlip();
-=======
 	virtual void move(char step);
->>>>>>> Stashed changes
+
 };
 class Boat :public shape {
 	Rect* rect1;
@@ -68,12 +62,8 @@ public:
 	virtual void draw() const;
 	virtual void ResizeUp();
 	virtual void ResizeDown();
-<<<<<<< Updated upstream
-	virtual void move(string step);
 	virtual void VerticalFlip();
-=======
 	virtual void move(char step);
->>>>>>> Stashed changes
 };
 
 class Butterfly : public shape {
@@ -89,12 +79,8 @@ public:
 	virtual void draw()const;
 	virtual void ResizeUp();
 	virtual void ResizeDown();
-<<<<<<< Updated upstream
-	virtual void move(string step);
 	virtual void VerticalFlip();
-=======
 	virtual void move(char step);
->>>>>>> Stashed changes
 };
 
                   
@@ -108,12 +94,8 @@ public:
 	//virtual void rotate();
 	virtual void ResizeUp();
 	virtual void ResizeDown();
-<<<<<<< Updated upstream
-	virtual void move(string step);
-	virtual void VerticalFlip();
-=======
 	virtual void move(char step);
->>>>>>> Stashed changes
+	virtual void VerticalFlip();
 };
 
 
@@ -127,12 +109,8 @@ public:
 	virtual void draw() const;
 	virtual void ResizeUp();
 	virtual void ResizeDown();
-<<<<<<< Updated upstream
-	virtual void move(string step);
-	virtual void VerticalFlip();
-=======
 	virtual void move(char step);
->>>>>>> Stashed changes
+	virtual void VerticalFlip();
 };
 
 
@@ -151,11 +129,7 @@ public:
 	virtual void draw() const;
 	virtual void ResizeUp();
 	virtual void ResizeDown();
-<<<<<<< Updated upstream
-	virtual void move(string step);
-	virtual void VerticalFlip();
-=======
 	virtual void move(char step);
->>>>>>> Stashed changes
+	virtual void VerticalFlip();
 };
 
