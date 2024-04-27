@@ -26,8 +26,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
@@ -38,8 +42,7 @@
               "RelativeToolTip": "CompositeShapes.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-26T22:27:20.61Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-26T22:27:20.61Z"
             },
             {
               "$type": "Document",
@@ -51,8 +54,7 @@
               "RelativeToolTip": "gameConfig.h",
               "ViewState": "AQIAAEcAAAAAAAAAAAAkwFIAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-26T22:26:42.575Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-26T22:26:42.575Z"
             },
             {
               "$type": "Document",
@@ -77,12 +79,7 @@
               "RelativeToolTip": "BasicShapes.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-26T22:25:33.844Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+              "WhenOpened": "2024-04-26T22:25:33.844Z"
             }
           ]
         }
