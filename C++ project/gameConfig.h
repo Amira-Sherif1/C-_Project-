@@ -72,9 +72,9 @@ struct
 	}cone;
 	struct {
 
-		int hght = 120, wdth = 90;//base rectangle
-		int t_Len = 100;
-		int hght2 = 70, wdth2 = 40;// top rectangle
+		int hght = 100, wdth = 120;//base rectangle
+		int t_Len = 120;
+		int hght2 = 90, wdth2 = 25;// top rectangle
 	}Home;
 	struct
 	{

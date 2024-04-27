@@ -43,7 +43,7 @@ void Sign::ResizeUp() {
 void Sign::move(char step) {
 	grid* pGrid = pGame->getGrid();
 
-	pGrid->deleteShape();
+	
 	if (step == 8)
 	{
 		RefPoint.y = RefPoint.y - config.gridSpacing;
@@ -60,14 +60,19 @@ void Sign::move(char step) {
 	{
 		RefPoint.x = RefPoint.x - config.gridSpacing;
 	}
-	base->move(step);
-	top->move(step);
-	draw();
+	if (RefPoint.y > 180 && RefPoint.y < 480 && RefPoint.x > 100 && RefPoint.x < 1220){
+		pGrid->deleteShape();
+		base->move(step);
+		top->move(step);
+		draw();
+	}
+	
 }
 void Sign::VerticalFlip() {
 	base->setRefPoint( { RefPoint.x, RefPoint.y -( config.sighShape.topHeight / 2 + config.sighShape.baseHeight / 2 )});
 	base->VerticalFlip();
 }
+ 
 
 
 
@@ -119,17 +124,12 @@ void Tree::ResizeDown() {
 }
 void Tree::move(char step) {
 	grid* pGrid = pGame->getGrid();
-
-	if ((config.RefY > (config.toolBarHeight + config.Tree.trihigh * 3) )&& (config.RefY < (config.windHeight - config.statusBarHeight - config.Tree.recthight)) && (config.RefX < (config.windWidth - config.Tree.rectwdth)) && (config.RefX >(config.Tree.rectwdth)))
 		
-		pGrid->deleteShape();
-
-	{
-		if (step == 8 )  //up
+		if (step == 8)  //up
 		{
 			RefPoint.y = RefPoint.y - config.gridSpacing;
 		}
-		else if (step == 2 )   //down
+		else if (step == 2)   //down
 		{
 			RefPoint.y = RefPoint.y + config.gridSpacing;
 		}
@@ -141,7 +141,9 @@ void Tree::move(char step) {
 		{
 			RefPoint.x = RefPoint.x - config.gridSpacing;
 		}
-
+	if (RefPoint.y > 180 && RefPoint.y < 500 && RefPoint.x > 100 && RefPoint.x < 1220)
+		{
+		pGrid->deleteShape();
 		T1->move(step);
 		T2->move(step);
 		T3->move(step);
@@ -167,6 +169,39 @@ void Tree::VerticalFlip() {
 	T4->VerticalFlip();
 	root->VerticalFlip();
 }
+/*void Tree::rotate(int angle, point ref)
+{
+	// change ref or each part with each angle
+	switch (angle)
+	{
+	case 90:
+		root->rotate();
+		point refRot = { ref.x + config.Tree.recthight / 2 ,ref.y };
+		point T1_ref = { refRot.x ,refRot.y - config.Tree.trilen / 2 };
+		point T2_ref = { refRot.x + config.Tree.trihigh * 1 / 3,refRot.y - config.Tree.trilen / 2 };
+		point T3_ref = { refRot.x + config.Tree.trihigh * 2 / 3,refRot.y - config.Tree.trilen / 2 };
+		point T4_ref = { refRot.x + config.Tree.trihigh * 1,refRot.y - config.Tree.trilen / 2 };
+
+	case 180:
+		point T1_ref = { ref.x - config.Tree.trilen / 2,ref.y };
+		point T2_ref = { ref.x - config.Tree.trilen / 2,ref.y - config.Tree.trihigh * 1 / 3 };
+		point T3_ref = { ref.x - config.Tree.trilen / 2,ref.y - config.Tree.trihigh * 2 / 3 };
+		point T4_ref = { ref.x - config.Tree.trilen / 2,ref.y - config.Tree.trihigh * 1 };
+		break;
+	case 270:
+		root->rotate();
+		point refRot = { ref.x - config.Tree.recthight / 2 ,ref.y };
+		point T1_ref = { refRot.x ,refRot.y - config.Tree.trilen / 2 };
+		point T2_ref = { refRot.x - config.Tree.trihigh * 1 / 3,refRot.y + config.Tree.trilen / 2 };
+		point T3_ref = { refRot.x - config.Tree.trihigh * 2 / 3,refRot.y + config.Tree.trilen / 2 };
+		point T4_ref = { refRot.x - config.Tree.trihigh * 1,refRot.y + config.Tree.trilen / 2 };
+
+	defult:
+		break;
+	}
+
+
+}*/
                  //////////////////////class Butterfly////////////////////////
 
 Butterfly::Butterfly(game* r_pgame, point ref) : shape(r_pgame, ref){
@@ -220,25 +255,24 @@ void Butterfly::ResizeDown() {
 void Butterfly::move(char step) {
 	grid* pGrid = pGame->getGrid();
 
-	pGrid->deleteShape();
-	if (step == 8 && config.RefY  > config.statusBarHeight+config.Butterfly.rec_len )
+	if (step == 8  )
 	{
 		RefPoint.y = RefPoint.y - config.gridSpacing;
 	}
-	else if (step==2&& config.windHeight-config.statusBarHeight - config.Butterfly.rec_len)
+	else if (step==2)
 	{
 		RefPoint.y = RefPoint.y + config.gridSpacing;
 	}
-	else if (step==6&& config.RefX < (config.windWidth - config.Butterfly.circ1_rad))
+	else if (step==6)
 	{
 		RefPoint.x = RefPoint.x + config.gridSpacing;
 	}
-	else if (step == 4 && config.RefX > (config.Butterfly.circ1_rad))
+	else if (step == 4 )
 	{
 		RefPoint.x = RefPoint.x - config.gridSpacing;
 	}
-	if (config.RefY > config.statusBarHeight + config.Butterfly.rec_len && config.windHeight - config.statusBarHeight - config.Butterfly.rec_len && config.RefX < (config.windWidth - config.Butterfly.circ1_rad) && config.RefX >(config.Butterfly.circ1_rad))
-	{
+	if (RefPoint.y > 150 && RefPoint.y < 445 && RefPoint.x > 110 && RefPoint.x < 1200) {
+		pGrid->deleteShape();
 		cir2->move(step);
 		cir5->move(step);
 		cir1->move(step);
@@ -257,53 +291,7 @@ void Butterfly::VerticalFlip() {
 	rect->VerticalFlip();
 }
 
-                      ////////////////////////class cone//////////////////////////////////
 
-/*Cone::Cone(game* r_pGame, point ref) :shape(pGame, ref)
-{
-	point refCirc = ref;
-	point refTri = { ref.x - config.cone.length / 2,ref.y };
-	top = new circle(r_pGame, ref, config.cone.radius);
-	base = new Triangle(r_pGame, config.cone.length, refTri);
-}
-
-
-void Cone::draw() const
-{
-	top->draw();
-	base->draw();
-}
-
-void Cone::ResizeUp() {}
-void Cone::ResizeDown() {}
-void Cone::move(char step) {
-	grid* pGrid = pGame->getGrid();
-
-	pGrid->deleteShape();
-	if (step == 72)
-	{
-		RefPoint.y = RefPoint.y - config.gridSpacing;
-	}
-	if (step==2)
-	{
-		RefPoint.y = RefPoint.y + config.gridSpacing;
-	}
-	if (step==6)
-	{
-		RefPoint.x = RefPoint.x + config.gridSpacing;
-	}
-	if (step==4)
-	{
-		RefPoint.x = RefPoint.x - config.gridSpacing;
-	}
-	top->move(step);
-	base->move(step);
-	draw();
-}
-void Cone::VerticalFlip() {
-	base->setRefPoint({ RefPoint.x - config.cone.length / 2,RefPoint.y });
-	base->VerticalFlip();
-}*/
 
 
                //////////////////////////////class Home///////////////////////////////
@@ -312,7 +300,7 @@ Home::Home(game* r_pGame, point ref) :shape(pGame, ref)
 {
 	point refBaseRec = ref;
 	point refTopTri = { ref.x - config.Home.wdth / 2,ref.y - config.Home.hght / 2 };
-	point refTopRec = { ref.x - config.Home.wdth / 2,ref.y - config.Home.hght / 2 };
+	point refTopRec = { refTopTri.x + config.Home.wdth2 / 2,ref.y - config.Home.hght2 / 2 };
 	Tri = new Triangle(r_pGame, config.Home.t_Len, refTopTri);
 	base = new Rect(r_pGame, refBaseRec, config.Home.hght, config.Home.wdth);
 	top = new Rect(r_pGame, refTopRec, config.Home.hght2, config.Home.wdth2);
@@ -324,12 +312,12 @@ void Home::draw() const
 	base->draw();
 	Tri->draw();
 }
+
 void Home::ResizeUp() {}
 void Home::ResizeDown() {}
 void Home::move(char step) {
 	grid* pGrid = pGame->getGrid();
 
-	pGrid->deleteShape();
 	if (step == 8)
 	{
 		RefPoint.y = RefPoint.y - config.gridSpacing;
@@ -346,10 +334,13 @@ void Home::move(char step) {
 	{
 		RefPoint.x = RefPoint.x - config.gridSpacing;
 	}
-
-	top->move(step);
-	base->move(step);
-	Tri->move(step);
+	if (RefPoint.y > 152 && RefPoint.y < 445 && RefPoint.x > 110 && RefPoint.x < 1200){
+		
+	pGrid->deleteShape();
+		top->move(step);
+		base->move(step);
+		Tri->move(step);
+	}
 	
 	draw();
 }
@@ -360,7 +351,27 @@ void Home::VerticalFlip() {
 	top->VerticalFlip();
 	base->VerticalFlip();
 }
+/*void Home::rotate(int angle, point ref)
+{
+	switch (angle)
+	{
+	case 90:
+		point refTopTri = { ref.x + config.Home.hght / 2,ref.y - config.Home.wdth / 2 };
+		point refTopRec = { refTopTri.x + config.Home.hght2 / 2,ref.y + config.Home.wdth2 / 2 };
+		base->rotate();
+		break;
+	case 180:
+		point refTopTri = { ref.x - config.Home.hght / 2,ref.y + config.Home.wdth / 2 };
+		point refTopRec = { refTopTri.x + config.Home.wdth2 / 2,ref.y + config.Home.hght2 / 2 };
+		break;
+	case 270:
+		point refTopTri = { ref.x - config.Home.hght / 2,ref.y - config.Home.wdth / 2 };
+		point refTopRec = { refTopTri.x - config.Home.hght2 / 2,ref.y + config.Home.wdth2 / 2 };
+		base->rotate();
+		break;
+	}
 
+}*/
 
          ///////////////////////////////class Cat///////////////////////////////
 
@@ -394,34 +405,34 @@ void Cat::ResizeUp() {}
 void Cat::ResizeDown() {}
 void Cat::move(char step) {
 	grid* pGrid = pGame->getGrid();
-	if (config.RefY > config.toolBarHeight + config.Cat.hght && config.RefY < config.windHeight - config.statusBarHeight - config.Cat.hght - config.Cat.len && config.RefX < config.windWidth - config.Cat.base && config.RefX>config.Cat.base)
-	{
-		pGrid->deleteShape();
-		if (step == 8 && config.RefY > config.toolBarHeight + config.Cat.hght)
+	
+		if (step == 8 )
 		{
 			RefPoint.y = RefPoint.y - config.gridSpacing;
 		}
-		else if (step == 2 && config.RefY < config.windHeight - config.statusBarHeight - config.Cat.hght - config.Cat.len)
+		else if (step == 2 )
 		{
 			RefPoint.y = RefPoint.y + config.gridSpacing;
 		}
-		else if (step == 6 && config.RefX < config.windWidth - config.Cat.base)
+		else if (step == 6 )
 		{
 			RefPoint.x = RefPoint.x + config.gridSpacing;
 		}
-		else if (step == 4 && config.RefX > config.Cat.base)
+		else if (step == 4 )
 		{
 			RefPoint.x = RefPoint.x - config.gridSpacing;
 		}
-
-		body->move(step);
-		face->move(step);
-		ear1->move(step);
-		ear2->move(step);
-		lFoot->move(step);
-		rFoot->move(step);
-		draw();
-	}
+		if (RefPoint.y > 152 && RefPoint.y < 445 && RefPoint.x > 110 && RefPoint.x < 1200) {
+			pGrid->deleteShape();
+			body->move(step);
+			face->move(step);
+			ear1->move(step);
+			ear2->move(step);
+			lFoot->move(step);
+			rFoot->move(step);
+			draw();
+		}
+	
 
 }
 void Cat::VerticalFlip() {
@@ -464,7 +475,7 @@ void car::ResizeDown() {}
 void car::move(char step){
 
 	grid* pGrid = pGame->getGrid();
-	pGrid->deleteShape();
+	
 
 	if (step == 8 )
 	{
@@ -482,10 +493,39 @@ void car::move(char step){
 	{
 		RefPoint.x = RefPoint.x - config.gridSpacing;
 	}
-
-	body->move(step);
-	top->move(step);
-	whl1->move(step);
-	whl2->move(step);
-	draw();
+	if (RefPoint.y > 152 && RefPoint.y < 445 && RefPoint.x > 110 && RefPoint.x < 1200) {
+		pGrid->deleteShape();
+		body->move(step);
+		top->move(step);
+		whl1->move(step);
+		whl2->move(step);
+		draw();
+	}
+	
 }
+/*void car::rotate(int angle, point ref)
+{
+	switch (angle)
+	{
+	case 90:
+		point triRef = { ref.x + config.car.hght / 2,ref.y - config.car.len / 2 };
+		point cir1 = { ref.x - config.car.hght / 2 - config.car.rad,ref.y + config.car.len / 2 - config.car.rad };
+		point cir2 = { ref.x - config.car.hght / 2 - config.car.rad,ref.y - config.car.len / 2 + config.car.rad };
+		body->rotate();
+		break;
+	case 180:
+		point triRef = { ref.x - config.car.len / 2,ref.y + config.car.hght / 2 };
+		point cir1 = { ref.x + config.car.len / 2 - config.car.rad,ref.y - config.car.hght / 2 + config.car.rad };
+		point cir2 = { ref.x - config.car.len / 2 + config.car.rad,ref.y - config.car.hght / 2 + config.car.rad };
+
+		break;
+	case 270:
+		point triRef = { ref.x - config.car.hght / 2,ref.y - config.car.len / 2 };
+		point cir1 = { ref.x + config.car.hght / 2 + config.car.rad,ref.y + config.car.len / 2 - config.car.rad };
+		point cir2 = { ref.x + config.car.hght / 2 + config.car.rad,ref.y - config.car.len / 2 + config.car.rad };
+		body->rotate();
+		break;
+	default:
+		break;
+	}
+}*/

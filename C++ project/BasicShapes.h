@@ -41,6 +41,7 @@ public:
 	virtual void ResizeUp();
 	virtual void ResizeDown();
 	virtual void move(char step);
+	void rotate();
 };
 
 
@@ -58,7 +59,7 @@ public:
 	virtual void move(char step);
 
 
-	void rotate();
+	 void rotate();
 	virtual void VerticalFlip();
 
 };

@@ -33,6 +33,7 @@ public:
 	virtual void ResizeDown();
 	virtual void VerticalFlip();
 	virtual void move(char step);
+	
 
 };
 class Tree : public shape {
@@ -48,6 +49,7 @@ public:
 	virtual void ResizeDown();
 	virtual void VerticalFlip();
 	virtual void move(char step);
+	void rotate(int angle, point ref);
 
 };
 class Boat :public shape {
@@ -64,6 +66,8 @@ public:
 	virtual void ResizeDown();
 	virtual void VerticalFlip();
 	virtual void move(char step);
+	void rotate(int angle, point ref);
+
 };
 
 class Butterfly : public shape {
@@ -81,6 +85,8 @@ public:
 	virtual void ResizeDown();
 	virtual void VerticalFlip();
 	virtual void move(char step);
+	void rotate(int angle, point ref);
+
 };
 
                   
@@ -111,6 +117,10 @@ public:
 	virtual void ResizeDown();
 	virtual void move(char step);
 	virtual void VerticalFlip();
+	
+	//void rotate(int angle, point ref);
+
+
 };
 
 
@@ -131,6 +141,8 @@ public:
 	virtual void ResizeDown();
 	virtual void move(char step);
 	virtual void VerticalFlip();
+	void rotate(int angle, point ref);
+
 };
 
 class car :public shape
@@ -145,5 +157,6 @@ public:
 	virtual void ResizeUp();
 	virtual void ResizeDown();
 	virtual void move(char step);
+	void rotate(int angle, point ref);
 
 };

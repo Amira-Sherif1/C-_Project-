@@ -141,11 +141,10 @@ void operAddCat::Act()
 
 	point CatRef = { xGrid,yGrid };
 
-	//create a cone 
 	shape* psh = new Cat(pGame, CatRef);
 
-	//Add the cone to the grid
 	grid* pGrid = pGame->getGrid();
+
 	pGrid->setActiveShape(psh);
 
 }

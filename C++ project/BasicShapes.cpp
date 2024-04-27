@@ -108,6 +108,7 @@ void circle::move(char step) {
 		RefPoint.x = RefPoint.x - config.gridSpacing;
 	}
 }
+void circle::rotate(){}
 
 ////////////////////////////////////////////////////  class triangle  ///////////////////////////////////////
 //TODO: Add implementation for class triangle here
