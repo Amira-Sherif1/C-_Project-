@@ -31,9 +31,7 @@ public:
 
 	virtual void ResizeUp();
 	virtual void ResizeDown();
-
 	virtual void VerticalFlip();
-
 	virtual void move(char step);
 
 };
@@ -48,9 +46,7 @@ public:
 	virtual void draw() const;
 	virtual void ResizeUp();
 	virtual void ResizeDown();
-
 	virtual void VerticalFlip();
-
 	virtual void move(char step);
 
 };
@@ -98,8 +94,8 @@ public:
 	//virtual void rotate();
 	virtual void ResizeUp();
 	virtual void ResizeDown();
-	virtual void VerticalFlip();
 	virtual void move(char step);
+	virtual void VerticalFlip();
 };
 
 
@@ -113,8 +109,8 @@ public:
 	virtual void draw() const;
 	virtual void ResizeUp();
 	virtual void ResizeDown();
-	virtual void VerticalFlip();
 	virtual void move(char step);
+	virtual void VerticalFlip();
 };
 
 
@@ -133,7 +129,7 @@ public:
 	virtual void draw() const;
 	virtual void ResizeUp();
 	virtual void ResizeDown();
-	virtual void VerticalFlip();
 	virtual void move(char step);
+	virtual void VerticalFlip();
 };
 
