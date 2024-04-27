@@ -38,19 +38,19 @@ void Rect::ResizeDown()
 }
 
  void Rect:: move(char step){
-	 if (step == 72)
+	 if (step == 8)
 	 {
 		 RefPoint.y = RefPoint.y - config.gridSpacing;
 	 }
-	 if (step == 80)
+	 if (step==2)
 	 {
 		 RefPoint.y = RefPoint.y + config.gridSpacing;
 	 }
-	 if (step == 77)
+	 if (step==6)
 	 {
 		 RefPoint.x = RefPoint.x + config.gridSpacing;
 	 }
-	 if (step == 75)
+	 if (step==4)
 	 {
 		 RefPoint.x = RefPoint.x - config.gridSpacing;
 	 }
@@ -91,19 +91,19 @@ void circle::ResizeDown() {
 }
 void circle::move(char step) {
 
-	if (step == 72)
+	if (step == 8)
 	{
 		RefPoint.y = RefPoint.y - config.gridSpacing;
 	}
-	if (step == 80)
+	if (step==2)
 	{
 		RefPoint.y = RefPoint.y + config.gridSpacing;
 	}
-	if (step == 77)
+	if (step==6)
 	{
 		RefPoint.x = RefPoint.x + config.gridSpacing;
 	}
-	if (step == 75)
+	if (step==4)
 	{
 		RefPoint.x = RefPoint.x - config.gridSpacing;
 	}
@@ -142,19 +142,19 @@ void Triangle::ResizeDown() {
 
 void Triangle::move(char step) {
 
-	if (step == 72)
+	if (step == 8)
 	{
 		RefPoint.y = RefPoint.y - config.gridSpacing;
 	}
-	if (step == 80)
+	if (step == 2)
 	{
 		RefPoint.y = RefPoint.y + config.gridSpacing;
 	}
-	if (step == 77)
+	if (step == 6)
 	{
 		RefPoint.x = RefPoint.x + config.gridSpacing;
 	}
-	if (step == 75)
+	if (step == 4)
 	{
 		RefPoint.x = RefPoint.x - config.gridSpacing;
 	}

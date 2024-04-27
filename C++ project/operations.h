@@ -46,12 +46,12 @@ public:
 	operAddButterfly(game* r_pgame);
 	virtual void Act();
 };
-class operAddCone :public operation
+/*class operAddCone :public operation
 {
 public:
 	operAddCone(game* r_pGame);
 	virtual void Act();
-};
+};*/
 
 
 class operAddHome :public operation

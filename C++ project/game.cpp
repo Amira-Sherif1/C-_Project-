@@ -85,9 +85,9 @@ operation* game::createRequiredOperation(toolbarItem clickedItem)
 	case ITM_Cat:
 		op = new operAddCat(this);
 		break;
-	case ITM_cone:
+	/*case ITM_cone:
 		op = new operAddCone(this);
-		break;
+		break;*/
 	case Itm_delet:
 		op = new operDelete(this);
 		break;
@@ -149,7 +149,7 @@ grid* game::getGrid() const
 
 
 ////////////////////////////////////////////////////////////////////////
-void game::run() 
+void game::run()
 {
 	//This function reads the position where the user clicks to determine the desired operation
 	int x, y;
@@ -157,7 +157,7 @@ void game::run()
 
 	//Change the title
 	pWind->ChangeTitle("- - - - - - - - - - SHAPE HUNT (CIE 101 / CIE202 - project) - - - - - - - - - -");
-	toolbarItem clickedItem=ITM_CNT;
+	toolbarItem clickedItem = ITM_CNT;
 	do
 	{
 		//printMessage("Ready...");
@@ -168,7 +168,7 @@ void game::run()
 		//If user clicks on the Toolbar, ask toolbar which item is clicked
 		if (y >= 0 && y < config.toolBarHeight)
 		{
-			clickedItem=gameToolbar->getItemClicked(x);
+			clickedItem = gameToolbar->getItemClicked(x);
 
 			//3-create the approp operation accordin to item clicked by the user
 			operation* op = createRequiredOperation(clickedItem);
@@ -177,24 +177,56 @@ void game::run()
 
 			//4-Redraw the grid after each action
 			shapesGrid->draw();
-			
+
 			ToolbarClicker(clickedItem);
-		}	
+		}
+
 		keytype ktype;
 		char Key;
-		ktype = pWind->WaitKeyPress(Key);
-		if (ktype == ARROW) {    // Call the function to handle the arrow key based on the active shape
+		bool stillmoving = true;
+		shape* Mirror= shapesGrid->getactiveshap();
+		while (stillmoving)
+		{
+			pWind->FlushKeyQueue();
 
-			shape* activeShape = shapesGrid->getactiveshap();
-			if (activeShape)
-				activeShape->move(Key);
+			ktype = pWind->WaitKeyPress(Key);
+			
 
+				if (ktype == ARROW) {    // Call the function to handle the arrow key based on the active shape
+
+					shape* activeShape = shapesGrid->getactiveshap();
+
+					if (activeShape) {
+						switch (Key) {
+						case 8:
+							activeShape->move(8);
+							stillmoving = true;
+							break;
+						case 2:
+							activeShape->move(2);
+							stillmoving = true;
+							break;
+						case 6:
+							activeShape->move(6);
+							stillmoving = true;
+							break;
+						case 4:
+							activeShape->move(4);
+							stillmoving = true;
+							break;
+						}
+					}
+				}
+				else if(ktype == ESCAPE)
+					stillmoving =false;
+
+				shapesGrid->setActiveShape(Mirror);
 		}
-		
-	} while (clickedItem!=ITM_EXIT);
-	
 
-}
+	} while (clickedItem != ITM_EXIT);
+
+
+};
 
 
 void game::ToolbarClicker(toolbarItem t) {
@@ -218,8 +250,8 @@ void game::ToolbarClicker(toolbarItem t) {
 	case(ITM_Cat):
 		text = "You Pressed on Cat item";
 		break;
-	case(ITM_cone):
-		text = "You Pressed on Cone item";
+	case(ITM_Car):
+		text = "You Pressed on Car item";
 		break;
 	case(Itm_increase):
 		text = "You Pressed on Increase item";

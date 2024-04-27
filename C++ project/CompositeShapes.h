@@ -84,7 +84,7 @@ public:
 };
 
                   
-class Cone :public shape
+/*class Cone :public shape
 {
 	circle* top;
 	Triangle* base;
@@ -96,7 +96,7 @@ public:
 	virtual void ResizeDown();
 	virtual void move(char step);
 	virtual void VerticalFlip();
-};
+};*/
 
 
 class Home :public shape
@@ -133,3 +133,17 @@ public:
 	virtual void VerticalFlip();
 };
 
+class car :public shape
+{
+	Rect* body;
+	Triangle* top;
+	circle* whl1;
+	circle* whl2;
+public:
+	car(game* r_pgame, point ref);
+	virtual void draw()const;
+	virtual void ResizeUp();
+	virtual void ResizeDown();
+	virtual void move(char step);
+
+};

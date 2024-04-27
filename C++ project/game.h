@@ -35,7 +35,7 @@ public:
 
 	//show which item clicked on the toolbar and print it on the screen
 	void ToolbarClicker(toolbarItem clickedItem);
-	void handleArrowKeyPress(char Key);
+	
 
 
 

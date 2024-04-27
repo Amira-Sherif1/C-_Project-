@@ -85,6 +85,12 @@ struct
 		int rad = 10;  //feet
 
 	}Cat;
+	struct
+	{
+		int len = 80, hght = 30; //body
+		int rad = 15;
+		int len2 = 30; //triangle 
+	}car;
 
 }config;
 
@@ -99,7 +105,7 @@ enum toolbarItem //The items of the  toolbar (you should add more items)
 	ITM_Butterfly,
 	ITM_Home,
 	ITM_Cat,
-	ITM_cone,
+	ITM_Car,
 	Itm_increase,
 	Itm_decrease,
 	Itm_rotate,

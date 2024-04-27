@@ -20,7 +20,7 @@ toolbar::toolbar(game* pG)
 	toolbarItemImages[ITM_Butterfly] = "images\\toolbarItems\\butterfly.jpg";
 	toolbarItemImages[ITM_Home] = "images\\toolbarItems\\Home.jpg";
 	toolbarItemImages[ITM_Cat] = "images\\toolbarItems\\Cat.jpg";
-	toolbarItemImages[ITM_cone] = "images\\toolbarItems\\cone.jpg";
+	toolbarItemImages[ITM_Car] = "images\\toolbarItems\\car.jpg";
 	toolbarItemImages[Itm_increase] = "images\\toolbarItems\\increase.jpg";
 	toolbarItemImages[Itm_decrease] = "images\\toolbarItems\\Decrease.jpg";
 	toolbarItemImages[Itm_rotate] = "images\\toolbarItems\\rotation.jpg";

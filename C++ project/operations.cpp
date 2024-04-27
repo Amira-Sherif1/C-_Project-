@@ -72,7 +72,7 @@ void operAddButterfly::Act() {
 
 }
 
-operAddCone::operAddCone(game* r_pGame) :operation(r_pGame)
+/*operAddCone::operAddCone(game* r_pGame) :operation(r_pGame)
 {
 }
 
@@ -95,7 +95,7 @@ void operAddCone::Act()
 	grid* pGrid = pGame->getGrid();
 	pGrid->setActiveShape(psh);
 
-}
+}*/
 
 
 //Home
