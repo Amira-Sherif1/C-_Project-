@@ -116,19 +116,19 @@ void Tree::ResizeDown() {
 	root->setRefPoint({ RefPoint.x,RefPoint.y + config.Tree.recthight/4 });
 }
 void Tree::move(char step) {
-	if (step == 72)
+	if (step == 72  &&  config.RefY>(config.toolBarHeight+config.Tree.trihigh*3))  //up
 	{
 		RefPoint.y = RefPoint.y - config.gridSpacing;
 	}
-	if (step == 80)
+	if (step == 80 && config.RefY< (config.statusBarHeight- config.Tree.recthight) )   //down
 	{
 		RefPoint.y = RefPoint.y + config.gridSpacing;
 	}
-	if (step == 77)
+	if (step == 77 && config.RefX <( config.windWidth - config.Tree.rectwdth) )  // right
 	{
 		RefPoint.x = RefPoint.x + config.gridSpacing;
 	}
-	if (step == 75)
+	if (step == 75 && config.RefX > (config.Tree.rectwdth))      //left
 	{
 		RefPoint.x = RefPoint.x - config.gridSpacing;
 	}
@@ -139,6 +139,7 @@ void Tree::move(char step) {
 	root->move(step);
 	draw();
 }
+
 void Tree::VerticalFlip() {
 	T1->setRefPoint({ RefPoint.x - config.Tree.trilen / 2,RefPoint.y });
 	T2->setRefPoint({ RefPoint.x - config.Tree.trilen / 2, RefPoint.y + config.Tree.trihigh * 1 / 3 });
@@ -202,19 +203,19 @@ void Butterfly::ResizeDown() {
 	cir3->setRefPoint({ RefPoint.x , RefPoint.y + config.Butterfly.rec_len / 2 });
 }
 void Butterfly::move(char step) {
-	if (step == 72)
+	if (step == 72 && config.RefY  > config.statusBarHeight+config.Butterfly.rec_len )
 	{
 		RefPoint.y = RefPoint.y - config.gridSpacing;
 	}
-	if (step == 80)
+	if (step == 80&& config.statusBarHeight - config.Butterfly.rec_len)
 	{
 		RefPoint.y = RefPoint.y + config.gridSpacing;
 	}
-	if (step == 77)
+	if (step == 77&& config.RefX < (config.windWidth - config.Butterfly.circ1_rad))
 	{
 		RefPoint.x = RefPoint.x + config.gridSpacing;
 	}
-	if (step == 75)
+	if (step == 75 && config.RefX > (config.Butterfly.circ1_rad))
 	{
 		RefPoint.x = RefPoint.x - config.gridSpacing;
 	}
