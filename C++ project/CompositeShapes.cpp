@@ -1,5 +1,7 @@
 #include "CompositeShapes.h"
 #include "gameConfig.h"
+#include "grid.h"
+#include "game.h"
 
 ////////////////////////////////////////////////////  class Sign  ///////////////////////////////////////
 Sign::Sign(game* r_pGame, point ref):shape(r_pGame, ref)
@@ -39,6 +41,9 @@ void Sign::ResizeUp() {
 	//top = new Rect();
 }
 void Sign::move(char step) {
+	grid* pGrid = pGame->getGrid();
+
+	pGrid->deleteShape();
 	if (step == 72)
 	{
 		RefPoint.y = RefPoint.y - config.gridSpacing;
@@ -113,11 +118,15 @@ void Tree::ResizeDown() {
 	root->setRefPoint({ RefPoint.x,RefPoint.y + config.Tree.recthight/4 });
 }
 void Tree::move(char step) {
+	grid* pGrid = pGame->getGrid();
+
+	pGrid->deleteShape();
+
 	if (step == 72  &&  config.RefY>(config.toolBarHeight+config.Tree.trihigh*3))  //up
 	{
 		RefPoint.y = RefPoint.y - config.gridSpacing;
 	}
-	if (step == 80 && config.RefY< (config.statusBarHeight- config.Tree.recthight) )   //down
+	if (step == 80 && config.RefY< (config.windHeight-config.statusBarHeight- config.Tree.recthight) )   //down
 	{
 		RefPoint.y = RefPoint.y + config.gridSpacing;
 	}
@@ -129,12 +138,16 @@ void Tree::move(char step) {
 	{
 		RefPoint.x = RefPoint.x - config.gridSpacing;
 	}
-	T1->move(step);
-	T2->move(step);
-	T3->move(step);
-	T4->move(step);
-	root->move(step);
-	draw();
+	if (config.RefY > (config.toolBarHeight + config.Tree.trihigh * 3) && config.RefY < (config.windHeight - config.statusBarHeight - config.Tree.recthight) && config.RefX < (config.windWidth - config.Tree.rectwdth) && config.RefX >(config.Tree.rectwdth))
+
+	{
+		T1->move(step);
+		T2->move(step);
+		T3->move(step);
+		T4->move(step);
+		root->move(step);
+		draw();
+	}
 }
 
 void Tree::VerticalFlip() {
@@ -200,11 +213,14 @@ void Butterfly::ResizeDown() {
 	cir3->setRefPoint({ RefPoint.x , RefPoint.y + config.Butterfly.rec_len / 2 });
 }
 void Butterfly::move(char step) {
+	grid* pGrid = pGame->getGrid();
+
+	pGrid->deleteShape();
 	if (step == 72 && config.RefY  > config.statusBarHeight+config.Butterfly.rec_len )
 	{
 		RefPoint.y = RefPoint.y - config.gridSpacing;
 	}
-	if (step == 80&& config.statusBarHeight - config.Butterfly.rec_len)
+	if (step == 80&& config.windHeight-config.statusBarHeight - config.Butterfly.rec_len)
 	{
 		RefPoint.y = RefPoint.y + config.gridSpacing;
 	}
@@ -216,13 +232,16 @@ void Butterfly::move(char step) {
 	{
 		RefPoint.x = RefPoint.x - config.gridSpacing;
 	}
-	cir2->move(step);
-	cir5->move(step);
-	cir1->move(step);
-	cir4->move(step);
-	cir3->move(step);
-	rect->move(step);
-	draw();
+	if (config.RefY > config.statusBarHeight + config.Butterfly.rec_len && config.windHeight - config.statusBarHeight - config.Butterfly.rec_len && config.RefX < (config.windWidth - config.Butterfly.circ1_rad) && config.RefX >(config.Butterfly.circ1_rad))
+	{
+		cir2->move(step);
+		cir5->move(step);
+		cir1->move(step);
+		cir4->move(step);
+		cir3->move(step);
+		rect->move(step);
+		draw();
+	}
 }
 void Butterfly::VerticalFlip() {
 	cir1->setRefPoint({ RefPoint.x + config.Butterfly.circ1_rad - config.Butterfly.rec_width, RefPoint.y - config.Butterfly.rec_len / 4 });
@@ -253,6 +272,9 @@ void Cone::draw() const
 void Cone::ResizeUp() {}
 void Cone::ResizeDown() {}
 void Cone::move(char step) {
+	grid* pGrid = pGame->getGrid();
+
+	pGrid->deleteShape();
 	if (step == 72)
 	{
 		RefPoint.y = RefPoint.y - config.gridSpacing;
@@ -300,6 +322,9 @@ void Home::draw() const
 void Home::ResizeUp() {}
 void Home::ResizeDown() {}
 void Home::move(char step) {
+	grid* pGrid = pGame->getGrid();
+
+	pGrid->deleteShape();
 	if (step == 72)
 	{
 		RefPoint.y = RefPoint.y - config.gridSpacing;
@@ -362,29 +387,35 @@ void Cat::draw() const
 void Cat::ResizeUp() {}
 void Cat::ResizeDown() {}
 void Cat::move(char step) {
-	if (step == 72)
+	grid* pGrid = pGame->getGrid();
+
+	pGrid->deleteShape();
+	if (step == 72 && config.RefY> config.toolBarHeight+config.Cat.hght)
 	{
 		RefPoint.y = RefPoint.y - config.gridSpacing;
 	}
-	if (step == 80)
+	if (step == 80&& config.RefY < config.windHeight-config.statusBarHeight-config.Cat.hght- config.Cat.len)
 	{
 		RefPoint.y = RefPoint.y + config.gridSpacing;
 	}
-	if (step == 77)
+	if (step == 77&& config.RefX< config.windWidth-config.Cat.base)
 	{
 		RefPoint.x = RefPoint.x + config.gridSpacing;
 	}
-	if (step == 75)
+	if (step == 75&& config.RefX>config.Cat.base)
 	{
 		RefPoint.x = RefPoint.x - config.gridSpacing;
 	}
-	body->move(step);
-	face->move(step);
-	ear1->move(step);
-	ear2->move(step);
-	lFoot->move(step);
-	rFoot->move(step);
-	draw();
+	if (config.RefY > config.toolBarHeight + config.Cat.hght && config.RefY < config.windHeight - config.statusBarHeight - config.Cat.hght - config.Cat.len && config.RefX < config.windWidth - config.Cat.base && config.RefX>config.Cat.base)
+	{
+		body->move(step);
+		face->move(step);
+		ear1->move(step);
+		ear2->move(step);
+		lFoot->move(step);
+		rFoot->move(step);
+		draw();
+	}
 }
 void Cat::VerticalFlip() {
 	body->setRefPoint({ RefPoint.x - config.Cat.len1/2,RefPoint.y - int((config.Cat.hght) / 2 + (config.Cat.len1 * cos(3.14 / 3))) });

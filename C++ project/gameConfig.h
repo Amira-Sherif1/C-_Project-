@@ -80,8 +80,8 @@ struct
 	{
 		int len1 = 120; //body tri
 		int len2 = 20;  //ear tri
-		int hght = 70, base = 180;  // face
-		int len = 70; //body  //b
+		int hght = 80, base = 180;  // face
+		int len = 80; //body  //b
 		int rad = 10;  //feet
 
 	}Cat;

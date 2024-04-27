@@ -180,8 +180,20 @@ void game::run()
 			
 			ToolbarClicker(clickedItem);
 		}	
+		keytype ktype;
+		char Key;
+		ktype = pWind->WaitKeyPress(Key);
+		if (ktype == ARROW) {    // Call the function to handle the arrow key based on the active shape
 
+			shape* activeShape = shapesGrid->getactiveshap();
+			if (activeShape)
+				activeShape->move(Key);
+
+		}
+		
 	} while (clickedItem!=ITM_EXIT);
+	
+
 }
 
 

@@ -27,5 +27,6 @@ public:
 	void setActiveShape(shape* actShape);
 	void deleteShape();
 	shape* getactiveshap()const;
+
 };
 
