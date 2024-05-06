@@ -85,9 +85,12 @@ operation* game::createRequiredOperation(toolbarItem clickedItem)
 	case ITM_Cat:
 		op = new operAddCat(this);
 		break;
-	/*case ITM_cone:
-		op = new operAddCone(this);
-		break;*/
+	case Itm_increase:
+		op = new operResizeUp(this);
+		break;
+	case Itm_decrease:
+		op = new operResizeDown(this);
+		break;
 	case Itm_delet:
 		op = new operDelete(this);
 		break;
@@ -158,8 +161,13 @@ void game::run()
 	//Change the title
 	pWind->ChangeTitle("- - - - - - - - - - SHAPE HUNT (CIE 101 / CIE202 - project) - - - - - - - - - -");
 	toolbarItem clickedItem = ITM_CNT;
+	//point sk = { 600,300 };
+	//car * Sign= new car(this,sk);
+	Random_Shapes_Generator();
+
 	do
 	{
+		//Sign->ResizeUp();
 		//printMessage("Ready...");
 		//1- Get user click
 		pWind->WaitMouseClick(x, y);	//Get the coordinates of the user click
@@ -177,8 +185,14 @@ void game::run()
 
 			//4-Redraw the grid after each action
 			shapesGrid->draw();
+			for (int i = 0; i < 2*getlevel()-1; i++) {
+				Shapes[i]->draw();
+			}
 
 			ToolbarClicker(clickedItem);
+
+			
+
 		}
 
 		keytype ktype;
@@ -187,6 +201,9 @@ void game::run()
 		shape* Mirror= shapesGrid->getactiveshap();
 		while (stillmoving)
 		{
+			for (int i = 0; i < 2 * getlevel() - 1; i++) {
+				Shapes[i]->draw();
+			}
 			pWind->FlushKeyQueue();
 
 			ktype = pWind->WaitKeyPress(Key);
@@ -222,6 +239,7 @@ void game::run()
 
 				shapesGrid->setActiveShape(Mirror);
 		}
+		
 
 	} while (clickedItem != ITM_EXIT);
 
@@ -290,3 +308,166 @@ void game::ToolbarClicker(toolbarItem t) {
 	Sleep(500);
 	clearStatusBar();
 	}
+int game::getlevel()const {
+	return level;
+}
+
+
+
+
+void game::Random_Shapes_Generator() {
+
+
+
+	int number = 0;   // will depend on the game level
+
+	enum shapes{sign,tree,boat,butter,home,cat,Car};
+	enum resize {up,down};
+	toolbarItem clickedItem = ITM_CNT;
+	
+		srand(time(0));
+	
+		shape* add = nullptr;
+		Shapes = new shape* [2*getlevel()-1];
+		int count = 0;
+
+
+for(int i=0;i< 2 * getlevel() - 1;i++){
+
+	int size = rand() % (1 + 1);    // random resize up or down 
+	int x = 100 + rand() % (810 - 100 + 1);   // random the ref point 
+	int y = 150 + rand() % (300 - 120 + 1);
+	point ref = { x,y };
+	int sh = rand() % (6 + 1);   // choose a random shape from the enum
+
+
+
+	switch (shapes(sh)) {
+	case sign: {
+		add = new Sign(this, ref);
+		for (int i = 0; i < size; i++) {
+			switch (size) {
+			case up:
+				add->ResizeUp();
+				break;
+			case down:
+				add->ResizeDown();
+				break;
+			}
+		}
+		Shapes[count] = add;
+		count++;
+
+
+
+	}
+			 break;
+
+	case tree:
+
+		add = new Tree(this, ref);
+		for (int i = 0; i < size + 1; i++) {
+			switch (size) {
+			case up:
+				add->ResizeUp();
+				break;
+			case down:
+				add->ResizeDown();
+				break;
+			}
+			Shapes[count] = add;
+			count++;
+
+		}
+		break;
+	/*case boat:
+		
+		//	add = new operAddBoat(this);
+		Shapes[count] = add;
+		count++;
+
+		break;*/
+	case butter:
+		add = new Butterfly(this, ref);
+		Shapes[count] = add;
+
+		for (int i = 0; i < size + 1; i++) {
+			switch (size) {
+			case up:
+				add->ResizeUp();
+				break;
+			case down:
+				add->ResizeDown();
+				break;
+			}
+			Shapes[count] = add;
+			count++;
+
+
+		}
+		break;
+	case home:
+
+		add = new Home(this, ref);
+		Shapes[count] = add;
+
+		for (int i = 0; i < size + 1; i++) {
+			switch (size) {
+			case up:
+				add->ResizeUp();
+				break;
+			case down:
+				add->ResizeDown();
+				break;
+			}
+			Shapes[count] = add;
+			count++;
+
+
+		}
+		break;
+	case cat:
+		add = new Cat(this, ref);
+		Shapes[count] = add;
+		for (int i = 0; i < size + 1; i++) {
+			switch (size) {
+			case up:
+				add->ResizeUp();
+				break;
+			case down:
+				add->ResizeDown();
+				break;
+			}
+			Shapes[count] = add;
+			count++;
+
+
+		}
+
+		break;
+	case Car:
+		add = new car(this, ref);
+		Shapes[count] = add;
+		for (int i = 0; i < size + 1; i++) {
+			switch (size) {
+			case up:
+				add->ResizeUp();
+				break;
+			case down:
+				add->ResizeDown();
+				break;
+			}
+			Shapes[count] = add;
+			count++;
+
+		}
+		break;
+
+	}
+
+}
+
+		
+	
+	//add = nullptr;
+}

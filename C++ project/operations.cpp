@@ -23,7 +23,7 @@ void operAddSign::Act()
 
 	//align reference point to the nearest grid point
 	int xGrid = config.RefX - config.RefX % config.gridSpacing;
-	int yGrid = config.RefY - config.RefX % config.gridSpacing;
+	int yGrid = config.RefY - config.RefY % config.gridSpacing;
 
 	//take the aligned point as the sign shape ref point
 	point signShapeRef = { xGrid,yGrid };
@@ -43,7 +43,7 @@ void operAddTree::Act() {
 	window* pw= pGame->getWind();
 
 	int xGrid = config.RefX - config.RefX % config.gridSpacing;
-	int yGrid = config.RefY - config.RefX % config.gridSpacing;
+	int yGrid = config.RefY - config.RefY % config.gridSpacing;
 
 	point TreeShapeRef = { xGrid , yGrid };
 
@@ -61,7 +61,7 @@ void operAddButterfly::Act() {
 	window* win = pGame->getWind();
 
 	int xw = config.RefX - config.RefX % config.gridSpacing;
-	int yw = config.RefY - config.RefX % config.gridSpacing;
+	int yw = config.RefY - config.RefY % config.gridSpacing;
 
 	point ButterflyPointRef = { xw , yw };
 
@@ -72,30 +72,6 @@ void operAddButterfly::Act() {
 
 }
 
-/*operAddCone::operAddCone(game* r_pGame) :operation(r_pGame)
-{
-}
-
-void operAddCone::Act()
-{
-	window* pw = pGame->getWind();
-
-
-	int xGrid = config.RefX - config.RefX % config.gridSpacing;
-	int yGrid = config.RefY - config.RefX % config.gridSpacing;
-
-
-
-	point coneRef = { xGrid,yGrid };
-
-	//create a cone 
-	shape* psh = new Cone(pGame, coneRef);
-
-	//Add the cone to the grid
-	grid* pGrid = pGame->getGrid();
-	pGrid->setActiveShape(psh);
-
-}*/
 
 
 //Home
@@ -109,18 +85,18 @@ void operAddHome::Act()
 
 
 	int xGrid = config.RefX - config.RefX % config.gridSpacing;
-	int yGrid = config.RefY - config.RefX % config.gridSpacing;
+	int yGrid = config.RefY - config.RefY % config.gridSpacing;
 
 
 
 	point HomeRef = { xGrid,yGrid };
 
-	//create a cone 
-	shape* psh = new Home(pGame, HomeRef);
+	
+	shape* ph = new Home(pGame, HomeRef);
 
-	//Add the cone to the grid
+	
 	grid* pGrid = pGame->getGrid();
-	pGrid->setActiveShape(psh);
+	pGrid->setActiveShape(ph);
 
 }
 
@@ -137,7 +113,7 @@ void operAddCat::Act()
 
 
 	int xGrid = config.RefX - config.RefX % config.gridSpacing;
-	int yGrid = config.RefY - config.RefX % config.gridSpacing;
+	int yGrid = config.RefY - config.RefY % config.gridSpacing;
 
 	point CatRef = { xGrid,yGrid };
 
@@ -147,6 +123,26 @@ void operAddCat::Act()
 
 	pGrid->setActiveShape(psh);
 
+}
+
+operResizeUp::operResizeUp(game* r_pGame) :operation(r_pGame) {
+
+}
+void operResizeUp::Act() {
+	window* pw = pGame->getWind();
+	grid* pGrid = pGame->getGrid();
+	shape* sh= pGrid->getactiveshap();
+	sh->ResizeUp();
+}
+operResizeDown::operResizeDown(game* r_pGame) :operation(r_pGame) {
+
+}
+
+void operResizeDown::Act() {
+	window* pw = pGame->getWind();
+	grid* pgrid = pGame->getGrid();
+	shape* sh = pgrid->getactiveshap();
+	sh->ResizeDown();
 }
 
 operDelete::operDelete(game* r_pGame) :operation(r_pGame)

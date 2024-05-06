@@ -3,6 +3,8 @@
 #include "toolbar.h"
 #include "operations.h"
 #include "grid.h"
+#include<cstdlib>
+#include<time.h>
 
 
 
@@ -16,6 +18,8 @@ class game
 	
 	window* pWind;	//Pointer to the CMU graphics window
 	grid* shapesGrid;
+	shape** Shapes;
+	int level=3;
 
 public:
 	game();
@@ -35,10 +39,8 @@ public:
 
 	//show which item clicked on the toolbar and print it on the screen
 	void ToolbarClicker(toolbarItem clickedItem);
-	
-
-
-
+	int  getlevel ()const;
+	void Random_Shapes_Generator();
 	void run();	//start the game
 
 };
