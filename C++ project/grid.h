@@ -18,6 +18,8 @@ class grid
 
 	int shapeCount;		//current number of shapes in the list
 	game* pGame;
+	enum shapes { sign, tree, butter, home, cat, Car };
+	enum resize { up, down };
 public:
 	grid(point r_uprleft, int r_width, int r_height, game* r_pGame);
 	~grid();
@@ -27,6 +29,7 @@ public:
 	void setActiveShape(shape* actShape);
 	void deleteShape();
 	shape* getactiveshap()const;
-
+	void Random_Shapes_Generator();
+	void randomshape(shape* ranshape , int size);
 };
 

@@ -164,7 +164,9 @@ void game::run()
 	toolbarItem clickedItem = ITM_CNT;
 	//point sk = { 600,300 };
 	//car * Sign= new car(this,sk);
-	Random_Shapes_Generator();
+	shapesGrid->Random_Shapes_Generator();
+	shapesGrid->draw();
+
 
 	do
 	{
@@ -186,9 +188,7 @@ void game::run()
 
 			//4-Redraw the grid after each action
 			shapesGrid->draw();
-			for (int i = 0; i < 2*getlevel()-1; i++) {
-				Shapes[i]->draw();
-			}
+			
 
 			ToolbarClicker(clickedItem);
 
@@ -202,9 +202,12 @@ void game::run()
 		shape* Mirror= shapesGrid->getactiveshap();
 		while (stillmoving)
 		{
-			for (int i = 0; i < 2 * getlevel() - 1; i++) {
+			/*for (int i = 0; i < 2 * getlevel() - 1; i++) {
 				Shapes[i]->draw();
-			}
+			}*/
+			shapesGrid->draw();
+
+
 			pWind->FlushKeyQueue();
 
 			ktype = pWind->WaitKeyPress(Key);
@@ -316,159 +319,3 @@ int game::getlevel()const {
 
 
 
-void game::Random_Shapes_Generator() {
-
-
-
-	int number = 0;   // will depend on the game level
-
-	enum shapes{sign,tree,boat,butter,home,cat,Car};
-	enum resize {up,down};
-	toolbarItem clickedItem = ITM_CNT;
-	
-		srand(time(0));
-	
-		shape* add = nullptr;
-		Shapes = new shape* [2*getlevel()-1];
-		int count = 0;
-
-
-for(int i=0;i< 2 * getlevel() - 1;i++){
-
-	int size = rand() % (1 + 1);    // random resize up or down 
-	int x = 100 + rand() % (810 - 100 + 1);   // random the ref point 
-	int y = 150 + rand() % (300 - 120 + 1);
-	point ref = { x,y };
-	int sh = rand() % (6 + 1);   // choose a random shape from the enum
-
-
-
-	switch (shapes(sh)) {
-	case sign: {
-		add = new Sign(this, ref);
-		for (int i = 0; i < size; i++) {
-			switch (size) {
-			case up:
-				add->ResizeUp();
-				break;
-			case down:
-				add->ResizeDown();
-				break;
-			}
-		}
-		Shapes[count] = add;
-		count++;
-
-
-
-	}
-			 break;
-
-	case tree:
-
-		add = new Tree(this, ref);
-		for (int i = 0; i < size + 1; i++) {
-			switch (size) {
-			case up:
-				add->ResizeUp();
-				break;
-			case down:
-				add->ResizeDown();
-				break;
-			}
-			Shapes[count] = add;
-			count++;
-
-		}
-		break;
-	/*case boat:
-		
-		//	add = new operAddBoat(this);
-		Shapes[count] = add;
-		count++;
-
-		break;*/
-	case butter:
-		add = new Butterfly(this, ref);
-		Shapes[count] = add;
-
-		for (int i = 0; i < size + 1; i++) {
-			switch (size) {
-			case up:
-				add->ResizeUp();
-				break;
-			case down:
-				add->ResizeDown();
-				break;
-			}
-			Shapes[count] = add;
-			count++;
-
-
-		}
-		break;
-	case home:
-
-		add = new Home(this, ref);
-		Shapes[count] = add;
-
-		for (int i = 0; i < size + 1; i++) {
-			switch (size) {
-			case up:
-				add->ResizeUp();
-				break;
-			case down:
-				add->ResizeDown();
-				break;
-			}
-			Shapes[count] = add;
-			count++;
-
-
-		}
-		break;
-	case cat:
-		add = new Cat(this, ref);
-		Shapes[count] = add;
-		for (int i = 0; i < size + 1; i++) {
-			switch (size) {
-			case up:
-				add->ResizeUp();
-				break;
-			case down:
-				add->ResizeDown();
-				break;
-			}
-			Shapes[count] = add;
-			count++;
-
-
-		}
-
-		break;
-	case Car:
-		add = new car(this, ref);
-		Shapes[count] = add;
-		for (int i = 0; i < size + 1; i++) {
-			switch (size) {
-			case up:
-				add->ResizeUp();
-				break;
-			case down:
-				add->ResizeDown();
-				break;
-			}
-			Shapes[count] = add;
-			count++;
-
-		}
-		break;
-
-	}
-
-}
-
-		
-	
-	//add = nullptr;
-}

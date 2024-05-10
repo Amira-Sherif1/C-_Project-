@@ -28,13 +28,13 @@ void Rect::ResizeUp()
 {
 	hght *= 2;
 	wdth *= 2;
-	draw();
+	//draw();
 }
 void Rect::ResizeDown()
 {
 	hght /= 2;
 	wdth /= 2;
-	draw();
+	//draw();
 }
 
  void Rect:: move(char step){
@@ -82,12 +82,12 @@ void circle::draw() const
 }
 void circle::ResizeUp() {
 	rad *= 2;
-	draw();
+	//draw();
 }
 
 void circle::ResizeDown() {
 	rad /= 2;
-	draw();
+	//draw();
 }
 void circle::move(char step) {
 
@@ -133,12 +133,12 @@ void Triangle::draw()const {
 void Triangle::ResizeUp() {
 	length *= 2;
 	hight *= 2;
-	draw();
+	//draw();
 }
 void Triangle::ResizeDown() {
 	length /= 2;
 	hight /= 2;
-	draw();
+	//draw();
 }
 
 void Triangle::move(char step) {

@@ -33,7 +33,6 @@ void grid::draw() const
 	
 	pWind->SetPen(config.gridDotsColor,1);
 	pWind->SetBrush(config.gridDotsColor);
-
 	//draw dots showing the grid reference points
 	for (int r = 1; r < rows; r++)
 		for (int c = 0; c < cols; c++)
@@ -41,9 +40,11 @@ void grid::draw() const
 			//pWind->DrawPixel(c * config.gridSpacing, r * config.gridSpacing + uprLeft.y);
 
 	//Draw ALL shapes
-	for (int i = 0; i < shapeCount; i++)
-			if (shapeList[i])
-				shapeList[i]->draw();	//draw each shape
+	for (int i = 0; i < shapeCount; i++) {
+		if (shapeList[i])
+			shapeList[i]->draw();	//draw each shape
+	}
+		
 
 	//Draw the active shape
 	if(activeShape)
@@ -87,3 +88,101 @@ shape* grid::getactiveshap()const {
 	return activeShape;
 }
 
+
+void grid::randomshape(shape* randshape , int size) {
+	for (int i = 0; i < size; i++) {
+		switch (resize(size)) {
+		case up:
+			randshape->ResizeUp();
+			break;
+		case down:
+			randshape->ResizeDown();
+			break;
+		}
+	}
+}
+
+void grid::Random_Shapes_Generator() {
+
+
+	toolbarItem clickedItem = ITM_CNT;
+
+	srand(time(0));
+
+	//shape* add = nullptr;
+	//Shapes = new shape * [2 * getlevel() - 1];
+	//int count = 0;
+
+
+	for (int j = 0; j < 2 * pGame-> getlevel() - 1; j++) {
+
+		int size = rand() % (1 + 1);    // random resize up or down 
+		int x = 100 + rand() % (810 - 100 + 1);   // random the ref point 
+		int y = 150 + rand() % (305 - 120 + 1);
+		int xref= x - x % config.gridSpacing;
+		int yref = y - y % config.gridSpacing;
+		point ref = { xref,yref };
+		int sh = rand() % (5 + 1);   // choose a random shape from the enum
+
+
+
+		switch (shapes(sh)) {
+		case sign: {
+			
+			shapeList[j] = new Sign(pGame, ref);
+			shapeCount++;
+			//randomshape(shapeList[j], size);
+
+		}
+		break;
+
+		case tree:
+
+			shapeList[j] = new Tree(pGame, ref);
+			shapeCount++;
+			//randomshape(shapeList[j], size);
+
+		break;
+		/*case boat:
+			shapeList[j] = new Boot(pGame, ref);
+			shapeCount++;
+			randomshape(shapeList[j], size);
+				
+		break;*/
+		case butter:
+
+			shapeList[j] = new Butterfly(pGame, ref);
+			shapeCount++;
+			//randomshape(shapeList[j], size);
+		break;
+
+		case home:
+
+			shapeList[j] = new Home(pGame, ref);
+			shapeCount++;
+			//randomshape(shapeList[j], size);
+		break;
+
+		case cat:
+
+			shapeList[j] = new Cat(pGame, ref);
+			shapeCount++;
+			//randomshape(shapeList[j], size);
+		break;
+
+		case Car:
+
+			shapeList[j] = new car(pGame, ref);
+			shapeCount++;
+			//randomshape(shapeList[j], size);
+			
+		break;
+
+		}
+
+	}
+
+
+
+	//add = nullptr;
+}
