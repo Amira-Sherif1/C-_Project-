@@ -92,6 +92,9 @@ operation* game::createRequiredOperation(toolbarItem clickedItem)
 	case Itm_decrease:
 		op = new operResizeDown(this);
 		break;
+	case Itm_refresh:
+		op = new operRefresh(this);
+		break;
 	case Itm_delet:
 		op = new operDelete(this);
 		break;
@@ -317,5 +320,12 @@ int game::getlevel()const {
 }
 
 
+int game:: getlives()const {
 
+	return lives;
+}
+
+void game::setlives(int x) {
+	lives = x;
+}
 

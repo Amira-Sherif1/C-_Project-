@@ -58,7 +58,7 @@ void grid::draw() const
 		pWind->SetBrush(config.fillColor);
 		
 	}
-		
+			
 
 	//Draw the active shape
 	if(activeShape)
@@ -128,7 +128,7 @@ void grid::Random_Shapes_Generator() {
 
 		int size = rand() % (1 + 1);    // random resize up or down 
 		int x = 100 + rand() % (810 - 100 + 1);   // random the ref point 
-		int y = 150 + rand() % (305 - 120 + 1);
+		int y = 180 + rand() % (305 - 120 + 1);
 		int xref= x - x % config.gridSpacing;
 		int yref = y - y % config.gridSpacing;
 		point ref = { xref,yref };
@@ -142,7 +142,7 @@ void grid::Random_Shapes_Generator() {
 
 				shapeList[j] = new Sign(pGame, ref);
 				shapeCount++;
-				//randomshape(shapeList[j], size);
+				randomshape(shapeList[j], size);
 
 			
 				break;
@@ -151,7 +151,7 @@ void grid::Random_Shapes_Generator() {
 
 				shapeList[j] = new Tree(pGame, ref);
 				shapeCount++;
-				//randomshape(shapeList[j], size);
+				randomshape(shapeList[j], size);
 
 				break;
 			/*case boat:
@@ -164,28 +164,28 @@ void grid::Random_Shapes_Generator() {
 
 				shapeList[j] = new Butterfly(pGame, ref);
 				shapeCount++;
-				//randomshape(shapeList[j], size);
+				randomshape(shapeList[j], size);
 				break;
 
 			case home:
 
 				shapeList[j] = new Home(pGame, ref);
 				shapeCount++;
-				//randomshape(shapeList[j], size);
+				randomshape(shapeList[j], size);
 				break;
 
 			case cat:
 
 				shapeList[j] = new Cat(pGame, ref);
 				shapeCount++;
-				//randomshape(shapeList[j], size);
+				randomshape(shapeList[j], size);
 				break;
 
 			case Car:
 
 				shapeList[j] = new car(pGame, ref);
 				shapeCount++;
-				//randomshape(shapeList[j], size);
+				randomshape(shapeList[j], size);
 
 				break;
 

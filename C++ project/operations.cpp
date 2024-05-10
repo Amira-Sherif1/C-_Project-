@@ -156,3 +156,15 @@ void operDelete::Act()
 	grid* pGrid = pGame->getGrid();
 	pGrid->deleteShape();
 }
+operRefresh::operRefresh(game* r_pGame):operation(r_pGame){}
+
+void operRefresh::Act() {
+	
+	grid* pGrid = pGame->getGrid();
+	if (pGame->getlives() > 0) {
+		pGrid->Random_Shapes_Generator();
+		pGrid->draw();
+		pGame->setlives(pGame->getlives() - 1);
+	}
+	
+}

@@ -18,7 +18,8 @@ class game
 	
 	window* pWind;	//Pointer to the CMU graphics window
 	grid* shapesGrid;
-	int level = 2 ;
+	int level = 6 ;
+	int lives = 5;
 
 public:
 	game();
@@ -40,6 +41,8 @@ public:
 	void ToolbarClicker(toolbarItem clickedItem);
 	int  getlevel ()const;
 	void run();	//start the game
+	int getlives() const;
+	void setlives(int x);
 
 };
 
