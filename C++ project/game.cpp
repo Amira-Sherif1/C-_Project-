@@ -25,6 +25,7 @@ game::~game()
 {
 	delete pWind;
 	delete shapesGrid;
+	delete gameToolbar;
 }
 
 

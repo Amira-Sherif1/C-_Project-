@@ -27,6 +27,7 @@ class Sign :public shape
 	Rect* top;
 public:
 	Sign(game* r_pGame, point ref);
+	~Sign();
 	virtual void draw() const;
 
 	virtual void ResizeUp();
@@ -44,6 +45,7 @@ class Tree : public shape {
 	Triangle* T4;
 public:
 	Tree(game* r_pGame, point ref);
+	~Tree();
 	virtual void draw() const;
 	virtual void ResizeUp();
 	virtual void ResizeDown();
@@ -61,6 +63,7 @@ class Boat :public shape {
 
 public:
 	Boat(game* r_pgame, point ref);
+	~Boat();
 	virtual void draw() const;
 	virtual void ResizeUp();
 	virtual void ResizeDown();
@@ -80,6 +83,7 @@ class Butterfly : public shape {
 
 public:
 	Butterfly(game* r_pgame, point ref);
+	~Butterfly();
 	virtual void draw()const;
 	virtual void ResizeUp();
 	virtual void ResizeDown();
@@ -112,6 +116,7 @@ class Home :public shape
 	Rect* top;
 public:
 	Home(game* r_pGame, point ref);
+	~Home();
 	virtual void draw() const;
 	virtual void ResizeUp();
 	virtual void ResizeDown();
@@ -136,6 +141,7 @@ class Cat :public shape
 
 public:
 	Cat(game* r_pGame, point ref);
+	~Cat();
 	virtual void draw() const;
 	virtual void ResizeUp();
 	virtual void ResizeDown();
@@ -153,6 +159,7 @@ class car :public shape
 	circle* whl2;
 public:
 	car(game* r_pgame, point ref);
+	~car();
 	virtual void draw()const;
 	virtual void ResizeUp();
 	virtual void ResizeDown();

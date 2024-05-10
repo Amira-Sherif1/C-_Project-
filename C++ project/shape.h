@@ -31,6 +31,7 @@ protected:
     game* pGame;        //pointer to game object
 	color fillColor;	//shape fill color
 	color borderColor;	//shape border color
+	double size = 1;			//the size of the shape and it will be used in resize up and resize down function
 public:
     shape(game* r_pGame, point ref);
 	void setRefPoint(point p);
