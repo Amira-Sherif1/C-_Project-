@@ -74,9 +74,9 @@ operation* game::createRequiredOperation(toolbarItem clickedItem)
 	case Itm_Tree:
 		op = new operAddTree(this);
 		break;
-	/*case ITM_Boat:
+	case ITM_Boat:
 		op = new operAddBoat(this);
-		break;*/
+		break;
 	case ITM_Butterfly:
 		op = new operAddButterfly(this);
 		break;
@@ -85,6 +85,9 @@ operation* game::createRequiredOperation(toolbarItem clickedItem)
 		break;
 	case ITM_Cat:
 		op = new operAddCat(this);
+		break;
+	case ITM_Car:
+		op = new operAddcar(this);
 		break;
 	case Itm_increase:
 		op = new operResizeUp(this);

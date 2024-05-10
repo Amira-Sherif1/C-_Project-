@@ -31,6 +31,7 @@ void Sign::ResizeUp() {
 	base->ResizeUp();
 	size *= 2;
 	base->setRefPoint({ RefPoint.x, RefPoint.y + int(config.sighShape.topHeight *size / 2 + config.sighShape.baseHeight*size / 2) });
+	draw();
 }
 
 
@@ -40,6 +41,7 @@ void Sign::ResizeDown(){
 
 	size /= 2;
 	base->setRefPoint({ RefPoint.x, RefPoint.y + int(config.sighShape.topHeight * size / 2 + config.sighShape.baseHeight * size / 2) });
+	draw();
 
 }
 
@@ -139,7 +141,8 @@ void Tree::ResizeUp(){
 	T3->setRefPoint({ RefPoint.x - int(config.Tree.trilen * size / 2),RefPoint.y - int(config.Tree.trihigh * size * 2 / 3 )});
 	T4->setRefPoint({ RefPoint.x - int(config.Tree.trilen * size / 2),RefPoint.y - int(config.Tree.trihigh * size * 1 )});
 	root->setRefPoint({ RefPoint.x,RefPoint.y + int(config.Tree.recthight * size / 2) });
-
+	
+	draw();
 }
 void Tree::ResizeDown() {
 	root->ResizeDown();
@@ -155,6 +158,7 @@ void Tree::ResizeDown() {
 	T4->setRefPoint({ RefPoint.x - int(config.Tree.trilen * size / 2),RefPoint.y - int(config.Tree.trihigh * size * 1) });
 	root->setRefPoint({ RefPoint.x,RefPoint.y + int(config.Tree.recthight * size / 2) });
 
+	draw();
 }
 
 void Tree::move(char step) {
@@ -302,7 +306,8 @@ void Butterfly::ResizeUp(){
 	cir2->setRefPoint({ RefPoint.x + int((config.Butterfly.circ1_rad - config.Butterfly.rec_width) * size), RefPoint.y + int(config.Butterfly.rec_len * size / 4) });
 	cir5->setRefPoint({ RefPoint.x - int((config.Butterfly.circ1_rad - config.Butterfly.rec_width) * size), RefPoint.y + int(config.Butterfly.rec_len * size / 4) });
 	cir3->setRefPoint({ RefPoint.x , RefPoint.y - int(config.Butterfly.rec_len* size / 2) });
-
+	
+	draw();
 }
 void Butterfly::ResizeDown() {
 	cir1->ResizeDown();
@@ -319,6 +324,7 @@ void Butterfly::ResizeDown() {
 	cir5->setRefPoint({ RefPoint.x - int((config.Butterfly.circ1_rad - config.Butterfly.rec_width) * size), RefPoint.y + int(config.Butterfly.rec_len * size / 4) });
 	cir3->setRefPoint({ RefPoint.x , RefPoint.y - int(config.Butterfly.rec_len * size / 2) });
 
+	draw();
 }
 void Butterfly::move(char step) {
 	grid* pGrid = pGame->getGrid();
@@ -427,6 +433,7 @@ void Home::ResizeUp() {
 	Tri->setRefPoint( {RefPoint.x - int(config.Home.wdth *size/ 2),RefPoint.y - int(config.Home.hght / 2 * size )});
 	top->setRefPoint({ RefPoint.x - int(config.Home.wdth * size / 2),RefPoint.y - int(config.Home.hght / 2 * size )});
 
+	draw();
 }
 void Home::ResizeDown() {
 	Tri->ResizeDown();
@@ -437,6 +444,7 @@ void Home::ResizeDown() {
 	Tri->setRefPoint({ RefPoint.x - int(config.Home.wdth * size / 2),RefPoint.y - int(config.Home.hght / 2 * size) });
 	top->setRefPoint({ RefPoint.x - int(config.Home.wdth * size / 2),RefPoint.y - int(config.Home.hght / 2 * size) });
 
+	draw();
 }
 
 void Home::move(char step) {
@@ -563,6 +571,7 @@ void Cat::ResizeUp() {
 	lFoot->setRefPoint({ RefPoint.x - int(config.Cat.len1 / 2 * size ),RefPoint.y + int(((config.Cat.hght) / 2 + (config.Cat.len1 * cos(3.14 / 3))) * size )});
 	rFoot->setRefPoint({ RefPoint.x + int(config.Cat.len1 / 2 * size ),RefPoint.y + int(((config.Cat.hght) / 2 + (config.Cat.len1 * cos(3.14 / 3))) * size )});
 
+	draw();
 }
 void Cat::ResizeDown() {
 	body->ResizeDown();
@@ -579,6 +588,7 @@ void Cat::ResizeDown() {
 	lFoot->setRefPoint({ RefPoint.x - int(config.Cat.len1 / 2 * size),RefPoint.y + int(((config.Cat.hght) / 2 + (config.Cat.len1 * cos(3.14 / 3))) * size) });
 	rFoot->setRefPoint({ RefPoint.x + int(config.Cat.len1 / 2 * size),RefPoint.y + int(((config.Cat.hght) / 2 + (config.Cat.len1 * cos(3.14 / 3))) * size) });
 
+	draw();
 }
 void Cat::move(char step) {
 	grid* pGrid = pGame->getGrid();
@@ -690,6 +700,7 @@ void car::ResizeUp() {
 	whl1->setRefPoint( { RefPoint.x + int((config.car.len / 2 * size - config.car.rad) * size),RefPoint.y + int((config.car.hght / 2 + config.car.rad) * size) });
 	whl2->setRefPoint({ RefPoint.x -int((config.car.len / 2 * size + config.car.rad) * size),RefPoint.y + int((config.car.hght / 2 + config.car.rad ) * size )});
 
+	draw();
 }
 void car::ResizeDown() {
 	body->ResizeDown();
@@ -702,6 +713,7 @@ void car::ResizeDown() {
 	whl1->setRefPoint({ RefPoint.x + int((config.car.len / 2 * size - config.car.rad) * size),RefPoint.y + int((config.car.hght / 2 + config.car.rad) * size) });
 	whl2->setRefPoint({ RefPoint.x - int((config.car.len / 2 * size + config.car.rad) * size),RefPoint.y + int((config.car.hght / 2 + config.car.rad) * size) });
 
+	draw();
 }
 void car::move(char step){
 
