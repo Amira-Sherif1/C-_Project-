@@ -26,30 +26,14 @@ void Sign::draw() const
 void Sign::ResizeUp() {
 	top->ResizeUp();
 	base->ResizeUp();
-
-	config.sighShape.baseHeight *= 2;
-	config.sighShape.baseWdth *= 2;
-	config.sighShape.topHeight *= 2;
-	config.sighShape.topWdth *= 2;
-	base->setRefPoint({ RefPoint.x, RefPoint.y + config.sighShape.topHeight / 2 + config.sighShape.baseHeight / 2 });
-	draw();
-
 	size *= 2;
 	base->setRefPoint({ RefPoint.x, RefPoint.y + int(config.sighShape.topHeight *size / 2 + config.sighShape.baseHeight*size / 2) });
-
 }
 
 
 void Sign::ResizeDown(){
 	base->ResizeDown();
 	top->ResizeDown();
-
-	config.sighShape.baseHeight /= 2;
-	config.sighShape.baseWdth /= 2;
-	config.sighShape.topHeight /= 2;
-	config.sighShape.topWdth /= 2;
-	base->setRefPoint({ RefPoint.x, RefPoint.y + config.sighShape.topHeight / 2 + config.sighShape.baseHeight / 2 });
-	draw();
 
 	size /= 2;
 	base->setRefPoint({ RefPoint.x, RefPoint.y + int(config.sighShape.topHeight * size / 2 + config.sighShape.baseHeight * size / 2) });
@@ -126,18 +110,6 @@ void Tree::ResizeUp(){
 	T3->ResizeUp();
 	T4->ResizeUp();
 
-	config.Tree.recthight *= 2;
-	config.Tree.rectwdth *= 2;
-	config.Tree.trihigh *= 2;
-	config.Tree.trilen *= 2;
-	T1->setRefPoint({ RefPoint.x - config.Tree.trilen / 2,RefPoint.y });
-	T2->setRefPoint({ RefPoint.x - config.Tree.trilen / 2,RefPoint.y - config.Tree.trihigh * 1 / 3 });
-	T3->setRefPoint({ RefPoint.x - config.Tree.trilen / 2,RefPoint.y - config.Tree.trihigh * 2 / 3 });
-	T4->setRefPoint({ RefPoint.x - config.Tree.trilen / 2,RefPoint.y - config.Tree.trihigh * 1 });
-	root->setRefPoint({ RefPoint.x,RefPoint.y + config.Tree.recthight / 2 });
-
-	draw();
-
 	size *= 2;
 	T1->setRefPoint({ RefPoint.x - int(config.Tree.trilen * size / 2),RefPoint.y });
 	T2->setRefPoint({ RefPoint.x - int(config.Tree.trilen * size / 2),RefPoint.y - int(config.Tree.trihigh * size * 1 / 3 )});
@@ -152,17 +124,6 @@ void Tree::ResizeDown() {
 	T2->ResizeDown();
 	T3->ResizeDown();
 	T4->ResizeDown();
-
-	config.Tree.recthight /= 2;
-	config.Tree.rectwdth /= 2;
-	config.Tree.trihigh /= 2;
-	config.Tree.trilen /= 2;
-	T1->setRefPoint({ RefPoint.x - config.Tree.trilen / 2,RefPoint.y });
-	T2->setRefPoint({ RefPoint.x - config.Tree.trilen / 2,RefPoint.y - config.Tree.trihigh * 1 / 3 });
-	T3->setRefPoint({ RefPoint.x - config.Tree.trilen / 2,RefPoint.y - config.Tree.trihigh * 2 / 3 });
-	T4->setRefPoint({ RefPoint.x - config.Tree.trilen / 2,RefPoint.y - config.Tree.trihigh * 1 });
-	root->setRefPoint({ RefPoint.x,RefPoint.y + config.Tree.recthight / 2 });
-	draw();
 
 	size /= 2;
 	T1->setRefPoint({ RefPoint.x - int(config.Tree.trilen * size / 2),RefPoint.y });
@@ -288,23 +249,11 @@ void Butterfly::ResizeUp(){
 	cir5->ResizeUp();
 	rect->ResizeUp();
 
-	config.Butterfly.circ1_rad *= 2;
-	config.Butterfly.circ2_rad *= 2;
-	config.Butterfly.circ3_rad *= 2;
-	config.Butterfly.rec_len *= 2;
-	config.Butterfly.rec_width *= 2;
-	cir1->setRefPoint({ RefPoint.x + config.Butterfly.circ1_rad - config.Butterfly.rec_width, RefPoint.y - config.Butterfly.rec_len / 4 });
-	cir4->setRefPoint({ RefPoint.x - config.Butterfly.circ1_rad + config.Butterfly.rec_width, RefPoint.y - config.Butterfly.rec_len / 4 });
-	cir2->setRefPoint({ RefPoint.x + config.Butterfly.circ1_rad - config.Butterfly.rec_width, RefPoint.y + config.Butterfly.rec_len / 4 });
-	cir5->setRefPoint({ RefPoint.x - config.Butterfly.circ1_rad + config.Butterfly.rec_width, RefPoint.y + config.Butterfly.rec_len / 4 });
-	cir3->setRefPoint({ RefPoint.x , RefPoint.y - config.Butterfly.rec_len / 2 });
-	draw();
-
 	size *= 2;
 	cir1->setRefPoint({ RefPoint.x + int((config.Butterfly.circ1_rad - config.Butterfly.rec_width) *size), RefPoint.y - int(config.Butterfly.rec_len * size / 4) });
-	cir4->setRefPoint({ RefPoint.x - int((config.Butterfly.circ1_rad + config.Butterfly.rec_width) * size), RefPoint.y - int(config.Butterfly.rec_len * size / 4) });
+	cir4->setRefPoint({ RefPoint.x - int((config.Butterfly.circ1_rad - config.Butterfly.rec_width) * size), RefPoint.y - int(config.Butterfly.rec_len * size / 4) });
 	cir2->setRefPoint({ RefPoint.x + int((config.Butterfly.circ1_rad - config.Butterfly.rec_width) * size), RefPoint.y + int(config.Butterfly.rec_len * size / 4) });
-	cir5->setRefPoint({ RefPoint.x - int((config.Butterfly.circ1_rad + config.Butterfly.rec_width) * size), RefPoint.y + int(config.Butterfly.rec_len * size / 4) });
+	cir5->setRefPoint({ RefPoint.x - int((config.Butterfly.circ1_rad - config.Butterfly.rec_width) * size), RefPoint.y + int(config.Butterfly.rec_len * size / 4) });
 	cir3->setRefPoint({ RefPoint.x , RefPoint.y - int(config.Butterfly.rec_len* size / 2) });
 
 }
@@ -315,23 +264,12 @@ void Butterfly::ResizeDown() {
 	cir4->ResizeDown();
 	cir5->ResizeDown();
 	rect->ResizeDown();
-	config.Butterfly.circ1_rad /= 2;
-	config.Butterfly.circ2_rad /= 2;
-	config.Butterfly.circ3_rad /= 2;
-	config.Butterfly.rec_len /= 2;
-	config.Butterfly.rec_width/= 2;
-	cir1->setRefPoint({ RefPoint.x + config.Butterfly.circ1_rad - config.Butterfly.rec_width, RefPoint.y - config.Butterfly.rec_len / 4 });
-	cir4->setRefPoint({ RefPoint.x - config.Butterfly.circ1_rad + config.Butterfly.rec_width, RefPoint.y - config.Butterfly.rec_len / 4 });
-	cir2->setRefPoint({ RefPoint.x + config.Butterfly.circ1_rad - config.Butterfly.rec_width, RefPoint.y + config.Butterfly.rec_len / 4 });
-	cir5->setRefPoint({ RefPoint.x - config.Butterfly.circ1_rad + config.Butterfly.rec_width, RefPoint.y + config.Butterfly.rec_len / 4 });
-	cir3->setRefPoint({ RefPoint.x , RefPoint.y - config.Butterfly.rec_len / 2 });
-	draw();
 
 	size /= 2;
 	cir1->setRefPoint({ RefPoint.x + int((config.Butterfly.circ1_rad - config.Butterfly.rec_width) * size), RefPoint.y - int(config.Butterfly.rec_len * size / 4) });
-	cir4->setRefPoint({ RefPoint.x - int((config.Butterfly.circ1_rad + config.Butterfly.rec_width) * size), RefPoint.y - int(config.Butterfly.rec_len * size / 4) });
+	cir4->setRefPoint({ RefPoint.x - int((config.Butterfly.circ1_rad - config.Butterfly.rec_width) * size), RefPoint.y - int(config.Butterfly.rec_len * size / 4) });
 	cir2->setRefPoint({ RefPoint.x + int((config.Butterfly.circ1_rad - config.Butterfly.rec_width) * size), RefPoint.y + int(config.Butterfly.rec_len * size / 4) });
-	cir5->setRefPoint({ RefPoint.x - int((config.Butterfly.circ1_rad + config.Butterfly.rec_width) * size), RefPoint.y + int(config.Butterfly.rec_len * size / 4) });
+	cir5->setRefPoint({ RefPoint.x - int((config.Butterfly.circ1_rad - config.Butterfly.rec_width) * size), RefPoint.y + int(config.Butterfly.rec_len * size / 4) });
 	cir3->setRefPoint({ RefPoint.x , RefPoint.y - int(config.Butterfly.rec_len * size / 2) });
 
 }
@@ -406,14 +344,6 @@ void Home::ResizeUp() {
 	Tri->ResizeUp();
 	base->ResizeUp();
 	top->ResizeUp();
-	config.Home.hght *= 2;
-	config.Home.hght2 *= 2;
-	config.Home.t_Len *= 2;
-	config.Home.wdth *= 2;
-	config.Home.wdth2 *= 2;
-	Tri->setRefPoint( {RefPoint.x - config.Home.wdth / 2,RefPoint.y - config.Home.hght / 2});
-	top->setRefPoint({ RefPoint.x - config.Home.wdth / 2,RefPoint.y - config.Home.hght / 2 });
-	draw();
 
 	size *= 2;
 	Tri->setRefPoint( {RefPoint.x - int(config.Home.wdth *size/ 2),RefPoint.y - int(config.Home.hght / 2 * size )});
@@ -424,14 +354,6 @@ void Home::ResizeDown() {
 	Tri->ResizeDown();
 	base->ResizeDown();
 	top->ResizeDown();
-	config.Home.hght /= 2;
-	config.Home.hght2 /= 2;
-	config.Home.t_Len /= 2;
-	config.Home.wdth /= 2;
-	config.Home.wdth2 /= 2;
-	Tri->setRefPoint({ RefPoint.x - config.Home.wdth / 2,RefPoint.y - config.Home.hght / 2 });
-	top->setRefPoint({ RefPoint.x - config.Home.wdth / 2,RefPoint.y - config.Home.hght / 2 });
-	draw();
 
 	size /= 2;
 	Tri->setRefPoint({ RefPoint.x - int(config.Home.wdth * size / 2),RefPoint.y - int(config.Home.hght / 2 * size) });
@@ -537,18 +459,6 @@ void Cat::ResizeUp() {
 	ear2->ResizeUp();
 	lFoot->ResizeUp();
 	rFoot->ResizeUp();
-	config.Cat.base *= 2;
-	config.Cat.hght *= 2;
-	config.Cat.len *= 2;
-	config.Cat.len1 *= 2;
-	config.Cat.len2 *= 2;
-	config.Cat.rad *= 2;
-	body->setRefPoint({ RefPoint.x - config.Cat.len1 / 2, RefPoint.y + int((config.Cat.hght) / 2 + (config.Cat.len1 * cos(3.14 / 3))) });
-	ear1->setRefPoint({ RefPoint.x - config.Cat.base / 2,RefPoint.y - config.Cat.hght / 2 });
-	ear2->setRefPoint({ RefPoint.x + config.Cat.base / 2 - config.Cat.len2,RefPoint.y - config.Cat.hght / 2 });
-	lFoot->setRefPoint({ RefPoint.x - config.Cat.len1 / 2 ,RefPoint.y + int((config.Cat.hght) / 2 + (config.Cat.len1 * cos(3.14 / 3))) });
-	rFoot->setRefPoint({ RefPoint.x + config.Cat.len1 / 2 ,RefPoint.y + int((config.Cat.hght) / 2 + (config.Cat.len1 * cos(3.14 / 3))) });
-	draw();
 
 	size *= 2;
 	body->setRefPoint({ RefPoint.x - int(config.Cat.len1 / 2 * size ), RefPoint.y + int(((config.Cat.hght) / 2 + (config.Cat.len1 * cos(3.14 / 3)) )* size) });
@@ -565,18 +475,6 @@ void Cat::ResizeDown() {
 	ear2->ResizeDown();
 	lFoot->ResizeDown();
 	rFoot->ResizeDown();
-	config.Cat.base /= 2;
-	config.Cat.hght /= 2;
-	config.Cat.len /= 2;
-	config.Cat.len1 /= 2;
-	config.Cat.len2 /= 2;
-	config.Cat.rad /= 2;
-	body->setRefPoint({ RefPoint.x - config.Cat.len1 / 2, RefPoint.y + int((config.Cat.hght) / 2 + (config.Cat.len1 * cos(3.14 / 3))) });
-	ear1->setRefPoint({ RefPoint.x - config.Cat.base / 2,RefPoint.y - config.Cat.hght / 2 });
-	ear2->setRefPoint({ RefPoint.x + config.Cat.base / 2 - config.Cat.len2,RefPoint.y - config.Cat.hght / 2 });
-	lFoot->setRefPoint({ RefPoint.x - config.Cat.len1 / 2 ,RefPoint.y + int((config.Cat.hght) / 2 + (config.Cat.len1 * cos(3.14 / 3))) });
-	rFoot->setRefPoint({ RefPoint.x + config.Cat.len1 / 2 ,RefPoint.y + int((config.Cat.hght) / 2 + (config.Cat.len1 * cos(3.14 / 3))) });
-	draw();
 
 	size /= 2;
 	body->setRefPoint({ RefPoint.x - int(config.Cat.len1 / 2 * size), RefPoint.y + int(((config.Cat.hght) / 2 + (config.Cat.len1 * cos(3.14 / 3))) * size) });
@@ -662,14 +560,6 @@ void car::ResizeUp() {
 	top->ResizeUp();
 	whl1->ResizeUp();
 	whl2->ResizeUp();
-	config.car.hght*=2;
-	config.car.len*=2;
-	config.car.len2*=2;
-	config.car.rad*=2;
-	top->setRefPoint({ RefPoint.x + config.car.len / 2,RefPoint.y - config.car.hght / 2 });
-	whl1->setRefPoint( { RefPoint.x + config.car.len / 2 - config.car.rad,RefPoint.y + config.car.hght / 2 + config.car.rad });
-	whl2->setRefPoint({ RefPoint.x - config.car.len / 2 + config.car.rad,RefPoint.y + config.car.hght / 2 + config.car.rad });
-	draw();
 
 	size *=2;
 	top->setRefPoint({ RefPoint.x + int(config.car.len / 2 *size),RefPoint.y - config.car.hght / 2 });
@@ -682,14 +572,6 @@ void car::ResizeDown() {
 	top->ResizeDown();
 	whl1->ResizeDown();
 	whl2->ResizeDown();
-	config.car.hght/=2;
-	config.car.len/=2;
-	config.car.len2/=2;
-	config.car.rad/=2;
-	top->setRefPoint({ RefPoint.x + config.car.len / 2,RefPoint.y - config.car.hght / 2 });
-	whl1->setRefPoint({ RefPoint.x + config.car.len / 2 - config.car.rad,RefPoint.y + config.car.hght / 2 + config.car.rad });
-	whl2->setRefPoint({ RefPoint.x - config.car.len / 2 + config.car.rad,RefPoint.y + config.car.hght / 2 + config.car.rad });
-	draw();
 
 	size /= 2;
 	top->setRefPoint({ RefPoint.x + int(config.car.len / 2 * size),RefPoint.y - config.car.hght / 2 });
