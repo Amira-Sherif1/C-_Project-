@@ -14,8 +14,8 @@ Rect::Rect(game* r_pGame, point ref, int r_hght, int r_wdth):shape(r_pGame,ref)
 void Rect::draw() const
 {
 	window* pW = pGame->getWind();	//get interface window
-	pW->SetPen(config.penColor, config.penWidth);
-	pW->SetBrush(config.fillColor);
+	//pW->SetPen(config.penColor, config.penWidth);
+	//pW->SetBrush(config.fillColor);
 	point upperLeft, lowerBottom;
 	upperLeft.x = RefPoint.x - wdth / 2;
 	upperLeft.y = RefPoint.y - hght / 2;
@@ -76,8 +76,8 @@ circle::circle(game* r_pGame, point ref, int r):shape(r_pGame,ref)
 void circle::draw() const
 {
 	window* pW = pGame->getWind();	//get interface window
-	pW->SetPen(borderColor, config.penWidth);
-	pW->SetBrush(fillColor);
+	//pW->SetPen(borderColor, config.penWidth);
+	//pW->SetBrush(fillColor);
 	pW->DrawCircle(RefPoint.x, RefPoint.y, rad, FILLED);
 }
 void circle::ResizeUp() {
@@ -119,8 +119,8 @@ Triangle::Triangle(game* r_pgame,int len, point ref) : shape(r_pgame, ref) {
 
 void Triangle::draw()const {
 	window* pW = pGame->getWind();
-	pW->SetPen(config.penColor, config.penWidth);
-	pW->SetBrush(config.fillColor);
+	//pW->SetPen(config.penColor, config.penWidth);
+	//pW->SetBrush(config.fillColor);
 	point p1, p2, p3;
 	p1.x = RefPoint.x;
 	p1.y = RefPoint.y;

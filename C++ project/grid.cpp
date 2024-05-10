@@ -41,8 +41,22 @@ void grid::draw() const
 
 	//Draw ALL shapes
 	for (int i = 0; i < shapeCount; i++) {
-		if (shapeList[i])
-			shapeList[i]->draw();	//draw each shape
+		if (pGame->getlevel() < 3) {
+			pWind->SetPen(getcolor(i), config.penWidth);
+			pWind->SetBrush(getcolor(i));
+			if (shapeList[i])
+				shapeList[i]->draw();
+		}
+
+		else {
+			pWind->SetPen(config.fillColor, config.penWidth);
+			pWind->SetBrush(config.fillColor);
+			if (shapeList[i])
+				shapeList[i]->draw();	//draw each shape
+		}
+		pWind->SetPen(config.fillColor, config.penWidth);
+		pWind->SetBrush(config.fillColor);
+		
 	}
 		
 
@@ -104,15 +118,11 @@ void grid::randomshape(shape* randshape , int size) {
 
 void grid::Random_Shapes_Generator() {
 
+	window* pwind = pGame->getWind();
 
 	toolbarItem clickedItem = ITM_CNT;
 
 	srand(time(0));
-
-	//shape* add = nullptr;
-	//Shapes = new shape * [2 * getlevel() - 1];
-	//int count = 0;
-
 
 	for (int j = 0; j < 2 * pGame-> getlevel() - 1; j++) {
 
@@ -125,64 +135,68 @@ void grid::Random_Shapes_Generator() {
 		int sh = rand() % (5 + 1);   // choose a random shape from the enum
 
 
-
+		
+			
 		switch (shapes(sh)) {
-		case sign: {
+			case sign: 
+
+				shapeList[j] = new Sign(pGame, ref);
+				shapeCount++;
+				//randomshape(shapeList[j], size);
+
 			
-			shapeList[j] = new Sign(pGame, ref);
-			shapeCount++;
-			//randomshape(shapeList[j], size);
+				break;
 
+			case tree:
+
+				shapeList[j] = new Tree(pGame, ref);
+				shapeCount++;
+				//randomshape(shapeList[j], size);
+
+				break;
+			/*case boat:
+					shapeList[j] = new Boot(pGame, ref);
+					shapeCount++;
+					randomshape(shapeList[j], size);
+
+				break;*/
+			case butter:
+
+				shapeList[j] = new Butterfly(pGame, ref);
+				shapeCount++;
+				//randomshape(shapeList[j], size);
+				break;
+
+			case home:
+
+				shapeList[j] = new Home(pGame, ref);
+				shapeCount++;
+				//randomshape(shapeList[j], size);
+				break;
+
+			case cat:
+
+				shapeList[j] = new Cat(pGame, ref);
+				shapeCount++;
+				//randomshape(shapeList[j], size);
+				break;
+
+			case Car:
+
+				shapeList[j] = new car(pGame, ref);
+				shapeCount++;
+				//randomshape(shapeList[j], size);
+
+				break;
+
+			}
 		}
-		break;
-
-		case tree:
-
-			shapeList[j] = new Tree(pGame, ref);
-			shapeCount++;
-			//randomshape(shapeList[j], size);
-
-		break;
-		/*case boat:
-			shapeList[j] = new Boot(pGame, ref);
-			shapeCount++;
-			randomshape(shapeList[j], size);
-				
-		break;*/
-		case butter:
-
-			shapeList[j] = new Butterfly(pGame, ref);
-			shapeCount++;
-			//randomshape(shapeList[j], size);
-		break;
-
-		case home:
-
-			shapeList[j] = new Home(pGame, ref);
-			shapeCount++;
-			//randomshape(shapeList[j], size);
-		break;
-
-		case cat:
-
-			shapeList[j] = new Cat(pGame, ref);
-			shapeCount++;
-			//randomshape(shapeList[j], size);
-		break;
-
-		case Car:
-
-			shapeList[j] = new car(pGame, ref);
-			shapeCount++;
-			//randomshape(shapeList[j], size);
 			
-		break;
 
-		}
-
-	}
-
-
-
-	//add = nullptr;
+	
+}
+color grid::getcolor(int x)const {
+	
+	color arry[]= { RED, DARKGREEN, MEDIUMPURPLE, CORNFLOWERBLUE, ORANGE};
+	return arry[x];
 }

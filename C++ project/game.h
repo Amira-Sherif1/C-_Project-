@@ -18,7 +18,7 @@ class game
 	
 	window* pWind;	//Pointer to the CMU graphics window
 	grid* shapesGrid;
-	int level=3;
+	int level = 2 ;
 
 public:
 	game();

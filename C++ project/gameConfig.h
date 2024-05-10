@@ -20,8 +20,8 @@ struct
 	int gridHeight = int(remainingHeight * (2 / 3.0)); 		//The grid is where bricks can be drawn
 
 	//Default colors
-	color	penColor = DARKGREEN,			//color used to draw borders/write messages
-			fillColor = DARKGREEN,			//shapes fill color (Default)
+	color	penColor = BLACK,			//color used to draw borders/write messages
+			fillColor = BLACK,			//shapes fill color (Default)
 			bkGrndColor= LAVENDER,		//Screen Background color
 			statusBarColor = LIGHTSEAGREEN;	//background color of the status
 	int penWidth=3;			//width of the pen that draws shapes

@@ -31,5 +31,6 @@ public:
 	shape* getactiveshap()const;
 	void Random_Shapes_Generator();
 	void randomshape(shape* ranshape , int size);
+	color getcolor(int x)const;
 };
 
