@@ -1,42 +1,4 @@
 ﻿cl : command line  warning D9035: option 'Gm' has been deprecated and will be removed in a future release
-  operations.cpp
-C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\gameConfig.h(35,23): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'operations.cpp')
-  
-C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\gameConfig.h(36,24): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'operations.cpp')
-  
-C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\gameConfig.h(48,23): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'operations.cpp')
-  
-C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\gameConfig.h(55,28): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'operations.cpp')
-  
-C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\gameConfig.h(57,28): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'operations.cpp')
-  
-C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\gameConfig.h(71,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'operations.cpp')
-  
-  game.cpp
-C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\gameConfig.h(35,23): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'game.cpp')
-  
-C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\gameConfig.h(36,24): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'game.cpp')
-  
-C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\gameConfig.h(48,23): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'game.cpp')
-  
-C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\gameConfig.h(55,28): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'game.cpp')
-  
-C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\gameConfig.h(57,28): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'game.cpp')
-  
-C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\gameConfig.h(71,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'game.cpp')
-  
   CompositeShapes.cpp
 C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\gameConfig.h(35,23): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
   (compiling source file 'CompositeShapes.cpp')
@@ -66,7 +28,4 @@ C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project
 C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\CompositeShapes.cpp(532,53): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
 C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\CompositeShapes.cpp(533,53): warning C4838: conversion from 'double' to 'int' requires a narrowing conversion
 C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\CompositeShapes.cpp(533,53): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  Generating Code...
-BasicShapes.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
-operations.obj : error LNK2019: unresolved external symbol "public: __thiscall Boat::Boat(class game *,struct point)" (??0Boat@@QAE@PAVgame@@Upoint@@@Z) referenced in function "public: virtual void __thiscall operAddBoat::Act(void)" (?Act@operAddBoat@@UAEXXZ)
-.\Debug\CIE202-project.exe : fatal error LNK1120: 1 unresolved externals
+  CIE202-project.vcxproj -> C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\Debug\CIE202-project.exe

@@ -666,7 +666,7 @@ void Cat::VerticalFlip() {
 car::car(game* r_pGame, point ref) :shape(r_pGame, ref)
 {
 	point rectRef = ref;
-	point triRef = { ref.x + config.car.len / 2,ref.y - config.car.hght / 2 };
+	point triRef = { ref.x + config.car.len / 2 - config.car.len2 ,ref.y - config.car.hght / 2 };
 	point cir1 = { ref.x + config.car.len / 2 - config.car.rad,ref.y + config.car.hght / 2 + config.car.rad };
 	point cir2 = { ref.x - config.car.len / 2 + config.car.rad,ref.y + config.car.hght / 2 + config.car.rad };
 	body = new Rect(r_pGame, rectRef, config.car.hght, config.car.len);
@@ -687,7 +687,7 @@ void car::draw() const
 	whl2->draw();
 }
 void car::ResizeUp() {
-	if (size >= 2)
+	if (size >= 4)
 		return;
 
 	body->ResizeUp();
@@ -696,9 +696,9 @@ void car::ResizeUp() {
 	whl2->ResizeUp();
 
 	size *=2;
-	top->setRefPoint({ RefPoint.x + int(config.car.len / 2 *size),RefPoint.y - config.car.hght / 2 });
-	whl1->setRefPoint( { RefPoint.x + int((config.car.len / 2 * size - config.car.rad) * size),RefPoint.y + int((config.car.hght / 2 + config.car.rad) * size) });
-	whl2->setRefPoint({ RefPoint.x -int((config.car.len / 2 * size + config.car.rad) * size),RefPoint.y + int((config.car.hght / 2 + config.car.rad ) * size )});
+	top->setRefPoint({ RefPoint.x + int((config.car.len / 2 -config.car.len2)*size),RefPoint.y - int((config.car.hght / 2) *size )});
+	whl1->setRefPoint( { RefPoint.x + int((config.car.len / 2  - config.car.rad) * size),RefPoint.y + int((config.car.hght / 2 + config.car.rad) * size) });
+	whl2->setRefPoint({ RefPoint.x - int((config.car.len / 2 - config.car.rad) * size),RefPoint.y + int((config.car.hght / 2 + config.car.rad ) * size )});
 
 	draw();
 }
@@ -709,9 +709,9 @@ void car::ResizeDown() {
 	whl2->ResizeDown();
 
 	size /= 2;
-	top->setRefPoint({ RefPoint.x + int(config.car.len / 2 * size),RefPoint.y - config.car.hght / 2 });
-	whl1->setRefPoint({ RefPoint.x + int((config.car.len / 2 * size - config.car.rad) * size),RefPoint.y + int((config.car.hght / 2 + config.car.rad) * size) });
-	whl2->setRefPoint({ RefPoint.x - int((config.car.len / 2 * size + config.car.rad) * size),RefPoint.y + int((config.car.hght / 2 + config.car.rad) * size) });
+	top->setRefPoint({ RefPoint.x + int((config.car.len / 2 - config.car.len2) * size),RefPoint.y - int((config.car.hght / 2) * size) });
+	whl1->setRefPoint({ RefPoint.x + int((config.car.len / 2 - config.car.rad) * size),RefPoint.y + int((config.car.hght / 2 + config.car.rad) * size) });
+	whl2->setRefPoint({ RefPoint.x - int((config.car.len / 2 - config.car.rad) * size),RefPoint.y + int((config.car.hght / 2 + config.car.rad) * size) });
 
 	draw();
 }

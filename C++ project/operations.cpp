@@ -53,23 +53,23 @@ void operAddTree::Act() {
 	pGrid->setActiveShape(ptr);
 
 }
-
-//Boat
-operAddBoat::operAddBoat(game* r_pGame) : operation(r_pGame){
-}
-void operAddBoat::Act() {
-	window* pw = pGame->getWind();
-
-	int xGrid = config.RefX - config.RefX % config.gridSpacing;
-	int yGrid = config.RefY - config.RefY % config.gridSpacing;
-
-	point BoatShapeRef = { xGrid , yGrid };
-
-	shape* pbt = new Boat(pGame, BoatShapeRef);
-
-	grid* pGrid = pGame->getGrid();
-	pGrid->setActiveShape(pbt);
-}
+//
+////Boat
+//operAddBoat::operAddBoat(game* r_pGame) : operation(r_pGame){
+//}
+//void operAddBoat::Act() {
+//	window* pw = pGame->getWind();
+//
+//	int xGrid = config.RefX - config.RefX % config.gridSpacing;
+//	int yGrid = config.RefY - config.RefY % config.gridSpacing;
+//
+//	point BoatShapeRef = { xGrid , yGrid };
+//
+//	shape* pbt = new Boat(pGame, BoatShapeRef);
+//
+//	grid* pGrid = pGame->getGrid();
+//	pGrid->setActiveShape(pbt);
+//}
 
 operAddButterfly::operAddButterfly(game* p_Game) : operation(p_Game)
 {
