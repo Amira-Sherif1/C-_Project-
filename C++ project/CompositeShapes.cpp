@@ -24,6 +24,9 @@ void Sign::draw() const
 }
 
 void Sign::ResizeUp() {
+	if (size >= 2)
+		return;
+
 	top->ResizeUp();
 	base->ResizeUp();
 	size *= 2;
@@ -121,6 +124,9 @@ void Tree::draw() const
 	root->draw();
 }
 void Tree::ResizeUp(){
+	if (size >= 2)
+		return;
+
 	root->ResizeUp();
 	T1->ResizeUp();
 	T2->ResizeUp();
@@ -281,6 +287,8 @@ void Butterfly::draw() const{
 	rect->draw();
 }
 void Butterfly::ResizeUp(){
+	if (size >= 2)
+		return ;
 	cir1->ResizeUp();
 	cir2->ResizeUp();
 	cir3->ResizeUp();
@@ -408,6 +416,9 @@ void Home::draw() const
 
 
 void Home::ResizeUp() {
+	if (size >= 2)
+		return;
+
 	Tri->ResizeUp();
 	base->ResizeUp();
 	top->ResizeUp();
@@ -535,6 +546,9 @@ void Cat::draw() const
 	rFoot->draw();
 }
 void Cat::ResizeUp() {
+	if (size >= 2)
+		return;
+
 	body->ResizeUp();
 	face->ResizeUp();
 	ear1->ResizeUp();
@@ -663,6 +677,9 @@ void car::draw() const
 	whl2->draw();
 }
 void car::ResizeUp() {
+	if (size >= 2)
+		return;
+
 	body->ResizeUp();
 	top->ResizeUp();
 	whl1->ResizeUp();
