@@ -44,30 +44,47 @@ void Sign::ResizeDown(){
 void Sign::move(char step) {
 	grid* pGrid = pGame->getGrid();
 
+	int y1 = config.toolBarHeight + config.wy + config.sighShape.topHeight;
+	int y2 = config.wy + config.windHeight - config.statusBarHeight - config.sighShape.baseHeight - config.statusBarHeight - .5*config.sighShape.topHeight;
+	int x1 = config.wx + config.sighShape.topWdth;
+	int x2 = config.wx + config.windWidth - config.sighShape.topWdth;
 	
-	if (step == 8)
+
+	if (step == 8&& (RefPoint.y > y1))
 	{
 		RefPoint.y = RefPoint.y - config.gridSpacing;
+		pGrid->deleteShape();
+		base->move(step);
+		top->move(step);
+		draw();
+
 	}
-	else if (step==2)
+	else if (step==2 && RefPoint.y < y2)
 	{
 		RefPoint.y = RefPoint.y + config.gridSpacing;
-	}
-	else if (step==6)
-	{
-		RefPoint.x = RefPoint.x + config.gridSpacing;
-	}
-	else if (step==4)
-	{
-		RefPoint.x = RefPoint.x - config.gridSpacing;
-	}
-	if (RefPoint.y > 180 && RefPoint.y < 480 && RefPoint.x > 100 && RefPoint.x < 1220){
 		pGrid->deleteShape();
 		base->move(step);
 		top->move(step);
 		draw();
 	}
-	
+	else if (step==6 && RefPoint.x < x2 )
+	{
+		RefPoint.x = RefPoint.x + config.gridSpacing;
+		pGrid->deleteShape();
+		base->move(step);
+		top->move(step);
+		draw();
+	}
+	else if (step==4 && RefPoint.x > x1)
+	{
+		RefPoint.x = RefPoint.x - config.gridSpacing;
+		pGrid->deleteShape();
+		base->move(step);
+		top->move(step);
+		draw();
+	}
+
+
 }
 void Sign::VerticalFlip() {
 	base->setRefPoint( { RefPoint.x, RefPoint.y -( config.sighShape.topHeight / 2 + config.sighShape.baseHeight / 2 )});
@@ -136,37 +153,59 @@ void Tree::ResizeDown() {
 
 void Tree::move(char step) {
 	grid* pGrid = pGame->getGrid();
+	int x1 = config.wx +.75*config.Tree.trilen;
+	int x2 = config.wx + config.wx + config.windWidth - config.Tree.trilen;
+	int y1 = config.wy + config.toolBarHeight + 2.5*config.Tree.trihigh;
+	int y2 = config.wy + config.windHeight - config.statusBarHeight - 2* config.Tree.recthight;
 		
-		if (step == 8)  //up
+		if (step == 8 && RefPoint.y > y1)  //up
 		{
 			RefPoint.y = RefPoint.y - config.gridSpacing;
+			pGrid->deleteShape();
+			T1->move(step);
+			T2->move(step);
+			T3->move(step);
+			T4->move(step);
+			root->move(step);
+
+			draw();
 		}
-		else if (step == 2)   //down
+		else if (step == 2&&RefPoint.y < y2)   //down
 		{
 			RefPoint.y = RefPoint.y + config.gridSpacing;
+			pGrid->deleteShape();
+			T1->move(step);
+			T2->move(step);
+			T3->move(step);
+			T4->move(step);
+			root->move(step);
+
+			draw();
 		}
-		else if (step == 6 )  // right
+		else if (step == 6 && RefPoint.x < x2)  // right
 		{
 			RefPoint.x = RefPoint.x + config.gridSpacing;
+			pGrid->deleteShape();
+			T1->move(step);
+			T2->move(step);
+			T3->move(step);
+			T4->move(step);
+			root->move(step);
+
+			draw();
 		}
-		else if (step == 4 )      //left
+		else if (step == 4 && RefPoint.x > x1)      //left
 		{
 			RefPoint.x = RefPoint.x - config.gridSpacing;
+			pGrid->deleteShape();
+			T1->move(step);
+			T2->move(step);
+			T3->move(step);
+			T4->move(step);
+			root->move(step);
+
+			draw();
 		}
-	if (RefPoint.y > 180 && RefPoint.y < 500 && RefPoint.x > 100 && RefPoint.x < 1220)
-		{
-		pGrid->deleteShape();
-		T1->move(step);
-		T2->move(step);
-		T3->move(step);
-		T4->move(step);
-		root->move(step);
-
-		draw();
-	}
-
-	
-	
 }
 
 void Tree::VerticalFlip() {
@@ -275,24 +314,14 @@ void Butterfly::ResizeDown() {
 }
 void Butterfly::move(char step) {
 	grid* pGrid = pGame->getGrid();
+	int x1 = config.wx + 2*config.Butterfly.circ1_rad;
+	int x2 = config.wx + config.windWidth - 2.5* config.Butterfly.circ1_rad;
+	int y1 = config.wy + config.toolBarHeight + 2 * config.Butterfly.circ1_rad;
+	int y2 = config.wy + config.windHeight - config.statusBarHeight - 2 * config.Butterfly.circ1_rad;
 
-	if (step == 8  )
+	if (step == 8 && RefPoint.y>y1)
 	{
 		RefPoint.y = RefPoint.y - config.gridSpacing;
-	}
-	else if (step==2)
-	{
-		RefPoint.y = RefPoint.y + config.gridSpacing;
-	}
-	else if (step==6)
-	{
-		RefPoint.x = RefPoint.x + config.gridSpacing;
-	}
-	else if (step == 4 )
-	{
-		RefPoint.x = RefPoint.x - config.gridSpacing;
-	}
-	if (RefPoint.y > 150 && RefPoint.y < 445 && RefPoint.x > 110 && RefPoint.x < 1200) {
 		pGrid->deleteShape();
 		cir2->move(step);
 		cir5->move(step);
@@ -302,7 +331,45 @@ void Butterfly::move(char step) {
 		rect->move(step);
 		draw();
 	}
+	else if (step==2 && RefPoint.y <y2)
+	{
+		RefPoint.y = RefPoint.y + config.gridSpacing;
+		pGrid->deleteShape();
+		cir2->move(step);
+		cir5->move(step);
+		cir1->move(step);
+		cir4->move(step);
+		cir3->move(step);
+		rect->move(step);
+		draw();
+	}
+	else if (step==6 && RefPoint.x < x2)
+	{
+		RefPoint.x = RefPoint.x + config.gridSpacing;
+		pGrid->deleteShape();
+		cir2->move(step);
+		cir5->move(step);
+		cir1->move(step);
+		cir4->move(step);
+		cir3->move(step);
+		rect->move(step);
+		draw();
+	}
+	else if (step == 4 && RefPoint.x > x1)
+	{
+		RefPoint.x = RefPoint.x - config.gridSpacing;
+		pGrid->deleteShape();
+		cir2->move(step);
+		cir5->move(step);
+		cir1->move(step);
+		cir4->move(step);
+		cir3->move(step);
+		rect->move(step);
+		draw();
+	}
+	
 }
+
 void Butterfly::VerticalFlip() {
 	cir1->setRefPoint({ RefPoint.x + config.Butterfly.circ1_rad - config.Butterfly.rec_width, RefPoint.y - config.Butterfly.rec_len / 4 });
 	cir4->setRefPoint({ RefPoint.x - config.Butterfly.circ1_rad + config.Butterfly.rec_width, RefPoint.y + config.Butterfly.rec_len / 4 });
@@ -363,33 +430,48 @@ void Home::ResizeDown() {
 
 void Home::move(char step) {
 	grid* pGrid = pGame->getGrid();
+	int x1 = config.wx + config.Home.t_Len;
+	int x2 = config.wx + config.windWidth - config.Home.t_Len;
+	int y1 = config.wy + config.toolBarHeight + 2 * config.Home.hght;
+	int y2 = config.wy + config.windHeight - config.statusBarHeight - 2*config.Home.hght;
 
-	if (step == 8)
+	if (step == 8 && RefPoint.y > y1)
 	{
 		RefPoint.y = RefPoint.y - config.gridSpacing;
-	}
-	else if (step==2)
-	{
-		RefPoint.y = RefPoint.y + config.gridSpacing;
-	}
-	else if (step==6)
-	{
-		RefPoint.x = RefPoint.x + config.gridSpacing;
-	}
-	else if (step==4)
-	{
-		RefPoint.x = RefPoint.x - config.gridSpacing;
-	}
-if (RefPoint.y > 152 && RefPoint.y < 445 && RefPoint.x > 110 && RefPoint.x < 1200){
-		
-	pGrid->deleteShape();
+		pGrid->deleteShape();
 		top->move(step);
 		base->move(step);
 		Tri->move(step);
 		draw();
+	}
+	else if (step==2&& RefPoint.y < y2)
+	{
+		RefPoint.y = RefPoint.y + config.gridSpacing;
+		pGrid->deleteShape();
+		top->move(step);
+		base->move(step);
+		Tri->move(step);
+		draw();
+	}
+	else if (step==6 && RefPoint.x <x2)
+	{
+		RefPoint.x = RefPoint.x + config.gridSpacing;
+		pGrid->deleteShape();
+		top->move(step);
+		base->move(step);
+		Tri->move(step);
+		draw();
+	}
+	else if (step==4 && RefPoint.x > x1)
+	{
+		RefPoint.x = RefPoint.x - config.gridSpacing;
+		pGrid->deleteShape();
+		top->move(step);
+		base->move(step);
+		Tri->move(step);
+		draw();
+	}
 
-}
-	
 }
 void Home::VerticalFlip() {
 	Tri->setRefPoint({ RefPoint.x - config.Home.wdth / 2,RefPoint.y + config.Home.hght / 2 });
@@ -486,24 +568,13 @@ void Cat::ResizeDown() {
 }
 void Cat::move(char step) {
 	grid* pGrid = pGame->getGrid();
-	
-		if (step == 8 )
+	int x1 = config.wx + config.Cat.len1;
+	int x2 = config.wx + config.windWidth - config.Cat.len1;
+	int y1 = config.wy + config.toolBarHeight + config.Cat.hght +config.Cat.len;
+	int y2 = config.wy + config.windHeight - config.statusBarHeight - config.Cat.hght;
+		if (step == 8 && RefPoint.y > y1)
 		{
 			RefPoint.y = RefPoint.y - config.gridSpacing;
-		}
-		else if (step == 2 )
-		{
-			RefPoint.y = RefPoint.y + config.gridSpacing;
-		}
-		else if (step == 6 )
-		{
-			RefPoint.x = RefPoint.x + config.gridSpacing;
-		}
-		else if (step == 4 )
-		{
-			RefPoint.x = RefPoint.x - config.gridSpacing;
-		}
-	if (RefPoint.y > 152 && RefPoint.y < 445 && RefPoint.x > 110 && RefPoint.x < 1200) {
 			pGrid->deleteShape();
 			body->move(step);
 			face->move(step);
@@ -512,7 +583,43 @@ void Cat::move(char step) {
 			lFoot->move(step);
 			rFoot->move(step);
 			draw();
-	}
+		}
+		else if (step == 2&& RefPoint.y < y2)
+		{
+			RefPoint.y = RefPoint.y + config.gridSpacing;
+			pGrid->deleteShape();
+			body->move(step);
+			face->move(step);
+			ear1->move(step);
+			ear2->move(step);
+			lFoot->move(step);
+			rFoot->move(step);
+			draw();
+		}
+		else if (step == 6 && RefPoint.x < x2)
+		{
+			RefPoint.x = RefPoint.x + config.gridSpacing;
+			pGrid->deleteShape();
+			body->move(step);
+			face->move(step);
+			ear1->move(step);
+			ear2->move(step);
+			lFoot->move(step);
+			rFoot->move(step);
+			draw();
+		}
+		else if (step == 4&&RefPoint.x >x1 )
+		{
+			RefPoint.x = RefPoint.x - config.gridSpacing;
+			pGrid->deleteShape();
+			body->move(step);
+			face->move(step);
+			ear1->move(step);
+			ear2->move(step);
+			lFoot->move(step);
+			rFoot->move(step);
+			draw();
+		}
 	
 
 }
@@ -582,25 +689,45 @@ void car::ResizeDown() {
 void car::move(char step){
 
 	grid* pGrid = pGame->getGrid();
+	int x1 = config.wx + config.car.len;
+	int x2 = config.wx + config.windWidth - config.car.len;
+	int y1 = config.wy + config.toolBarHeight + config.car.hght + config.car.len2;
+	int y2 = config.wy + config.windHeight - config.statusBarHeight - config.car.rad- config.car.hght;
 	
 
-	if (step == 8 )
+	if (step == 8 && RefPoint.y > y1)
 	{
 		RefPoint.y = RefPoint.y - config.gridSpacing;
+		pGrid->deleteShape();
+		body->move(step);
+		top->move(step);
+		whl1->move(step);
+		whl2->move(step);
+		draw();
 	}
-	else if (step == 2 )
+	else if (step == 2 && RefPoint.y < y2)
 	{
 		RefPoint.y = RefPoint.y + config.gridSpacing;
+		pGrid->deleteShape();
+		body->move(step);
+		top->move(step);
+		whl1->move(step);
+		whl2->move(step);
+		draw();
 	}
-	else if (step == 6 )
+	else if (step == 6 && RefPoint.x < x2)
 	{
 		RefPoint.x = RefPoint.x + config.gridSpacing;
+		pGrid->deleteShape();
+		body->move(step);
+		top->move(step);
+		whl1->move(step);
+		whl2->move(step);
+		draw();
 	}
-	else if (step == 4 )
+	else if (step == 4 && RefPoint.x > x1)
 	{
 		RefPoint.x = RefPoint.x - config.gridSpacing;
-	}
-	if (RefPoint.y > 152 && RefPoint.y < 445 && RefPoint.x > 110 && RefPoint.x < 1200) {
 		pGrid->deleteShape();
 		body->move(step);
 		top->move(step);
