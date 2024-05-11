@@ -49,10 +49,10 @@ void Sign::ResizeDown(){
 void Sign::move(char step) {
 	grid* pGrid = pGame->getGrid();
 
-	int y1 = config.toolBarHeight + config.wy + config.sighShape.topHeight;
-	int y2 = config.wy + config.windHeight - config.statusBarHeight - config.sighShape.baseHeight - config.statusBarHeight - .5*config.sighShape.topHeight;
-	int x1 = config.wx + config.sighShape.topWdth;
-	int x2 = config.wx + config.windWidth - config.sighShape.topWdth;
+	int y1 = config.toolBarHeight + config.wy + top->gethght();
+	int y2 = config.wy + config.windHeight - config.statusBarHeight - base->gethght() - config.statusBarHeight - .5 *top->gethght();
+	int x1 = config.wx + top->getwdth();
+	int x2 = config.wx + config.windWidth - top->getwdth();
 	
 
 	if (step == 8&& (RefPoint.y > y1))
@@ -134,7 +134,7 @@ void Tree::ResizeUp(){
 	T2->ResizeUp();
 	T3->ResizeUp();
 	T4->ResizeUp();
-
+	draw();
 	size *= 2;
 	T1->setRefPoint({ RefPoint.x - int(config.Tree.trilen * size / 2),RefPoint.y });
 	T2->setRefPoint({ RefPoint.x - int(config.Tree.trilen * size / 2),RefPoint.y - int(config.Tree.trihigh * size * 1 / 3 )});
@@ -163,10 +163,10 @@ void Tree::ResizeDown() {
 
 void Tree::move(char step) {
 	grid* pGrid = pGame->getGrid();
-	int x1 = config.wx +.75*config.Tree.trilen;
-	int x2 = config.wx + config.wx + config.windWidth - config.Tree.trilen;
-	int y1 = config.wy + config.toolBarHeight + 2.5*config.Tree.trihigh;
-	int y2 = config.wy + config.windHeight - config.statusBarHeight - 2* config.Tree.recthight;
+	int x1 = config.wx +.75*T1->getlength();
+	int x2 = config.wx + config.wx + config.windWidth - T1->getlength();
+	int y1 = config.wy + config.toolBarHeight + 2.5*T1->gethight();
+	int y2 = config.wy + config.windHeight - config.statusBarHeight - 2* root->gethght();
 		
 		if (step == 8 && RefPoint.y > y1)  //up
 		{
@@ -328,10 +328,10 @@ void Butterfly::ResizeDown() {
 }
 void Butterfly::move(char step) {
 	grid* pGrid = pGame->getGrid();
-	int x1 = config.wx + 2*config.Butterfly.circ1_rad;
-	int x2 = config.wx + config.windWidth - 2.5* config.Butterfly.circ1_rad;
-	int y1 = config.wy + config.toolBarHeight + 2 * config.Butterfly.circ1_rad;
-	int y2 = config.wy + config.windHeight - config.statusBarHeight - 2 * config.Butterfly.circ1_rad;
+	int x1 = config.wx + 2*cir1->getrad();
+	int x2 = config.wx + config.windWidth - 2.5* cir1->getrad();
+	int y1 = config.wy + config.toolBarHeight + 2 * cir1->getrad();
+	int y2 = config.wy + config.windHeight - config.statusBarHeight - 2 * cir1->getrad();
 
 	if (step == 8 && RefPoint.y>y1)
 	{
@@ -449,10 +449,10 @@ void Home::ResizeDown() {
 
 void Home::move(char step) {
 	grid* pGrid = pGame->getGrid();
-	int x1 = config.wx + config.Home.t_Len;
-	int x2 = config.wx + config.windWidth - config.Home.t_Len;
-	int y1 = config.wy + config.toolBarHeight + 2 * config.Home.hght;
-	int y2 = config.wy + config.windHeight - config.statusBarHeight - 2*config.Home.hght;
+	int x1 = config.wx + Tri->getlength();
+	int x2 = config.wx + config.windWidth - Tri->getlength();
+	int y1 = config.wy + config.toolBarHeight + 2 * base->gethght();
+	int y2 = config.wy + config.windHeight - config.statusBarHeight - 2* base->gethght();
 
 	if (step == 8 && RefPoint.y > y1)
 	{
@@ -563,7 +563,7 @@ void Cat::ResizeUp() {
 	ear2->ResizeUp();
 	lFoot->ResizeUp();
 	rFoot->ResizeUp();
-
+	draw();
 	size *= 2;
 	body->setRefPoint({ RefPoint.x - int(config.Cat.len1 / 2 * size ), RefPoint.y + int(((config.Cat.hght) / 2 + (config.Cat.len1 * cos(3.14 / 3)) )* size) });
 	ear1->setRefPoint({ RefPoint.x - int(config.Cat.base / 2 * size ),RefPoint.y - int(config.Cat.hght / 2 * size )});
@@ -592,10 +592,10 @@ void Cat::ResizeDown() {
 }
 void Cat::move(char step) {
 	grid* pGrid = pGame->getGrid();
-	int x1 = config.wx + config.Cat.len1;
-	int x2 = config.wx + config.windWidth - config.Cat.len1;
-	int y1 = config.wy + config.toolBarHeight + config.Cat.hght +config.Cat.len;
-	int y2 = config.wy + config.windHeight - config.statusBarHeight - config.Cat.hght;
+	int x1 = config.wx + body->getlength();
+	int x2 = config.wx + config.windWidth - body->getlength();
+	int y1 = config.wy + config.toolBarHeight + face->gethght() + body->gethight();
+	int y2 = config.wy + config.windHeight - config.statusBarHeight - body->gethight();
 		if (step == 8 && RefPoint.y > y1)
 		{
 			RefPoint.y = RefPoint.y - config.gridSpacing;
@@ -718,10 +718,10 @@ void car::ResizeDown() {
 void car::move(char step){
 
 	grid* pGrid = pGame->getGrid();
-	int x1 = config.wx + config.car.len;
-	int x2 = config.wx + config.windWidth - config.car.len;
-	int y1 = config.wy + config.toolBarHeight + config.car.hght + config.car.len2;
-	int y2 = config.wy + config.windHeight - config.statusBarHeight - config.car.rad- config.car.hght;
+	int x1 = config.wx + body->getwdth();
+	int x2 = config.wx + config.windWidth - body->getwdth();
+	int y1 = config.wy + config.toolBarHeight + body->gethght() + top->gethight();
+	int y2 = config.wy + config.windHeight - config.statusBarHeight - whl1 ->getrad() - body->gethght();
 	
 
 	if (step == 8 && RefPoint.y > y1)

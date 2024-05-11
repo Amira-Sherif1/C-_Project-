@@ -36,7 +36,12 @@ void Rect::ResizeDown()
 	wdth /= 2;
 	//draw();
 }
-
+int Rect::gethght()const {
+	return hght;
+}
+int Rect::getwdth()const {
+	return wdth;
+}
  void Rect:: move(char step){
 	 if (step == 8)
 	 {
@@ -89,6 +94,9 @@ void circle::ResizeDown() {
 	rad /= 2;
 	//draw();
 }
+int circle::getrad()const {
+	return rad;
+}
 void circle::move(char step) {
 
 	if (step == 8)
@@ -139,6 +147,12 @@ void Triangle::ResizeDown() {
 	length /= 2;
 	hight /= 2;
 	//draw();
+}
+int Triangle::gethight()const {
+	return hight;
+}
+int Triangle::getlength()const {
+	return length;
 }
 
 void Triangle::move(char step) {

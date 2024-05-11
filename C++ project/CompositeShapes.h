@@ -23,6 +23,7 @@
 //Note: sign reference point is the center point of the top rectangle
 class Sign :public shape
 {
+
 	Rect* base;
 	Rect* top;
 public:

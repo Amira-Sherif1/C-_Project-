@@ -15,6 +15,7 @@
 
 class Rect:public shape
 {
+protected:
 	int hght, wdth;	//height and width of the recangle
 public:
 	Rect(game* r_pGame, point ref, int r_hght, int r_wdth);
@@ -26,6 +27,8 @@ public:
 
 	void rotate();
 	virtual void VerticalFlip();
+	int gethght()const;
+	int getwdth()const;
 };
 
 
@@ -33,6 +36,7 @@ public:
 //Reference point of the circle is its center
 class circle :public shape
 {
+protected:
 	//Add data memebrs for class circle
 	int rad;
 public:	
@@ -42,6 +46,7 @@ public:
 	virtual void ResizeDown();
 	virtual void move(char step);
 	void rotate();
+	int getrad()const;
 };
 
 
@@ -49,6 +54,7 @@ public:
 // refrence point for the triangle at p1 the left down point
 class Triangle : public shape
 {
+protected:
 	int length,hight ;
 public:
 	Triangle(game* r_pgame, int len,point ref);
@@ -57,9 +63,9 @@ public:
 	virtual void ResizeDown();
 
 	virtual void move(char step);
-
-
 	 void rotate();
 	virtual void VerticalFlip();
+	int getlength()const;
+	int gethight()const;
 
 };
