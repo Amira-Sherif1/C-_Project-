@@ -35,6 +35,7 @@ public:
 	virtual void ResizeDown();
 	virtual void VerticalFlip();
 	virtual void move(char step);
+	string MyType();
 	
 
 };
@@ -53,6 +54,7 @@ public:
 	virtual void VerticalFlip();
 	virtual void move(char step);
 	void rotate(int angle, point ref);
+	string MyType();
 
 };
 class Boat :public shape {
@@ -71,6 +73,7 @@ public:
 	virtual void VerticalFlip();
 	virtual void move(char step);
 	void rotate(int angle, point ref);
+	string MyType();
 
 };
 
@@ -91,6 +94,7 @@ public:
 	virtual void VerticalFlip();
 	virtual void move(char step);
 	void rotate(int angle, point ref);
+	string MyType();
 
 };
 
@@ -107,6 +111,7 @@ public:
 	virtual void ResizeDown();
 	virtual void move(char step);
 	virtual void VerticalFlip();
+	string MyType();
 };*/
 
 
@@ -125,7 +130,7 @@ public:
 	virtual void VerticalFlip();
 	
 	//void rotate(int angle, point ref);
-
+	string MyType();
 
 };
 
@@ -149,6 +154,7 @@ public:
 	virtual void move(char step);
 	virtual void VerticalFlip();
 	void rotate(int angle, point ref);
+	string MyType();
 
 };
 
@@ -166,5 +172,6 @@ public:
 	virtual void ResizeDown();
 	virtual void move(char step);
 	void rotate(int angle, point ref);
+	string MyType();
 
 };

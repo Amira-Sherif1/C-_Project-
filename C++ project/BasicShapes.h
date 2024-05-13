@@ -29,6 +29,8 @@ public:
 	virtual void VerticalFlip();
 	int gethght()const;
 	int getwdth()const;
+
+	/*string MyType();*/
 };
 
 
@@ -47,6 +49,7 @@ public:
 	virtual void move(char step);
 	void rotate();
 	int getrad()const;
+	/*string MyType();*/
 };
 
 
@@ -68,4 +71,5 @@ public:
 	int getlength()const;
 	int gethight()const;
 
+	/*string MyType();*/
 };
