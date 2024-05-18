@@ -45,7 +45,7 @@ public:
 	//virtual ~shape();
 
 	double getSize() const;
-	virtual string MyType() = 0;		// to know the type of the shape "the divered shape" 
+	//virtual string MyType() = 0;		// to know the type of the shape "the divered shape" 
 
 	//-- The following functions should be supported by the shape class
 	//-- It should be overridden by each inherited shape

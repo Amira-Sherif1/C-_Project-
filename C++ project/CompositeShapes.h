@@ -75,7 +75,6 @@ public:
 	virtual void VerticalFlip();
 	virtual void move(char step);
 	 void rotate(int angle, point ref);
-	void rotate(int angle, point ref);
 	string MyType();
 
 };

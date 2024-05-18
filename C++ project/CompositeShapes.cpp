@@ -292,6 +292,8 @@ void Tree::VerticalFlip() {
 }*/
 void Tree::rotate(int angle, point ref) {
 
+	
+}
 string Tree::MyType() {
 	return "Tree";
 }
@@ -888,7 +890,7 @@ void car::move(char step){
 void car::rotate(int angle, point ref) {
 
 }
-void car::VerticalFlip() {
+void car::VerticalFlip() {}
 
 
 string car::MyType() {
