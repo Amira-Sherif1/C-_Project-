@@ -22,8 +22,9 @@ grid::grid(point r_uprleft, int wdth, int hght, game* pG)
 
 grid::~grid()
 {
-	for (int i = 0; i < shapeCount; i++)
-		delete shapeList[i];
+//	for (int i = 0; i < shapeCount; i++)
+	//	delete shapeList[i];
+	delete_shapelist();
 }
 
 void grid::draw() const
@@ -103,17 +104,49 @@ shape* grid::getactiveshap()const {
 }
 
 
-void grid::randomshape(shape* randshape , int size) {
+void grid::randomshape(point refrance,shape* randshape , int size, int rotat, int fli) {
 	for (int i = 0; i < size; i++) {
 		switch (resize(size)) {
 		case up:
 			randshape->ResizeUp();
+		// there is some thing to do 
 			break;
 		case down:
 			randshape->ResizeDown();
+			// there is some thing to do 
 			break;
 		}
 	}
+
+	switch (rotat) {
+	case 1:
+		//randshape->rotate(90, refrance);
+		rotation[shapeCount] = 90;
+		break;
+
+	case 2:
+		//randshape->rotate(180, refrance);
+		rotation[shapeCount] = 180;
+		break;
+
+	case 3:
+		//randshape->rotate(270, refrance);
+		rotation[shapeCount] = 270;
+		break;
+
+	}
+	
+	switch (fli) {
+	case 0:
+		flip[shapeCount] = 0;
+		break;
+
+	case 1:
+		//randshape->VerticalFlip();
+		flip[shapeCount] = 1;
+		break;
+	}
+	
 }
 
 void grid::Random_Shapes_Generator() {
@@ -124,7 +157,8 @@ void grid::Random_Shapes_Generator() {
 
 	srand(time(0));
 
-	for (int j = 0; j < 2 * pGame-> getlevel() - 1; j++) {
+	for (int j = 0; j < 2 * pGame-> getlevel() - 1; j++)
+	{
 
 		int size = rand() % (1 + 1);    // random resize up or down 
 		int x = 100 + rand() % (810 - 100 + 1);   // random the ref point 
@@ -133,70 +167,65 @@ void grid::Random_Shapes_Generator() {
 		int yref = y - y % config.gridSpacing;
 		point ref = { xref,yref };
 		int sh = rand() % (5 + 1);   // choose a random shape from the enum
+		int rotation = 1 + rand() % (3 - 1 + 1);
+		int flip = rand() % (1 + 1);
 
 
-		
-			
-		switch (shapes(sh)) {
+		switch (shapes(sh)) 
+		{
 			case sign: 
-
 				shapeList[j] = new Sign(pGame, ref);
+				randomshape(ref,shapeList[j], size, rotation, flip);
 				shapeCount++;
-				randomshape(shapeList[j], size);
-
-			
 				break;
 
 			case tree:
-
 				shapeList[j] = new Tree(pGame, ref);
+				randomshape(ref,shapeList[j], size, rotation, flip);
 				shapeCount++;
-				randomshape(shapeList[j], size);
-
 				break;
+
 			/*case boat:
-					shapeList[j] = new Boot(pGame, ref);
-					shapeCount++;
-					randomshape(shapeList[j], size);
-
-				break;*/
-			case butter:
-
-				shapeList[j] = new Butterfly(pGame, ref);
+				shapeList[j] = new Boot(pGame, ref);
+				randomshape(ref,shapeList[j], size,rotation,flip);
 				shapeCount++;
-				randomshape(shapeList[j], size);
+				break;*/
+
+			case butter:
+				shapeList[j] = new Butterfly(pGame, ref);
+				randomshape(ref,shapeList[j], size, rotation, flip);
+				shapeCount++;
 				break;
 
 			case home:
-
 				shapeList[j] = new Home(pGame, ref);
+				randomshape(ref,shapeList[j], size, rotation, flip);
 				shapeCount++;
-				randomshape(shapeList[j], size);
 				break;
 
 			case cat:
-
 				shapeList[j] = new Cat(pGame, ref);
+				randomshape(ref,shapeList[j], size, rotation, flip);
 				shapeCount++;
-				randomshape(shapeList[j], size);
 				break;
 
 			case Car:
-
 				shapeList[j] = new car(pGame, ref);
+				randomshape(ref,shapeList[j], size, rotation, flip);
 				shapeCount++;
-				randomshape(shapeList[j], size);
-
 				break;
 
-			}
 		}
-			
-
-	
+	}
 }
 color grid::getcolor(int x)const {
 	
 	color arry[]= { RED, DARKGREEN, MEDIUMPURPLE, CORNFLOWERBLUE, ORANGE};
 	return arry[x];
+}
+
+void grid::delete_shapelist()const {
+	for (int i = 0; i < shapeCount; i++) {
+		delete shapeList[i];
+	}
 }

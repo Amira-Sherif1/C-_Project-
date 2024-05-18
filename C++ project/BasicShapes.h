@@ -29,6 +29,7 @@ public:
 	virtual void VerticalFlip();
 	int gethght()const;
 	int getwdth()const;
+	~Rect();
 };
 
 
@@ -47,6 +48,8 @@ public:
 	virtual void move(char step);
 	void rotate();
 	int getrad()const;
+	~circle();
+
 };
 
 
@@ -58,12 +61,12 @@ protected:
 	int length,hight ;
 public:
 	Triangle(game* r_pgame, int len,point ref);
+	~Triangle();
 	virtual void draw() const;
 	virtual void ResizeUp() ;
 	virtual void ResizeDown();
-
 	virtual void move(char step);
-	 void rotate();
+	void rotate();
 	virtual void VerticalFlip();
 	int getlength()const;
 	int gethight()const;

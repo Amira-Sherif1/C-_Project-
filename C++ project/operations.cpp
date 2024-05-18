@@ -29,10 +29,13 @@ void operAddSign::Act()
 	point signShapeRef = { xGrid,yGrid };
 
 	//create a sign shape
+
 	shape* psh = new Sign(pGame, signShapeRef);
 
 	//Add the shape to the grid
 	grid* pGrid = pGame->getGrid();
+	delete pGrid->getactiveshap();
+
 	pGrid->setActiveShape(psh);
 
 }
@@ -50,6 +53,7 @@ void operAddTree::Act() {
 	shape* ptr = new Tree(pGame, TreeShapeRef);
 
 	grid* pGrid = pGame->getGrid();
+	delete pGrid->getactiveshap();
 	pGrid->setActiveShape(ptr);
 
 }
@@ -76,20 +80,14 @@ operAddButterfly::operAddButterfly(game* p_Game) : operation(p_Game)
 }
 void operAddButterfly::Act() {
 	window* win = pGame->getWind();
-
 	int xw = config.RefX - config.RefX % config.gridSpacing;
 	int yw = config.RefY - config.RefY % config.gridSpacing;
-
 	point ButterflyPointRef = { xw , yw };
-
 	shape* btfl = new Butterfly(pGame, ButterflyPointRef);
-
 	grid* gg = pGame->getGrid();
+	delete gg->getactiveshap();
 	gg->setActiveShape(btfl);
-
 }
-
-
 
 //Home
 operAddHome::operAddHome(game* r_pGame) :operation(r_pGame)
@@ -99,22 +97,13 @@ operAddHome::operAddHome(game* r_pGame) :operation(r_pGame)
 void operAddHome::Act()
 {
 	window* pw = pGame->getWind();
-
-
-	int xGrid = config.RefX - config.RefX % config.gridSpacing;
-	int yGrid = config.RefY - config.RefY % config.gridSpacing;
-
-
-
-	point HomeRef = { xGrid,yGrid };
-
-	
+	int xw = config.RefX - config.RefX % config.gridSpacing;
+	int yw = config.RefY - config.RefY % config.gridSpacing;
+	point HomeRef = { xw,yw };
 	shape* ph = new Home(pGame, HomeRef);
-
-	
-	grid* pGrid = pGame->getGrid();
-	pGrid->setActiveShape(ph);
-
+	grid* gg = pGame->getGrid();
+	delete gg->getactiveshap();
+	gg->setActiveShape(ph);
 }
 
 //Cat 
@@ -125,21 +114,14 @@ operAddCat::operAddCat(game* r_pGame) :operation(r_pGame)
 
 void operAddCat::Act()
 {
-
 	window* pw = pGame->getWind();
-
-
 	int xGrid = config.RefX - config.RefX % config.gridSpacing;
 	int yGrid = config.RefY - config.RefY % config.gridSpacing;
-
 	point CatRef = { xGrid,yGrid };
-
 	shape* psh = new Cat(pGame, CatRef);
-
 	grid* pGrid = pGame->getGrid();
-
+	delete pGrid->getactiveshap();
 	pGrid->setActiveShape(psh);
-
 }
 
 //Car
@@ -156,6 +138,7 @@ void operAddcar::Act() {
 	shape* pcr = new car(pGame, CarShapeRef);
 
 	grid* pGrid = pGame->getGrid();
+	delete pGrid->getactiveshap();
 	pGrid->setActiveShape(pcr);
 }
 
@@ -196,6 +179,7 @@ void operRefresh::Act() {
 	
 	grid* pGrid = pGame->getGrid();
 	if (pGame->getlives() > 0) {
+		pGrid->delete_shapelist();
 		pGrid->Random_Shapes_Generator();
 		pGrid->draw();
 		pGame->setlives(pGame->getlives() - 1);

@@ -208,17 +208,10 @@ void game::run()
 		shape* Mirror= shapesGrid->getactiveshap();
 		while (stillmoving)
 		{
-			/*for (int i = 0; i < 2 * getlevel() - 1; i++) {
-				Shapes[i]->draw();
-			}*/
 			shapesGrid->draw();
-
-
 			pWind->FlushKeyQueue();
-
 			ktype = pWind->WaitKeyPress(Key);
-			
-
+		
 				if (ktype == ARROW) {    // Call the function to handle the arrow key based on the active shape
 
 					shape* activeShape = shapesGrid->getactiveshap();
@@ -249,8 +242,6 @@ void game::run()
 
 				shapesGrid->setActiveShape(Mirror);
 		}
-		
-
 	} while (clickedItem != ITM_EXIT);
 
 

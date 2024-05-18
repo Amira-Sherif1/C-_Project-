@@ -97,7 +97,9 @@ void Sign::VerticalFlip() {
 }
  
 
+void Sign::rotate(int angle, point ref) {
 
+}
 
                  /////////////////////////calss Tree////////////////////
 
@@ -263,6 +265,9 @@ void Tree::VerticalFlip() {
 
 
 }*/
+void Tree::rotate(int angle, point ref) {
+
+}
                  //////////////////////class Butterfly////////////////////////
 
 Butterfly::Butterfly(game* r_pgame, point ref) : shape(r_pgame, ref){
@@ -392,6 +397,9 @@ void Butterfly::VerticalFlip() {
 	cir3->setRefPoint({ RefPoint.x , RefPoint.y + config.Butterfly.rec_len / 2 });
 	rect->VerticalFlip();
 }
+void Butterfly::rotate(int angle, point ref) {
+
+}
 
 
 
@@ -520,6 +528,9 @@ void Home::VerticalFlip() {
 	}
 
 }*/
+void Home::rotate(int angle, point ref) {
+
+}
 
          ///////////////////////////////class Cat///////////////////////////////
 
@@ -531,7 +542,7 @@ Cat::Cat(game* r_pGame, point ref) :shape(pGame, ref)
 	point refEar2 = { ref.x + config.Cat.base /2 -config.Cat.len2,ref.y - config.Cat.hght / 2 };
 	point refC1 = { ref.x - config.Cat.len1 / 2 ,ref.y + ((config.Cat.hght) / 2 + (config.Cat.len1 * cos(3.14 / 3))) };
 	point refC2 = { ref.x + config.Cat.len1 / 2 ,ref.y + ((config.Cat.hght) / 2 + (config.Cat.len1 * cos(3.14 / 3))) };
-	face = new Rect(pGame, refFace, config.Cat.hght, config.Cat.base);
+	//face = new Rect(pGame, refFace, config.Cat.hght, config.Cat.base);
 	face = new Rect(r_pGame, refFace, config.Cat.hght, config.Cat.base); 
 	body = new Triangle(r_pGame, config.Cat.len1, refbody);
 	ear1 = new Triangle(r_pGame, config.Cat.len2, refEar1);
@@ -657,6 +668,9 @@ void Cat::VerticalFlip() {
 	body->VerticalFlip();
 	ear1->VerticalFlip();
 	ear2->VerticalFlip();
+}
+void Cat::rotate(int angle, point ref) {
+
 }
 
 
@@ -792,3 +806,9 @@ void car::move(char step){
 		break;
 	}
 }*/
+void car::rotate(int angle, point ref) {
+
+}
+void car::VerticalFlip() {
+
+}

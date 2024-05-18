@@ -10,6 +10,7 @@ Rect::Rect(game* r_pGame, point ref, int r_hght, int r_wdth):shape(r_pGame,ref)
 	hght = r_hght;
 	wdth = r_wdth;
 }
+Rect::~Rect(){}
 
 void Rect::draw() const
 {
@@ -28,13 +29,11 @@ void Rect::ResizeUp()
 {
 	hght *= 2;
 	wdth *= 2;
-	//draw();
 }
 void Rect::ResizeDown()
 {
 	hght /= 2;
 	wdth /= 2;
-	//draw();
 }
 int Rect::gethght()const {
 	return hght;
@@ -77,6 +76,7 @@ circle::circle(game* r_pGame, point ref, int r):shape(r_pGame,ref)
 {
 	rad = r;
 }
+circle::~circle(){}
 
 void circle::draw() const
 {
@@ -87,12 +87,10 @@ void circle::draw() const
 }
 void circle::ResizeUp() {
 	rad *= 2;
-	//draw();
 }
 
 void circle::ResizeDown() {
 	rad /= 2;
-	//draw();
 }
 int circle::getrad()const {
 	return rad;
@@ -124,6 +122,7 @@ Triangle::Triangle(game* r_pgame,int len, point ref) : shape(r_pgame, ref) {
 	length = len;
 	hight = len*cos(3.14/3);
 };
+Triangle::~Triangle(){}
 
 void Triangle::draw()const {
 	window* pW = pGame->getWind();
@@ -141,12 +140,10 @@ void Triangle::draw()const {
 void Triangle::ResizeUp() {
 	length *= 2;
 	hight *= 2;
-	//draw();
 }
 void Triangle::ResizeDown() {
 	length /= 2;
 	hight /= 2;
-	//draw();
 }
 int Triangle::gethight()const {
 	return hight;

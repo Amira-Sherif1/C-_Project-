@@ -35,7 +35,8 @@ public:
 	virtual void ResizeDown();
 	virtual void VerticalFlip();
 	virtual void move(char step);
-	
+	 void rotate(int angle, point ref);
+
 
 };
 class Tree : public shape {
@@ -70,7 +71,7 @@ public:
 	virtual void ResizeDown();
 	virtual void VerticalFlip();
 	virtual void move(char step);
-	void rotate(int angle, point ref);
+	 void rotate(int angle, point ref);
 
 };
 
@@ -95,21 +96,6 @@ public:
 };
 
                   
-/*class Cone :public shape
-{
-	circle* top;
-	Triangle* base;
-public:
-	Cone(game* r_pGame, point ref);
-	virtual void draw() const;
-	//virtual void rotate();
-	virtual void ResizeUp();
-	virtual void ResizeDown();
-	virtual void move(char step);
-	virtual void VerticalFlip();
-};*/
-
-
 class Home :public shape
 {
 	Triangle* Tri;
@@ -123,8 +109,7 @@ public:
 	virtual void ResizeDown();
 	virtual void move(char step);
 	virtual void VerticalFlip();
-	
-	//void rotate(int angle, point ref);
+	void rotate(int angle, point ref);
 
 
 };
@@ -165,6 +150,7 @@ public:
 	virtual void ResizeUp();
 	virtual void ResizeDown();
 	virtual void move(char step);
+	virtual void VerticalFlip();
 	void rotate(int angle, point ref);
 
 };

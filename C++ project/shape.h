@@ -39,7 +39,9 @@ public:
 	virtual void ResizeUp()=0;
 	virtual void ResizeDown() = 0;
 	virtual void move(char step) = 0 ;		//Move the shape
-								  
+	void rotate(int angle, point ref);
+	//virtual ~shape();
+
 							  
 	//-- The following functions should be supported by the shape class
 	//-- It should be overridden by each inherited shape

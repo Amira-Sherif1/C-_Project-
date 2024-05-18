@@ -13,6 +13,8 @@ class grid
 
 	//ShapeList should hold the RANDOMLY generated shapes
 	shape* shapeList[MaxShapeCount];	//2D array of shape pointers
+	int flip[MaxShapeCount];
+	int rotation[MaxShapeCount];
 
 	shape* activeShape;	//The shape that the user works on to match to the ranom shapes
 
@@ -30,7 +32,8 @@ public:
 	void deleteShape();
 	shape* getactiveshap()const;
 	void Random_Shapes_Generator();
-	void randomshape(shape* ranshape , int size);
+	void randomshape(point refrance,shape* ranshape , int size,int rortat, int fli);
 	color getcolor(int x)const;
+	void delete_shapelist()const;
 };
 
