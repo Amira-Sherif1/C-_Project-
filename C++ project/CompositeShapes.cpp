@@ -24,6 +24,9 @@ void Sign::draw() const
 }
 
 void Sign::ResizeUp() {
+
+	stepsCounter += 1;
+
 	if (size >= 2)
 		return;
 
@@ -36,6 +39,9 @@ void Sign::ResizeUp() {
 
 
 void Sign::ResizeDown(){
+
+	stepsCounter += 1;
+
 	base->ResizeDown();
 	top->ResizeDown();
 
@@ -54,6 +60,7 @@ void Sign::move(char step) {
 	int x1 = config.wx + top->getwdth();
 	int x2 = config.wx + config.windWidth - top->getwdth();
 	
+	stepsCounter += 1;
 
 	if (step == 8&& (RefPoint.y > y1))
 	{
@@ -92,10 +99,16 @@ void Sign::move(char step) {
 
 }
 void Sign::VerticalFlip() {
+	
+	stepsCounter += 1;
+	
 	base->setRefPoint( { RefPoint.x, RefPoint.y -( config.sighShape.topHeight / 2 + config.sighShape.baseHeight / 2 )});
 	base->VerticalFlip();
 }
- 
+
+string Sign::MyType() {
+	return "Sign";
+}
 
 void Sign::rotate(int angle, point ref) {
 
@@ -128,6 +141,9 @@ void Tree::draw() const
 	root->draw();
 }
 void Tree::ResizeUp(){
+	
+	stepsCounter += 1;
+
 	if (size >= 2)
 		return;
 
@@ -147,6 +163,9 @@ void Tree::ResizeUp(){
 	draw();
 }
 void Tree::ResizeDown() {
+
+	stepsCounter += 1;
+
 	root->ResizeDown();
 	T1->ResizeDown();
 	T2->ResizeDown();
@@ -170,6 +189,8 @@ void Tree::move(char step) {
 	int y1 = config.wy + config.toolBarHeight + 2.5*T1->gethight();
 	int y2 = config.wy + config.windHeight - config.statusBarHeight - 2* root->gethght();
 		
+	stepsCounter += 1;
+
 		if (step == 8 && RefPoint.y > y1)  //up
 		{
 			RefPoint.y = RefPoint.y - config.gridSpacing;
@@ -221,6 +242,9 @@ void Tree::move(char step) {
 }
 
 void Tree::VerticalFlip() {
+
+	stepsCounter += 1;
+
 	T1->setRefPoint({ RefPoint.x - config.Tree.trilen / 2,RefPoint.y });
 	T2->setRefPoint({ RefPoint.x - config.Tree.trilen / 2, RefPoint.y + config.Tree.trihigh * 1 / 3 });
 	T3->setRefPoint({ RefPoint.x - config.Tree.trilen / 2,RefPoint.y + config.Tree.trihigh * 2 / 3 });
@@ -234,6 +258,7 @@ void Tree::VerticalFlip() {
 }
 /*void Tree::rotate(int angle, point ref)
 {
+	stepsCounter += 1;
 	// change ref or each part with each angle
 	switch (angle)
 	{
@@ -267,6 +292,8 @@ void Tree::VerticalFlip() {
 }*/
 void Tree::rotate(int angle, point ref) {
 
+string Tree::MyType() {
+	return "Tree";
 }
                  //////////////////////class Butterfly////////////////////////
 
@@ -296,6 +323,9 @@ void Butterfly::draw() const{
 	rect->draw();
 }
 void Butterfly::ResizeUp(){
+
+	stepsCounter += 1;
+	
 	if (size >= 2)
 		return ;
 	cir1->ResizeUp();
@@ -315,6 +345,9 @@ void Butterfly::ResizeUp(){
 	draw();
 }
 void Butterfly::ResizeDown() {
+
+	stepsCounter += 1;
+
 	cir1->ResizeDown();
 	cir2->ResizeDown();
 	cir3->ResizeDown();
@@ -337,6 +370,8 @@ void Butterfly::move(char step) {
 	int x2 = config.wx + config.windWidth - 2.5* cir1->getrad();
 	int y1 = config.wy + config.toolBarHeight + 2 * cir1->getrad();
 	int y2 = config.wy + config.windHeight - config.statusBarHeight - 2 * cir1->getrad();
+
+	stepsCounter += 1;
 
 	if (step == 8 && RefPoint.y>y1)
 	{
@@ -390,6 +425,9 @@ void Butterfly::move(char step) {
 }
 
 void Butterfly::VerticalFlip() {
+
+	stepsCounter += 1;
+
 	cir1->setRefPoint({ RefPoint.x + config.Butterfly.circ1_rad - config.Butterfly.rec_width, RefPoint.y - config.Butterfly.rec_len / 4 });
 	cir4->setRefPoint({ RefPoint.x - config.Butterfly.circ1_rad + config.Butterfly.rec_width, RefPoint.y + config.Butterfly.rec_len / 4 });
 	cir2->setRefPoint({ RefPoint.x + config.Butterfly.circ1_rad - config.Butterfly.rec_width, RefPoint.y - config.Butterfly.rec_len / 4 });
@@ -401,7 +439,9 @@ void Butterfly::rotate(int angle, point ref) {
 
 }
 
-
+string Butterfly::MyType() {
+	return "Butterfly";
+}
 
 
                //////////////////////////////class Home///////////////////////////////
@@ -430,6 +470,9 @@ void Home::draw() const
 
 
 void Home::ResizeUp() {
+
+	stepsCounter += 1;
+
 	if (size >= 2)
 		return;
 
@@ -444,6 +487,9 @@ void Home::ResizeUp() {
 	draw();
 }
 void Home::ResizeDown() {
+
+	stepsCounter += 1;
+
 	Tri->ResizeDown();
 	base->ResizeDown();
 	top->ResizeDown();
@@ -461,6 +507,8 @@ void Home::move(char step) {
 	int x2 = config.wx + config.windWidth - Tri->getlength();
 	int y1 = config.wy + config.toolBarHeight + 2 * base->gethght();
 	int y2 = config.wy + config.windHeight - config.statusBarHeight - 2* base->gethght();
+
+	stepsCounter += 1;
 
 	if (step == 8 && RefPoint.y > y1)
 	{
@@ -501,6 +549,9 @@ void Home::move(char step) {
 
 }
 void Home::VerticalFlip() {
+
+	stepsCounter += 1;
+
 	Tri->setRefPoint({ RefPoint.x - config.Home.wdth / 2,RefPoint.y + config.Home.hght / 2 });
 	top->setRefPoint({ RefPoint.x - config.Home.wdth / 2,RefPoint.y + config.Home.hght / 2});
 	Tri->VerticalFlip();
@@ -509,6 +560,7 @@ void Home::VerticalFlip() {
 }
 /*void Home::rotate(int angle, point ref)
 {
+	stepsCounter += 1;
 	switch (angle)
 	{
 	case 90:
@@ -530,6 +582,10 @@ void Home::VerticalFlip() {
 }*/
 void Home::rotate(int angle, point ref) {
 
+}
+
+string Home::MyType() {
+	return "Home";
 }
 
          ///////////////////////////////class Cat///////////////////////////////
@@ -565,6 +621,9 @@ void Cat::draw() const
 	rFoot->draw();
 }
 void Cat::ResizeUp() {
+	
+	stepsCounter += 1;
+
 	if (size >= 2)
 		return;
 
@@ -585,6 +644,9 @@ void Cat::ResizeUp() {
 	draw();
 }
 void Cat::ResizeDown() {
+
+	stepsCounter += 1;
+
 	body->ResizeDown();
 	face->ResizeDown();
 	ear1->ResizeDown();
@@ -607,6 +669,9 @@ void Cat::move(char step) {
 	int x2 = config.wx + config.windWidth - body->getlength();
 	int y1 = config.wy + config.toolBarHeight + face->gethght() + body->gethight();
 	int y2 = config.wy + config.windHeight - config.statusBarHeight - body->gethight();
+	
+	stepsCounter += 1;
+
 		if (step == 8 && RefPoint.y > y1)
 		{
 			RefPoint.y = RefPoint.y - config.gridSpacing;
@@ -659,6 +724,9 @@ void Cat::move(char step) {
 
 }
 void Cat::VerticalFlip() {
+
+	stepsCounter += 1;
+
 	body->setRefPoint({ RefPoint.x - config.Cat.len1/2,RefPoint.y - int((config.Cat.hght) / 2 + (config.Cat.len1 * cos(3.14 / 3))) });
 	ear1->setRefPoint({ RefPoint.x - config.Cat.base / 2,RefPoint.y + config.Cat.hght / 2 });
 	ear2->setRefPoint( { RefPoint.x + config.Cat.base /2 - config.Cat.len2 ,RefPoint.y + config.Cat.hght / 2 });
@@ -673,6 +741,9 @@ void Cat::rotate(int angle, point ref) {
 
 }
 
+string Cat::MyType() {
+	return "Cat";
+}
 
 
                  ////////////////////////////////class car////////////////////////
@@ -701,6 +772,9 @@ void car::draw() const
 	whl2->draw();
 }
 void car::ResizeUp() {
+
+	stepsCounter += 1;
+
 	if (size >= 4)
 		return;
 
@@ -717,6 +791,9 @@ void car::ResizeUp() {
 	draw();
 }
 void car::ResizeDown() {
+
+	stepsCounter += 1;
+
 	body->ResizeDown();
 	top->ResizeDown();
 	whl1->ResizeDown();
@@ -737,6 +814,7 @@ void car::move(char step){
 	int y1 = config.wy + config.toolBarHeight + body->gethght() + top->gethight();
 	int y2 = config.wy + config.windHeight - config.statusBarHeight - whl1 ->getrad() - body->gethght();
 	
+	stepsCounter += 1;
 
 	if (step == 8 && RefPoint.y > y1)
 	{
@@ -782,6 +860,7 @@ void car::move(char step){
 }
 /*void car::rotate(int angle, point ref)
 {
+	stepsCounter += 1;
 	switch (angle)
 	{
 	case 90:
@@ -811,4 +890,7 @@ void car::rotate(int angle, point ref) {
 }
 void car::VerticalFlip() {
 
+
+string car::MyType() {
+	return "car";
 }

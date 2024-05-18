@@ -237,6 +237,11 @@ void game::run()
 						}
 					}
 				}
+				//if (ktype == ASCII) {
+				//	if (Key == ' ') {
+				//		/*shapesGrid->Check_Matching();*/
+				//	}
+				//}
 				else if(ktype == ESCAPE)
 					stillmoving =false;
 

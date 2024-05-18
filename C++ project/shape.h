@@ -31,10 +31,12 @@ protected:
     game* pGame;        //pointer to game object
 	color fillColor;	//shape fill color
 	color borderColor;	//shape border color
-	double size = 1;			//the size of the shape and it will be used in resize up and resize down function
+	double size = 1;	//the size of the shape and it will be used in resize up and resize down function
+	int stepsCounter = 0;	//how many step the shape move
 public:
     shape(game* r_pGame, point ref);
 	void setRefPoint(point p);
+	point getRefPoint() const;
     virtual void draw() const=0;//for a shape to draw itself on the screen
 	virtual void ResizeUp()=0;
 	virtual void ResizeDown() = 0;
@@ -42,7 +44,9 @@ public:
 	void rotate(int angle, point ref);
 	//virtual ~shape();
 
-							  
+	double getSize() const;
+	virtual string MyType() = 0;		// to know the type of the shape "the divered shape" 
+
 	//-- The following functions should be supported by the shape class
 	//-- It should be overridden by each inherited shape
 	//-- Decide the parameters that you should pass to each function	

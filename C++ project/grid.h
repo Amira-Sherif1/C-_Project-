@@ -19,6 +19,8 @@ class grid
 	shape* activeShape;	//The shape that the user works on to match to the ranom shapes
 
 	int shapeCount;		//current number of shapes in the list
+	int matchedShape = 0 ;   //the number of matched shapes
+	
 	game* pGame;
 	enum shapes { sign, tree, butter, home, cat, Car };
 	enum resize { up, down };
@@ -35,5 +37,6 @@ public:
 	void randomshape(point refrance,shape* ranshape , int size,int rortat, int fli);
 	color getcolor(int x)const;
 	void delete_shapelist()const;
+	/*void Check_Matching();*/
 };
 
