@@ -30,7 +30,7 @@ public:
 	int gethght()const;
 	int getwdth()const;
 	~Rect();
-
+	
 };
 
 
