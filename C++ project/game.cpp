@@ -168,15 +168,31 @@ void game::run()
 	//Change the title
 	pWind->ChangeTitle("- - - - - - - - - - SHAPE HUNT (CIE 101 / CIE202 - project) - - - - - - - - - -");
 	toolbarItem clickedItem = ITM_CNT;
-	//point sk = { 600,300 };
-	//car * Sign= new car(this,sk);
-	shapesGrid->Random_Shapes_Generator();
-	shapesGrid->draw();
+
+	
+	 if (level  <3) {
+		do {
+			shapesGrid->delete_shapelist();
+			shapesGrid->Random_Shapes_Generator();
+		} while (shapesGrid->overlap());
+		shapesGrid->draw();
+	}
+
+	else if (level >= 3) {
+		do {
+			shapesGrid->delete_shapelist();
+			shapesGrid->Random_Shapes_Generator();
+		} while (!(shapesGrid->overlap()));
+		shapesGrid->draw();
+
+	}
+	//shapesGrid->Random_Shapes_Generator();
+	//shapesGrid->checkoverlaping();
+	//shapesGrid->draw();
 
 
 	do
 	{
-		//Sign->ResizeUp();
 		//printMessage("Ready...");
 		//1- Get user click
 		pWind->WaitMouseClick(x, y);	//Get the coordinates of the user click
@@ -193,13 +209,11 @@ void game::run()
 				op->Act();
 
 			//4-Redraw the grid after each action
+
 			shapesGrid->draw();
 			
 
 			ToolbarClicker(clickedItem);
-
-			
-
 		}
 
 		keytype ktype;
@@ -328,3 +342,15 @@ void game::setlives(int x) {
 	lives = x;
 }
 
+void game::setlevel(int x) {
+	level = x;
+}
+void game::setscore(int x)
+{
+	x = score;
+}
+
+int game::getscore()const
+{
+	return score;
+}

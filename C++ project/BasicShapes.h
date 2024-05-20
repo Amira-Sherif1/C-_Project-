@@ -25,7 +25,7 @@ public:
 
 	virtual void move(char step);
 
-	void rotate();
+	void rotate(int angle);
 	virtual void VerticalFlip();
 	int gethght()const;
 	int getwdth()const;
@@ -48,7 +48,7 @@ public:
 	virtual void ResizeUp();
 	virtual void ResizeDown();
 	virtual void move(char step);
-	void rotate();
+	void rotate(int angle);
 	int getrad()const;
 	~circle();
 
@@ -69,7 +69,7 @@ public:
 	virtual void ResizeUp() ;
 	virtual void ResizeDown();
 	virtual void move(char step);
-	void rotate();
+	void rotate(int angle);
 	virtual void VerticalFlip();
 	int getlength()const;
 	int gethight()const;

@@ -18,8 +18,10 @@ class game
 	
 	window* pWind;	//Pointer to the CMU graphics window
 	grid* shapesGrid;
-	int level = 6 ;
+	int level = 4;
 	int lives = 5;
+	int score = 0;
+
 
 public:
 	game();
@@ -43,6 +45,9 @@ public:
 	void run();	//start the game
 	int getlives() const;
 	void setlives(int x);
+	void setscore(int x);
+	int getscore()const;
+	void setlevel(int x);
 
 };
 

@@ -1,6 +1,8 @@
 #include "grid.h"
 #include "game.h"
 #include "gameConfig.h"
+#include <fstream>
+
 
 
 grid::grid(point r_uprleft, int wdth, int hght, game* pG)
@@ -109,28 +111,28 @@ void grid::randomshape(point refrance,shape* randshape , int size, int rotat, in
 		switch (resize(size)) {
 		case up:
 			randshape->ResizeUp();
-		// there is some thing to do 
+			randshape->setResizeUpTimes();
 			break;
 		case down:
 			randshape->ResizeDown();
-			// there is some thing to do 
+			randshape->setResizedownTimes();
 			break;
 		}
 	}
 
 	switch (rotat) {
 	case 1:
-		//randshape->rotate(90, refrance);
+		//randshape->rotate(90);
 		rotation[shapeCount] = 90;
 		break;
 
 	case 2:
-		//randshape->rotate(180, refrance);
+		//randshape->rotate(180);
 		rotation[shapeCount] = 180;
 		break;
 
 	case 3:
-		//randshape->rotate(270, refrance);
+		//randshape->rotate(270);
 		rotation[shapeCount] = 270;
 		break;
 
@@ -224,10 +226,11 @@ color grid::getcolor(int x)const {
 	return arry[x];
 }
 
-void grid::delete_shapelist()const {
+void grid::delete_shapelist() {
 	for (int i = 0; i < shapeCount; i++) {
 		delete shapeList[i];
 	}
+	shapeCount = 0;
 }
 //void grid::Check_Matching() {
 //	point base = activeShape->getRefPoint();
@@ -254,3 +257,120 @@ void grid::delete_shapelist()const {
 //		pGame->setlives(n - 1);
 //	}
 //}
+
+
+void grid::Load()
+{
+	/////shapeList->deleteList();////
+	ifstream infile;
+	infile.open("game.txt");
+
+	while (infile.is_open()) {
+		int l, li, s, shtyp;
+		int rx, ry;
+		infile >> l >> li >> s;
+		pGame->setlevel(l);
+		pGame->setlives(li);
+		pGame->setscore(s);
+		int size = l * 2 - 1;
+		for (int i = 0; i < size; i++)
+		{
+			infile >> shtyp >> rx >> ry;
+
+			point ref = { rx,ry };
+			switch (shtyp)
+			{
+			case 1:
+				shapeList[i] = new Tree(pGame, ref);
+				shapeList[i]->load(infile);
+				break;
+			case 2:
+				shapeList[i] = new Butterfly(pGame, ref);
+				shapeList[i]->load(infile);
+				break;
+				/*case 3:
+					shapeList[i]->load(infile);
+					shpL[i] =  new Boat(pGame, ref);
+					break;*/
+			case 4:
+				shapeList[i] = new Home(pGame, ref);
+				shapeList[i]->load(infile);
+				break;
+			case 5:
+				shapeList[i] = new Cat(pGame, ref);
+				shapeList[i]->load(infile);
+				break;
+			case 6:
+				shapeList[i] = new car(pGame, ref);
+				shapeList[i]->load(infile);
+
+				break;
+			default:
+				break;
+			}
+		};
+		infile.close();		////RIGHT PLACE OR NOT ???//////
+	}
+}
+
+void grid::Save()
+{
+	ofstream outfile;
+	outfile.open("game.txt", fstream::in | fstream::out | std::fstream::app);
+	outfile << pGame->getlevel();
+	outfile << " " << pGame->getlives();
+	outfile << " " << pGame->getscore() << endl;
+
+	for (int i = 0; i < 2 * pGame->getlevel() - 1; i++)
+	{
+
+		outfile << shapeList[i]->getShtype();
+		shapeList[i]->save(outfile);
+		if (pGame->getlevel() < 3) { outfile << " " << shapeList[i]->getfillcolor(); }
+	}
+	outfile.close();
+}
+
+bool grid::overlap() {
+	int side = 170;
+
+	// Check every pair of shapes for overlap
+	for (int i = 0; i < shapeCount - 1; i++) {
+		for (int j = i + 1; j < shapeCount; j++) {
+			if (shapeList[i] && shapeList[j]) {
+				int x1 = shapeList[i]->getx();
+				int y1 = shapeList[i]->gety();
+				int width1 = (shapeList[i]->getup() + 1) * side;
+				int height1 = (shapeList[i]->getup() + 1) * side;
+
+				int x2 = shapeList[j]->getx();
+				int y2 = shapeList[j]->gety();
+				int width2 = (shapeList[j]->getup() + 1) * side;
+				int height2 = (shapeList[j]->getup() + 1) * side;
+
+				// Check if rectangles overlap
+				if (x1 < x2 + width2 &&
+					x1 + width1 > x2 &&
+					y1 < y2 + height2 &&
+					y1 + height1 > y2) {
+					return true;
+				}
+			}
+		}
+	}
+	return false;
+}
+void grid::checkoverlaping() {
+	if (pGame->getlevel() <= 2) {
+		do {
+			this->delete_shapelist();
+			this->Random_Shapes_Generator();
+		} while (this->overlap());
+	}
+	else if (pGame->getlevel() >= 3) {
+		do {
+			this->delete_shapelist();
+			this->Random_Shapes_Generator();
+		} while (!(this->overlap()));
+	}
+}

@@ -35,7 +35,7 @@ public:
 	virtual void ResizeDown();
 	virtual void VerticalFlip();
 	virtual void move(char step);
-	 void rotate(int angle, point ref);
+	virtual void rotate(int angle);
 
 	string MyType();
 	
@@ -55,7 +55,7 @@ public:
 	virtual void ResizeDown();
 	virtual void VerticalFlip();
 	virtual void move(char step);
-	void rotate(int angle, point ref);
+	virtual void rotate(int angle);
 	string MyType();
 
 };
@@ -74,9 +74,8 @@ public:
 	virtual void ResizeDown();
 	virtual void VerticalFlip();
 	virtual void move(char step);
-	 void rotate(int angle, point ref);
 	string MyType();
-
+	virtual void rotate(int angle);
 };
 
 class Butterfly : public shape {
@@ -95,26 +94,12 @@ public:
 	virtual void ResizeDown();
 	virtual void VerticalFlip();
 	virtual void move(char step);
-	void rotate(int angle, point ref);
+	virtual void rotate(int angle);
 	string MyType();
 
 };
 
                   
-/*class Cone :public shape
-{
-	circle* top;
-	Triangle* base;
-public:
-	Cone(game* r_pGame, point ref);
-	virtual void draw() const;
-	//virtual void rotate();
-	virtual void ResizeUp();
-	virtual void ResizeDown();
-	virtual void move(char step);
-	virtual void VerticalFlip();
-	string MyType();
-};*/
 
 
 class Home :public shape
@@ -130,10 +115,7 @@ public:
 	virtual void ResizeDown();
 	virtual void move(char step);
 	virtual void VerticalFlip();
-	void rotate(int angle, point ref);
-
-
-	//void rotate(int angle, point ref);
+	virtual void rotate(int angle);
 	string MyType();
 
 };
@@ -157,7 +139,7 @@ public:
 	virtual void ResizeDown();
 	virtual void move(char step);
 	virtual void VerticalFlip();
-	void rotate(int angle, point ref);
+	virtual void rotate(int angle);
 	string MyType();
 
 };
@@ -176,7 +158,7 @@ public:
 	virtual void ResizeDown();
 	virtual void move(char step);
 	virtual void VerticalFlip();
-	void rotate(int angle, point ref);
+	virtual void rotate(int angle);
 	string MyType();
 
 };

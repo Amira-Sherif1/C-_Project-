@@ -34,7 +34,7 @@ void Sign::ResizeUp() {
 	base->ResizeUp();
 	size *= 2;
 	base->setRefPoint({ RefPoint.x, RefPoint.y + int(config.sighShape.topHeight *size / 2 + config.sighShape.baseHeight*size / 2) });
-	draw();
+	//draw();
 }
 
 
@@ -47,7 +47,7 @@ void Sign::ResizeDown(){
 
 	size /= 2;
 	base->setRefPoint({ RefPoint.x, RefPoint.y + int(config.sighShape.topHeight * size / 2 + config.sighShape.baseHeight * size / 2) });
-	draw();
+	//draw();
 
 }
 
@@ -110,8 +110,8 @@ string Sign::MyType() {
 	return "Sign";
 }
 
-void Sign::rotate(int angle, point ref) {
-
+void Sign::rotate(int angle)
+{
 }
 
                  /////////////////////////calss Tree////////////////////
@@ -152,7 +152,6 @@ void Tree::ResizeUp(){
 	T2->ResizeUp();
 	T3->ResizeUp();
 	T4->ResizeUp();
-	draw();
 	size *= 2;
 	T1->setRefPoint({ RefPoint.x - int(config.Tree.trilen * size / 2),RefPoint.y });
 	T2->setRefPoint({ RefPoint.x - int(config.Tree.trilen * size / 2),RefPoint.y - int(config.Tree.trihigh * size * 1 / 3 )});
@@ -160,7 +159,7 @@ void Tree::ResizeUp(){
 	T4->setRefPoint({ RefPoint.x - int(config.Tree.trilen * size / 2),RefPoint.y - int(config.Tree.trihigh * size * 1 )});
 	root->setRefPoint({ RefPoint.x,RefPoint.y + int(config.Tree.recthight * size / 2) });
 	
-	draw();
+	//draw();
 }
 void Tree::ResizeDown() {
 
@@ -179,7 +178,7 @@ void Tree::ResizeDown() {
 	T4->setRefPoint({ RefPoint.x - int(config.Tree.trilen * size / 2),RefPoint.y - int(config.Tree.trihigh * size * 1) });
 	root->setRefPoint({ RefPoint.x,RefPoint.y + int(config.Tree.recthight * size / 2) });
 
-	draw();
+	//draw();
 }
 
 void Tree::move(char step) {
@@ -256,43 +255,50 @@ void Tree::VerticalFlip() {
 	T4->VerticalFlip();
 	root->VerticalFlip();
 }
-/*void Tree::rotate(int angle, point ref)
+void Tree::rotate(int angle)
 {
-	stepsCounter += 1;
-	// change ref or each part with each angle
 	switch (angle)
 	{
 	case 90:
-		root->rotate();
-		point refRot = { ref.x + config.Tree.recthight / 2 ,ref.y };
-		point T1_ref = { refRot.x ,refRot.y - config.Tree.trilen / 2 };
-		point T2_ref = { refRot.x + config.Tree.trihigh * 1 / 3,refRot.y - config.Tree.trilen / 2 };
-		point T3_ref = { refRot.x + config.Tree.trihigh * 2 / 3,refRot.y - config.Tree.trilen / 2 };
-		point T4_ref = { refRot.x + config.Tree.trihigh * 1,refRot.y - config.Tree.trilen / 2 };
-
+		T1->rotate(90);
+		T2->rotate(90);
+		T3->rotate(90);
+		T4->rotate(90);
+		root->rotate(90);
+		T1->setRefPoint({ RefPoint.x,RefPoint.y - config.Tree.trilen / 2, });
+		T2->setRefPoint({ RefPoint.x + config.Tree.trihigh * 1 / 3 ,RefPoint.y - config.Tree.trilen / 2 });
+		T3->setRefPoint({ RefPoint.x + config.Tree.trihigh * 2 / 3 ,RefPoint.y - config.Tree.trilen / 2 });
+		T4->setRefPoint({ RefPoint.x + config.Tree.trihigh * 1  ,RefPoint.y - config.Tree.trilen / 2 });
+		root->setRefPoint({ RefPoint.x + config.Tree.recthight / 2,RefPoint.y });
+		break;
 	case 180:
-		point T1_ref = { ref.x - config.Tree.trilen / 2,ref.y };
-		point T2_ref = { ref.x - config.Tree.trilen / 2,ref.y - config.Tree.trihigh * 1 / 3 };
-		point T3_ref = { ref.x - config.Tree.trilen / 2,ref.y - config.Tree.trihigh * 2 / 3 };
-		point T4_ref = { ref.x - config.Tree.trilen / 2,ref.y - config.Tree.trihigh * 1 };
+		T1->rotate(180);
+		T2->rotate(180);
+		T3->rotate(180);
+		T4->rotate(180);
+		root->rotate(180);
+		T1->setRefPoint({ RefPoint.x + config.Tree.trilen / 2,RefPoint.y });
+		T2->setRefPoint({ RefPoint.x + config.Tree.trilen / 2,RefPoint.y + config.Tree.trihigh * 1 / 3 });
+		T3->setRefPoint({ RefPoint.x + config.Tree.trilen / 2,RefPoint.y + config.Tree.trihigh * 2 / 3 });
+		T4->setRefPoint({ RefPoint.x + config.Tree.trilen / 2,RefPoint.y + config.Tree.trihigh * 1 });
+		root->setRefPoint({ RefPoint.x,RefPoint.y - config.Tree.recthight / 2 });
 		break;
 	case 270:
-		root->rotate();
-		point refRot = { ref.x - config.Tree.recthight / 2 ,ref.y };
-		point T1_ref = { refRot.x ,refRot.y - config.Tree.trilen / 2 };
-		point T2_ref = { refRot.x - config.Tree.trihigh * 1 / 3,refRot.y + config.Tree.trilen / 2 };
-		point T3_ref = { refRot.x - config.Tree.trihigh * 2 / 3,refRot.y + config.Tree.trilen / 2 };
-		point T4_ref = { refRot.x - config.Tree.trihigh * 1,refRot.y + config.Tree.trilen / 2 };
+		T1->rotate(270);
+		T2->rotate(270);
+		T3->rotate(270);
+		T4->rotate(270);
+		root->rotate(90);
+		T1->setRefPoint({ RefPoint.x,RefPoint.y + config.Tree.trilen / 2, });
+		T2->setRefPoint({ RefPoint.x - config.Tree.trihigh * 1 / 3 ,RefPoint.y + config.Tree.trilen / 2 });
+		T3->setRefPoint({ RefPoint.x - config.Tree.trihigh * 2 / 3 ,RefPoint.y + config.Tree.trilen / 2 });
+		T4->setRefPoint({ RefPoint.x - config.Tree.trihigh * 1  ,RefPoint.y + config.Tree.trilen / 2 });
+		root->setRefPoint({ RefPoint.x + config.Tree.recthight / 2,RefPoint.y });
+		break;
 
-	defult:
+	default:
 		break;
 	}
-
-
-}*/
-void Tree::rotate(int angle, point ref) {
-
-	
 }
 string Tree::MyType() {
 	return "Tree";
@@ -344,7 +350,7 @@ void Butterfly::ResizeUp(){
 	cir5->setRefPoint({ RefPoint.x - int((config.Butterfly.circ1_rad - config.Butterfly.rec_width) * size), RefPoint.y + int(config.Butterfly.rec_len * size / 4) });
 	cir3->setRefPoint({ RefPoint.x , RefPoint.y - int(config.Butterfly.rec_len* size / 2) });
 	
-	draw();
+	//draw();
 }
 void Butterfly::ResizeDown() {
 
@@ -364,7 +370,7 @@ void Butterfly::ResizeDown() {
 	cir5->setRefPoint({ RefPoint.x - int((config.Butterfly.circ1_rad - config.Butterfly.rec_width) * size), RefPoint.y + int(config.Butterfly.rec_len * size / 4) });
 	cir3->setRefPoint({ RefPoint.x , RefPoint.y - int(config.Butterfly.rec_len * size / 2) });
 
-	draw();
+	//draw();
 }
 void Butterfly::move(char step) {
 	grid* pGrid = pGame->getGrid();
@@ -437,9 +443,44 @@ void Butterfly::VerticalFlip() {
 	cir3->setRefPoint({ RefPoint.x , RefPoint.y + config.Butterfly.rec_len / 2 });
 	rect->VerticalFlip();
 }
-void Butterfly::rotate(int angle, point ref) {
+
+void Butterfly::rotate(int angle)
+{
+	switch (angle)
+	{
+	case 90:
+		cir1->setRefPoint({ RefPoint.x + config.Butterfly.rec_len / 4 ,RefPoint.y + config.Butterfly.circ1_rad - config.Butterfly.rec_width });
+		cir2->setRefPoint({ RefPoint.x - config.Butterfly.rec_len / 4 ,RefPoint.y + config.Butterfly.circ1_rad - config.Butterfly.rec_width });
+		cir3->setRefPoint({ RefPoint.x + config.Butterfly.rec_len / 2, RefPoint.y });
+		cir4->setRefPoint({ RefPoint.x + config.Butterfly.rec_len / 4 , RefPoint.y - config.Butterfly.circ1_rad + config.Butterfly.rec_width });
+		cir5->setRefPoint({ RefPoint.x - config.Butterfly.rec_len / 4, RefPoint.y - config.Butterfly.circ1_rad + config.Butterfly.rec_width });
+		rect->rotate(90);
+		break;
+	case 180:
+		cir1->setRefPoint({ RefPoint.x + config.Butterfly.circ1_rad - config.Butterfly.rec_width, RefPoint.y - config.Butterfly.rec_len / 4 });
+		cir2->setRefPoint({ RefPoint.x + config.Butterfly.circ1_rad - config.Butterfly.rec_width, RefPoint.y + config.Butterfly.rec_len / 4 });
+		cir3->setRefPoint({ RefPoint.x, RefPoint.y + config.Butterfly.rec_len / 2 });
+		cir4->setRefPoint({ RefPoint.x - config.Butterfly.circ1_rad + config.Butterfly.rec_width, RefPoint.y - config.Butterfly.rec_len / 4 });
+		cir5->setRefPoint({ RefPoint.x - config.Butterfly.circ1_rad + config.Butterfly.rec_width, RefPoint.y + config.Butterfly.rec_len / 4 });
+
+		break;
+	case 270:
+		cir1->setRefPoint({ RefPoint.x - config.Butterfly.rec_len / 4 , RefPoint.y - config.Butterfly.circ1_rad + config.Butterfly.rec_width });
+		cir2->setRefPoint({ RefPoint.x + config.Butterfly.rec_len / 4, RefPoint.y - config.Butterfly.circ1_rad + config.Butterfly.rec_width });
+		cir3->setRefPoint({ RefPoint.x - config.Butterfly.rec_len / 2, RefPoint.y });
+		cir4->setRefPoint({ RefPoint.x - config.Butterfly.rec_len / 4 ,RefPoint.y + config.Butterfly.circ1_rad - config.Butterfly.rec_width });
+		cir5->setRefPoint({ RefPoint.x + config.Butterfly.rec_len / 4 ,RefPoint.y + config.Butterfly.circ1_rad - config.Butterfly.rec_width });
+		rect->rotate(90);
+		break;
+
+	default:
+		break;
+	}
 
 }
+
+
+
 
 string Butterfly::MyType() {
 	return "Butterfly";
@@ -486,7 +527,7 @@ void Home::ResizeUp() {
 	Tri->setRefPoint( {RefPoint.x - int(config.Home.wdth *size/ 2),RefPoint.y - int(config.Home.hght / 2 * size )});
 	top->setRefPoint({ RefPoint.x - int(config.Home.wdth * size / 2),RefPoint.y - int(config.Home.hght / 2 * size )});
 
-	draw();
+	//draw();
 }
 void Home::ResizeDown() {
 
@@ -500,7 +541,7 @@ void Home::ResizeDown() {
 	Tri->setRefPoint({ RefPoint.x - int(config.Home.wdth * size / 2),RefPoint.y - int(config.Home.hght / 2 * size) });
 	top->setRefPoint({ RefPoint.x - int(config.Home.wdth * size / 2),RefPoint.y - int(config.Home.hght / 2 * size) });
 
-	draw();
+	//draw();
 }
 
 void Home::move(char step) {
@@ -560,30 +601,34 @@ void Home::VerticalFlip() {
 	top->VerticalFlip();
 	base->VerticalFlip();
 }
-/*void Home::rotate(int angle, point ref)
+void Home::rotate(int angle)
 {
-	stepsCounter += 1;
 	switch (angle)
 	{
 	case 90:
-		point refTopTri = { ref.x + config.Home.hght / 2,ref.y - config.Home.wdth / 2 };
-		point refTopRec = { refTopTri.x + config.Home.hght2 / 2,ref.y + config.Home.wdth2 / 2 };
-		base->rotate();
+		Tri->setRefPoint({ RefPoint.x + config.Home.wdth / 2,RefPoint.y - config.Home.hght / 2 });
+		top->setRefPoint({ RefPoint.x + config.Home.hght / 2 + config.Home.hght2 / 2,RefPoint.y - config.Home.hght / 2 + config.Home.wdth2 / 2 });
+		base->rotate(90);
+		Tri->rotate(90);
+		top->rotate(90);
 		break;
 	case 180:
-		point refTopTri = { ref.x - config.Home.hght / 2,ref.y + config.Home.wdth / 2 };
-		point refTopRec = { refTopTri.x + config.Home.wdth2 / 2,ref.y + config.Home.hght2 / 2 };
+		Tri->setRefPoint({ RefPoint.x + config.Home.wdth / 2,RefPoint.y + config.Home.hght / 2 });
+		top->setRefPoint({ RefPoint.x + config.Home.hght / 2 - config.Home.hght2 / 2,RefPoint.y + config.Home.hght / 2 + config.Home.wdth2 / 2 });
+		base->rotate(180);
+		Tri->rotate(180);
+		top->rotate(180);
 		break;
 	case 270:
-		point refTopTri = { ref.x - config.Home.hght / 2,ref.y - config.Home.wdth / 2 };
-		point refTopRec = { refTopTri.x - config.Home.hght2 / 2,ref.y + config.Home.wdth2 / 2 };
-		base->rotate();
+		Tri->setRefPoint({ RefPoint.x - config.Home.wdth / 2,RefPoint.y + config.Home.hght / 2 });
+		top->setRefPoint({ RefPoint.x - config.Home.hght / 2 - config.Home.hght2 / 2,RefPoint.y + config.Home.hght / 2 - config.Home.wdth2 / 2 });
+		base->rotate(270);
+		Tri->rotate(270);
+		top->rotate(270);
+		break;
+	default:
 		break;
 	}
-
-}*/
-void Home::rotate(int angle, point ref) {
-
 }
 
 string Home::MyType() {
@@ -635,7 +680,6 @@ void Cat::ResizeUp() {
 	ear2->ResizeUp();
 	lFoot->ResizeUp();
 	rFoot->ResizeUp();
-	draw();
 	size *= 2;
 	body->setRefPoint({ RefPoint.x - int(config.Cat.len1 / 2 * size ), RefPoint.y + int(((config.Cat.hght) / 2 + (config.Cat.len1 * cos(3.14 / 3)) )* size) });
 	ear1->setRefPoint({ RefPoint.x - int(config.Cat.base / 2 * size ),RefPoint.y - int(config.Cat.hght / 2 * size )});
@@ -643,7 +687,7 @@ void Cat::ResizeUp() {
 	lFoot->setRefPoint({ RefPoint.x - int(config.Cat.len1 / 2 * size ),RefPoint.y + int(((config.Cat.hght) / 2 + (config.Cat.len1 * cos(3.14 / 3))) * size )});
 	rFoot->setRefPoint({ RefPoint.x + int(config.Cat.len1 / 2 * size ),RefPoint.y + int(((config.Cat.hght) / 2 + (config.Cat.len1 * cos(3.14 / 3))) * size )});
 
-	draw();
+	//draw();
 }
 void Cat::ResizeDown() {
 
@@ -663,7 +707,7 @@ void Cat::ResizeDown() {
 	lFoot->setRefPoint({ RefPoint.x - int(config.Cat.len1 / 2 * size),RefPoint.y + int(((config.Cat.hght) / 2 + (config.Cat.len1 * cos(3.14 / 3))) * size) });
 	rFoot->setRefPoint({ RefPoint.x + int(config.Cat.len1 / 2 * size),RefPoint.y + int(((config.Cat.hght) / 2 + (config.Cat.len1 * cos(3.14 / 3))) * size) });
 
-	draw();
+//	draw();
 }
 void Cat::move(char step) {
 	grid* pGrid = pGame->getGrid();
@@ -739,9 +783,47 @@ void Cat::VerticalFlip() {
 	ear1->VerticalFlip();
 	ear2->VerticalFlip();
 }
-void Cat::rotate(int angle, point ref) {
+void Cat::rotate(int angle)
+{
+	switch (angle)
+	{
+	case 90:
+		body->rotate(90);
+		ear1->rotate(90);
+		ear2->rotate(90);
+		body->setRefPoint({ int(RefPoint.x - config.Cat.len1 * cos(3.14 / 3)) ,RefPoint.y - config.Cat.base / 2 });
+		ear1->setRefPoint({ RefPoint.x + config.Cat.base / 2,RefPoint.y - config.Cat.hght / 2 });
+		ear2->setRefPoint({ RefPoint.x + config.Cat.base / 2 ,RefPoint.y + config.Cat.hght / 2 - config.Cat.len2 });
+		lFoot->setRefPoint({ int(RefPoint.x - config.Cat.len1 * cos(3.14 / 3)) ,RefPoint.y - config.Cat.base / 2 });
+		rFoot->setRefPoint({ int(RefPoint.x - config.Cat.len1 * cos(3.14 / 3)) ,RefPoint.y - config.Cat.base / 2 + config.Cat.len1 });
+		break;
+	case 180:
+		body->rotate(90);
+		ear1->rotate(90);
+		ear2->rotate(90);
+		body->setRefPoint({ RefPoint.x + config.Cat.base / 2, int(RefPoint.y - config.Cat.len1 * cos(3.14 / 3)) });
+		ear1->setRefPoint({ RefPoint.x + config.Cat.base / 2,RefPoint.y + config.Cat.hght / 2 });
+		ear2->setRefPoint({ RefPoint.x - config.Cat.base / 2 + config.Cat.len2 ,RefPoint.y + config.Cat.hght / 2 });
+		lFoot->setRefPoint({ RefPoint.x + config.Cat.base / 2, int(RefPoint.y - config.Cat.len1 * cos(3.14 / 3)) });
+		rFoot->setRefPoint({ RefPoint.x + config.Cat.base / 2 + config.Cat.len1, int(RefPoint.y - config.Cat.len1 * cos(3.14 / 3)) });
 
+		break;
+	case 270:
+		body->rotate(270);
+		ear1->rotate(270);
+		ear2->rotate(270);
+		body->setRefPoint({ int(RefPoint.x + config.Cat.len1 * cos(3.14 / 3)) ,RefPoint.y - config.Cat.base / 2 });
+		ear1->setRefPoint({ RefPoint.x - config.Cat.base / 2,RefPoint.y - config.Cat.hght / 2 });
+		ear2->setRefPoint({ RefPoint.x - config.Cat.base / 2 ,RefPoint.y + config.Cat.hght / 2 - config.Cat.len2 });
+		lFoot->setRefPoint({ int(RefPoint.x + config.Cat.len1 * cos(3.14 / 3)) ,RefPoint.y - config.Cat.base / 2 });
+		rFoot->setRefPoint({ int(RefPoint.x + config.Cat.len1 * cos(3.14 / 3)) ,RefPoint.y - config.Cat.base / 2 + config.Cat.len1 });
+		break;
+
+	default:
+		break;
+	}
 }
+
 
 string Cat::MyType() {
 	return "Cat";
@@ -790,7 +872,7 @@ void car::ResizeUp() {
 	whl1->setRefPoint( { RefPoint.x + int((config.car.len / 2  - config.car.rad) * size),RefPoint.y + int((config.car.hght / 2 + config.car.rad) * size) });
 	whl2->setRefPoint({ RefPoint.x - int((config.car.len / 2 - config.car.rad) * size),RefPoint.y + int((config.car.hght / 2 + config.car.rad ) * size )});
 
-	draw();
+	//draw();
 }
 void car::ResizeDown() {
 
@@ -806,15 +888,15 @@ void car::ResizeDown() {
 	whl1->setRefPoint({ RefPoint.x + int((config.car.len / 2 - config.car.rad) * size),RefPoint.y + int((config.car.hght / 2 + config.car.rad) * size) });
 	whl2->setRefPoint({ RefPoint.x - int((config.car.len / 2 - config.car.rad) * size),RefPoint.y + int((config.car.hght / 2 + config.car.rad) * size) });
 
-	draw();
+	//draw();
 }
 void car::move(char step){
 
 	grid* pGrid = pGame->getGrid();
 	int x1 = config.wx + body->getwdth();
 	int x2 = config.wx + config.windWidth - body->getwdth();
-	int y1 = config.wy + config.toolBarHeight + body->gethght() + top->gethight();
-	int y2 = config.wy + config.windHeight - config.statusBarHeight - whl1 ->getrad() - body->gethght();
+	int y1 = config.wy + config.toolBarHeight + 1.4*body->gethght() + top->gethight();
+	int y2 = config.wy + config.windHeight - config.statusBarHeight - whl1 ->getrad() - 1.4*body->gethght();
 	
 	stepsCounter += 1;
 
@@ -860,36 +942,43 @@ void car::move(char step){
 	}
 	
 }
-/*void car::rotate(int angle, point ref)
+void car::rotate(int angle)
 {
-	stepsCounter += 1;
 	switch (angle)
 	{
 	case 90:
-		point triRef = { ref.x + config.car.hght / 2,ref.y - config.car.len / 2 };
-		point cir1 = { ref.x - config.car.hght / 2 - config.car.rad,ref.y + config.car.len / 2 - config.car.rad };
-		point cir2 = { ref.x - config.car.hght / 2 - config.car.rad,ref.y - config.car.len / 2 + config.car.rad };
-		body->rotate();
+		body->rotate(90);
+		top->rotate(90);
+		top->setRefPoint({ RefPoint.x + config.car.len / 2 ,RefPoint.y + config.car.hght / 2 - config.car.len2 });
+		whl2->setRefPoint({ RefPoint.x - config.car.len / 2 , RefPoint.y + config.car.hght / 2 - config.car.rad });
+		whl2->setRefPoint({ RefPoint.x - config.car.len / 2 , RefPoint.y - config.car.hght / 2 + config.car.rad });
+		whl2->draw();
+		whl1->draw();
 		break;
 	case 180:
-		point triRef = { ref.x - config.car.len / 2,ref.y + config.car.hght / 2 };
-		point cir1 = { ref.x + config.car.len / 2 - config.car.rad,ref.y - config.car.hght / 2 + config.car.rad };
-		point cir2 = { ref.x - config.car.len / 2 + config.car.rad,ref.y - config.car.hght / 2 + config.car.rad };
-
+		body->rotate(180);
+		top->rotate(180);
+		top->setRefPoint({ RefPoint.x + config.car.len / 2 - config.car.len2 ,RefPoint.y - config.car.hght / 2 });
+		whl2->setRefPoint({ RefPoint.x - config.car.len / 2 + config.car.rad,RefPoint.y - config.car.hght / 2 - config.car.rad });
+		whl2->setRefPoint({ RefPoint.x + config.car.len / 2 - config.car.rad,RefPoint.y - config.car.hght / 2 - config.car.rad });
+		whl2->draw();
+		whl1->draw();
 		break;
 	case 270:
-		point triRef = { ref.x - config.car.hght / 2,ref.y - config.car.len / 2 };
-		point cir1 = { ref.x + config.car.hght / 2 + config.car.rad,ref.y + config.car.len / 2 - config.car.rad };
-		point cir2 = { ref.x + config.car.hght / 2 + config.car.rad,ref.y - config.car.len / 2 + config.car.rad };
-		body->rotate();
+		body->rotate(270);
+		top->rotate(270);
+		top->setRefPoint({ RefPoint.x - config.car.len / 2 ,RefPoint.y + config.car.hght / 2 - config.car.len2 });
+		whl2->setRefPoint({ RefPoint.x + config.car.len / 2 , RefPoint.y + config.car.hght / 2 - config.car.rad });
+		whl2->setRefPoint({ RefPoint.x + config.car.len / 2 , RefPoint.y - config.car.hght / 2 + config.car.rad });
+		whl2->draw();
+		whl1->draw();
 		break;
+
 	default:
 		break;
 	}
-}*/
-void car::rotate(int angle, point ref) {
-
 }
+
 void car::VerticalFlip() {}
 
 

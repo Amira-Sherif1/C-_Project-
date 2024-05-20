@@ -60,11 +60,27 @@ int Rect::getwdth()const {
 	 }
  
  }
-void Rect::rotate() {
-	int uuu=hght;
-	hght = wdth;
-	wdth = uuu;
-}
+
+ void Rect::rotate(int angle) {
+	 int uuu;
+	 switch (angle)
+	 {
+	 case 90:
+		 uuu = hght;
+		 hght = wdth;
+		 wdth = uuu;
+		 break;
+	 case 270:
+		 uuu = hght;
+		 hght = wdth;
+		 wdth = uuu;
+		 break;
+	 default:
+		 break;
+
+	 }
+ }
+
 void Rect::VerticalFlip() {
 	hght = hght * (-1);
 }
@@ -114,7 +130,7 @@ void circle::move(char step) {
 		RefPoint.x = RefPoint.x - config.gridSpacing;
 	}
 }
-void circle::rotate(){}
+void circle::rotate(int angle){}
 
 ////////////////////////////////////////////////////  class triangle  ///////////////////////////////////////
 //TODO: Add implementation for class triangle here
@@ -172,14 +188,29 @@ void Triangle::move(char step) {
 	}
 }
 
-void Triangle::rotate() {
-	int temp = length;
-	length = hight;
-	hight = temp;
+void Triangle::rotate(int angle) {
 
-	RefPoint.x = RefPoint.x - hight;
-	RefPoint.y = RefPoint.y + length / 2;
-
+	point p1, p2, p3;
+	switch (angle)
+	{
+	case 90:
+		p1 = RefPoint;
+		p2 = { RefPoint.x,RefPoint.y + length };
+		p3 = { RefPoint.x + hight,RefPoint.y + length / 2 };
+		break;
+	case 180:
+		p1 = RefPoint;
+		p2 = { RefPoint.x + length,RefPoint.y };
+		p3 = { RefPoint.x - length / 2,RefPoint.y + hight };
+		break;
+	case 270:
+		p1 = RefPoint;
+		p2 = { RefPoint.x,RefPoint.y - length };
+		p3 = { RefPoint.x - hight,RefPoint.y - length / 2 };
+		break;
+	default:
+		break;
+	}
 }
 void Triangle::VerticalFlip() {
 	hight = (-1) * hight;

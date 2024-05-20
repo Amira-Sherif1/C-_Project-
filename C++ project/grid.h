@@ -36,7 +36,12 @@ public:
 	void Random_Shapes_Generator();
 	void randomshape(point refrance,shape* ranshape , int size,int rortat, int fli);
 	color getcolor(int x)const;
-	void delete_shapelist()const;
+	void delete_shapelist();
+	bool overlap();
 	/*void Check_Matching();*/
+	int getShType()const;
+	void Load();
+	void Save();
+	void checkoverlaping();
 };
 

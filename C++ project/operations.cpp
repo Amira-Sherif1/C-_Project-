@@ -150,6 +150,7 @@ void operResizeUp::Act() {
 	grid* pGrid = pGame->getGrid();
 	shape* sh= pGrid->getactiveshap();
 	sh->ResizeUp();
+	sh->draw();
 }
 operResizeDown::operResizeDown(game* r_pGame) :operation(r_pGame) {
 
@@ -160,6 +161,7 @@ void operResizeDown::Act() {
 	grid* pgrid = pGame->getGrid();
 	shape* sh = pgrid->getactiveshap();
 	sh->ResizeDown();
+	sh->draw();
 }
 
 operDelete::operDelete(game* r_pGame) :operation(r_pGame)
@@ -179,10 +181,65 @@ void operRefresh::Act() {
 	
 	grid* pGrid = pGame->getGrid();
 	if (pGame->getlives() > 0) {
+		/*if (pGame->getlevel() < 3) {
+			do {
+				pGrid->delete_shapelist();
+				pGrid->Random_Shapes_Generator();
+			} while (pGrid->overlap());
+			pGrid->draw();
+		}
+
+		else if (pGame->getlevel() >= 3) {
+			do {
+				pGrid->delete_shapelist();
+				pGrid->Random_Shapes_Generator();
+			} while (!(pGrid->overlap()));
+			pGrid->draw();
+
+		}*/
 		pGrid->delete_shapelist();
 		pGrid->Random_Shapes_Generator();
+		//pGrid->checkoverlaping();
 		pGrid->draw();
 		pGame->setlives(pGame->getlives() - 1);
 	}
 	
+}
+operSelectLevel::operSelectLevel(game* r_pGame) :operation(r_pGame) {}
+
+
+void operSelectLevel::Act()
+{
+	window* pw = pGame->getWind();
+	grid* pgrid = pGame->getGrid();
+	keytype kt = ASCII;
+	char k;
+	kt = pw->WaitKeyPress(k);
+	int l = int(k);
+	while (l > 48 && l < 57)
+	{
+		int level = l - 48;
+		pGame->setlevel(level);
+
+		//pGame->UpdateInfo();
+	}
+
+}
+
+
+operSave::operSave(game* r_pGame) :operation(r_pGame) {}
+
+void operSave::Act()
+{
+	grid* pgrid = pGame->getGrid();
+	pgrid->Save();
+}
+
+operLoad::operLoad(game* r_pGame) :operation(r_pGame) {}
+
+
+void operLoad::Act()
+{
+	grid* pgrid = pGame->getGrid();
+	pgrid->Load();
 }
