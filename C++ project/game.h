@@ -22,6 +22,8 @@ class game
 	int lives = 5;
 	int score = 0;
 
+	int score = 5;
+	bool isExit = false;
 
 public:
 	game();
@@ -48,6 +50,9 @@ public:
 	void setscore(int x);
 	int getscore()const;
 	void setlevel(int x);
+	void setScore(int s);
+	int GetScore();
+	void SetExit();
 
 };
 

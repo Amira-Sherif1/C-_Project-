@@ -53,7 +53,7 @@ void grid::draw() const
 
 		else {
 			pWind->SetPen(config.fillColor, config.penWidth);
-			pWind->SetBrush(config.fillColor);
+			pWind->SetBrush(getcolor(i));
 			if (shapeList[i])
 				shapeList[i]->draw();	//draw each shape
 		}
@@ -105,6 +105,14 @@ shape* grid::getactiveshap()const {
 	return activeShape;
 }
 
+shape* grid::GetHintShape() {
+	return shapeList[1]; /*Rememper that index 1 must be random */
+
+}
+
+void grid::Save() {
+
+}
 
 void grid::randomshape(point refrance,shape* randshape , int size, int rotat, int fli) {
 	for (int i = 0; i < size; i++) {
@@ -372,5 +380,38 @@ void grid::checkoverlaping() {
 			this->delete_shapelist();
 			this->Random_Shapes_Generator();
 		} while (!(this->overlap()));
+	}
+}
+
+void grid::delete_item_shapelist(int e) {
+	if (shapeCount <= 0)
+		return;
+	shapeList[e] = nullptr;
+}
+void grid::Check_Matching() {
+	point base = activeShape->getRefPoint();
+	int number = 0;
+	for (int i = 0; i < shapeCount; i++) {
+		if (shapeList[i]) {
+			shape* tem_shape = shapeList[i];
+			point* tem_point = &tem_shape->getRefPoint();
+			if (tem_point->x == base.x && tem_point->y == base.y && tem_shape->getSize() == activeShape->getSize() && tem_shape->MyType() == activeShape->MyType()) {
+				delete_item_shapelist(i);
+				int n = pGame->getlives();
+				pGame->setlives(n + 2);
+				number += 1;
+				matchedShape += 1;
+				pGame->clearStatusBar();
+				window* winn = pGame->getWind();
+				winn->SetPen(BLACK);
+				winn->SetFont(20, BOLD | ITALICIZED, BY_NAME, "Arial");
+				winn->DrawString(10, config.windHeight - 40, "The number of matched shapes " + to_string(matchedShape));
+				break;
+			}
+		}
+	}
+	if (number) {
+		int n = pGame->getlives();
+		pGame->setlives(n - 1);
 	}
 }

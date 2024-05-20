@@ -100,3 +100,7 @@ int shape::getx()const {
 int shape::gety()const {
 	return RefPoint.y;
 }
+
+void shape::Setcolor() {
+	fillColor = RED;/*Wait to change fill color*/
+}
