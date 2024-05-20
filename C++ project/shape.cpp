@@ -104,6 +104,10 @@ int shape::gety()const {
 void shape::Setcolor() {
 	fillColor = RED;/*Wait to change fill color*/
 }
+point shape::getRefPoint()const {
+	return RefPoint;
+}
+double shape::getSize()const {
 
 point shape::getRefPoint() const{
 	return RefPoint;
