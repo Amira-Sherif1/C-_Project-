@@ -53,7 +53,7 @@ void grid::draw() const
 
 		else {
 			pWind->SetPen(config.fillColor, config.penWidth);
-			pWind->SetBrush(getcolor(i));
+			pWind->SetBrush(config.fillColor);
 			if (shapeList[i])
 				shapeList[i]->draw();	//draw each shape
 		}
