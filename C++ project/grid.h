@@ -37,6 +37,9 @@ public:
 	void randomshape(point refrance,shape* ranshape , int size,int rortat, int fli);
 	color getcolor(int x)const;
 	void delete_shapelist()const;
-	/*void Check_Matching();*/
+	void delete_item_shapelist(int i);
+	void Check_Matching();
+	shape* GetHintShape();
+	void Save();
 };
 

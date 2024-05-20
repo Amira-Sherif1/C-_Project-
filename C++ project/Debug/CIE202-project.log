@@ -1,0 +1,31 @@
+﻿cl : command line  warning D9035: option 'Gm' has been deprecated and will be removed in a future release
+  CompositeShapes.cpp
+C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\gameConfig.h(35,23): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'CompositeShapes.cpp')
+  
+C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\gameConfig.h(36,24): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'CompositeShapes.cpp')
+  
+C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\gameConfig.h(48,23): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'CompositeShapes.cpp')
+  
+C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\gameConfig.h(55,28): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'CompositeShapes.cpp')
+  
+C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\gameConfig.h(57,28): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'CompositeShapes.cpp')
+  
+C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\gameConfig.h(71,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'CompositeShapes.cpp')
+  
+C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\CompositeShapes.cpp(59,9): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\CompositeShapes.cpp(187,9): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\CompositeShapes.cpp(189,9): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\CompositeShapes.cpp(372,9): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\CompositeShapes.cpp(598,50): warning C4838: conversion from 'double' to 'int' requires a narrowing conversion
+C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\CompositeShapes.cpp(598,50): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\CompositeShapes.cpp(601,53): warning C4838: conversion from 'double' to 'int' requires a narrowing conversion
+C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\CompositeShapes.cpp(601,53): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\CompositeShapes.cpp(602,53): warning C4838: conversion from 'double' to 'int' requires a narrowing conversion
+C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\CompositeShapes.cpp(602,53): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  CIE202-project.vcxproj -> C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\Debug\CIE202-project.exe

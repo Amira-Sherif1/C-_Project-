@@ -300,8 +300,8 @@ string Tree::MyType() {
                  //////////////////////class Butterfly////////////////////////
 
 Butterfly::Butterfly(game* r_pgame, point ref) : shape(r_pgame, ref){
-	point cir1_ref{ ref.x + config.Butterfly.circ1_rad - config.Butterfly.rec_width, ref.y - config.Butterfly.rec_len /4};
-	point cir4_ref{ ref.x - config.Butterfly.circ1_rad + config.Butterfly.rec_width, ref.y - config.Butterfly.rec_len / 4 };
+	point cir1_ref{ ref.x + config.Butterfly.circ1_rad , ref.y - config.Butterfly.rec_len /4};
+	point cir4_ref{ ref.x - config.Butterfly.circ1_rad , ref.y - config.Butterfly.rec_len / 4 };
 	point cir2_ref{ ref.x + config.Butterfly.circ1_rad - config.Butterfly.rec_width, ref.y + config.Butterfly.rec_len / 4 };
 	point cir5_ref{ ref.x - config.Butterfly.circ1_rad + config.Butterfly.rec_width, ref.y + config.Butterfly.rec_len / 4 };
 	point cir3_ref{ ref.x , ref.y - config.Butterfly.rec_len / 2 };
@@ -321,8 +321,8 @@ void Butterfly::draw() const{
 	cir5->draw();
 	cir1->draw();
 	cir4->draw();
-	cir3->draw();
 	rect->draw();
+	cir3->draw();
 }
 void Butterfly::ResizeUp(){
 
@@ -338,8 +338,8 @@ void Butterfly::ResizeUp(){
 	rect->ResizeUp();
 
 	size *= 2;
-	cir1->setRefPoint({ RefPoint.x + int((config.Butterfly.circ1_rad - config.Butterfly.rec_width) *size), RefPoint.y - int(config.Butterfly.rec_len * size / 4) });
-	cir4->setRefPoint({ RefPoint.x - int((config.Butterfly.circ1_rad - config.Butterfly.rec_width) * size), RefPoint.y - int(config.Butterfly.rec_len * size / 4) });
+	cir1->setRefPoint({ RefPoint.x + int((config.Butterfly.circ1_rad ) *size), RefPoint.y - int(config.Butterfly.rec_len * size / 4) });
+	cir4->setRefPoint({ RefPoint.x - int((config.Butterfly.circ1_rad ) * size), RefPoint.y - int(config.Butterfly.rec_len * size / 4) });
 	cir2->setRefPoint({ RefPoint.x + int((config.Butterfly.circ1_rad - config.Butterfly.rec_width) * size), RefPoint.y + int(config.Butterfly.rec_len * size / 4) });
 	cir5->setRefPoint({ RefPoint.x - int((config.Butterfly.circ1_rad - config.Butterfly.rec_width) * size), RefPoint.y + int(config.Butterfly.rec_len * size / 4) });
 	cir3->setRefPoint({ RefPoint.x , RefPoint.y - int(config.Butterfly.rec_len* size / 2) });
@@ -358,8 +358,8 @@ void Butterfly::ResizeDown() {
 	rect->ResizeDown();
 
 	size /= 2;
-	cir1->setRefPoint({ RefPoint.x + int((config.Butterfly.circ1_rad - config.Butterfly.rec_width) * size), RefPoint.y - int(config.Butterfly.rec_len * size / 4) });
-	cir4->setRefPoint({ RefPoint.x - int((config.Butterfly.circ1_rad - config.Butterfly.rec_width) * size), RefPoint.y - int(config.Butterfly.rec_len * size / 4) });
+	cir1->setRefPoint({ RefPoint.x + int((config.Butterfly.circ1_rad ) * size), RefPoint.y - int(config.Butterfly.rec_len * size / 4) });
+	cir4->setRefPoint({ RefPoint.x - int((config.Butterfly.circ1_rad ) * size), RefPoint.y - int(config.Butterfly.rec_len * size / 4) });
 	cir2->setRefPoint({ RefPoint.x + int((config.Butterfly.circ1_rad - config.Butterfly.rec_width) * size), RefPoint.y + int(config.Butterfly.rec_len * size / 4) });
 	cir5->setRefPoint({ RefPoint.x - int((config.Butterfly.circ1_rad - config.Butterfly.rec_width) * size), RefPoint.y + int(config.Butterfly.rec_len * size / 4) });
 	cir3->setRefPoint({ RefPoint.x , RefPoint.y - int(config.Butterfly.rec_len * size / 2) });

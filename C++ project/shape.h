@@ -41,17 +41,17 @@ public:
 	virtual void ResizeUp()=0;
 	virtual void ResizeDown() = 0;
 	virtual void move(char step) = 0 ;		//Move the shape
-	void rotate(int angle, point ref);
+	void rotate(int angle, point ref);			//Rotate the shape
 	//virtual ~shape();
 
 	double getSize() const;
-	//virtual string MyType() = 0;		// to know the type of the shape "the divered shape" 
+	virtual string MyType() = 0;		// to know the type of the shape "the divered shape" 
+	virtual void Setcolor();
 
 	//-- The following functions should be supported by the shape class
 	//-- It should be overridden by each inherited shape
 	//-- Decide the parameters that you should pass to each function	
 
-//virtual void rotate() = 0;	//Rotate the shape
 	//virtual void resize() = 0;	//Resize the shape
 	
 	//virtual void save(ofstream &OutFile) = 0;	//Save the shape parameters to the file

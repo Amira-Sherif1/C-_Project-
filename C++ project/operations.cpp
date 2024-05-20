@@ -1,4 +1,4 @@
-#include "operations.h"
+﻿#include "operations.h"
 #include "game.h"
 #include "CompositeShapes.h"
 /////////////////////////////////// class operation  //////////////////
@@ -186,3 +186,40 @@ void operRefresh::Act() {
 	}
 	
 }
+
+operrotate::operrotate(game* r_pGame) :operation(r_pGame) {}
+void operrotate::Act() {
+
+	grid* pGrid = pGame->getGrid();
+	shape* sh = pGrid->getactiveshap();
+	/*sh->rotate();*/
+}
+operVerticalflip::operVerticalflip(game* r_pGame) :operation(r_pGame) {}
+void operVerticalflip::Act() {
+
+	grid* pGrid = pGame->getGrid();
+	shape* sh = pGrid->getactiveshap();
+	//sh->VerticalFlip();
+}
+operHint::operHint(game* r_pGame) :operation(r_pGame) {}
+void operHint::Act() {
+
+	if (pGame->getlevel() >= 3) {
+		grid* pGrid = pGame->getGrid();
+		shape* sh = pGrid->GetHintShape();
+		sh->Setcolor();
+		Sleep(2000);
+		pGame->setScore(pGame->GetScore() - 1);
+
+	}
+
+
+}
+
+operExit::operExit(game* r_pGame) :operation(r_pGame) {}
+void operExit::Act() {
+	grid *w = pGame->getGrid();
+	w->Save();
+	pGame->SetExit();
+}
+

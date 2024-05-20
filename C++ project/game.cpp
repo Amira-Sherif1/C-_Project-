@@ -101,6 +101,18 @@ operation* game::createRequiredOperation(toolbarItem clickedItem)
 	case Itm_delet:
 		op = new operDelete(this);
 		break;
+	case Itm_rotate:
+		op = new operrotate(this);
+		break;
+	case ITM_flip:
+		op = new operVerticalflip(this);
+		break;
+	case Itm_hint:
+		op = new operHint(this);
+		break;
+	case ITM_EXIT:
+		op = new operExit(this);
+		break;
 	}
 	return op;
 }
@@ -308,11 +320,10 @@ void game::ToolbarClicker(toolbarItem t) {
 		text = "You Pressed on Save item";
 		break;
 	}
+	clearStatusBar();
 	pWind->SetPen(BLACK);
 	pWind->SetFont(20, BOLD | ITALICIZED, BY_NAME, "Arial");
 	pWind->DrawString(10, config.windHeight - 40, text);
-	Sleep(500);
-	clearStatusBar();
 	}
 int game::getlevel()const {
 	return level;
@@ -328,3 +339,14 @@ void game::setlives(int x) {
 	lives = x;
 }
 
+void game::setScore(int s) {
+	score = s;
+
+}
+int game::GetScore() {
+
+	return score;
+}
+void game::SetExit() {
+	isExit = true;
+}

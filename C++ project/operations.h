@@ -97,4 +97,28 @@ public:
 
 };
 
+class operrotate : public operation {
+public:
+	operrotate(game* r_pGame);
+
+	virtual void Act();
+};
+class operVerticalflip : public operation {
+public:
+	operVerticalflip(game* r_pGame);
+
+	virtual void Act();
+};
+class operHint : public operation {
+public:
+	operHint(game* r_pGame);
+
+	virtual void Act();
+};
+class operExit : public operation
+{
+public:
+	operExit(game* r_pGame);
+	virtual void Act();
+};
 

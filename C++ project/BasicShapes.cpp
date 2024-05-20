@@ -70,6 +70,7 @@ void Rect::VerticalFlip() {
 }
 
 
+
 ////////////////////////////////////////////////////  class circle  ///////////////////////////////////////
 //TODO: Add implementation for class circle here
 circle::circle(game* r_pGame, point ref, int r):shape(r_pGame,ref)

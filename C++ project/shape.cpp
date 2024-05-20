@@ -23,3 +23,7 @@ point shape::getRefPoint() const
 double shape::getSize() const {
 	return size;
 }
+
+void shape::Setcolor() {
+	fillColor = RED;/*Wait to change fill color*/
+}
