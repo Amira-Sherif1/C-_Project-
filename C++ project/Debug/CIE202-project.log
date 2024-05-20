@@ -1,22 +1,32 @@
 ﻿cl : command line  warning D9035: option 'Gm' has been deprecated and will be removed in a future release
-  grid.cpp
+  BasicShapes.cpp
 C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\gameConfig.h(35,23): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'grid.cpp')
+  (compiling source file 'BasicShapes.cpp')
   
 C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\gameConfig.h(36,24): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'grid.cpp')
+  (compiling source file 'BasicShapes.cpp')
   
 C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\gameConfig.h(48,23): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'grid.cpp')
+  (compiling source file 'BasicShapes.cpp')
   
 C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\gameConfig.h(55,28): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'grid.cpp')
+  (compiling source file 'BasicShapes.cpp')
   
 C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\gameConfig.h(57,28): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'grid.cpp')
+  (compiling source file 'BasicShapes.cpp')
   
 C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\gameConfig.h(71,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'grid.cpp')
+  (compiling source file 'BasicShapes.cpp')
   
-C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\grid.cpp(166,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\BasicShapes.cpp(140,13): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  toolbar.cpp
+  shape.cpp
+  operations.cpp
+  main.cpp
+  grid.cpp
+  game.cpp
+  CompositeShapes.cpp
+BasicShapes.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
   CIE202-project.vcxproj -> C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\Debug\CIE202-project.exe

@@ -110,10 +110,6 @@ shape* grid::GetHintShape() {
 
 }
 
-void grid::Save() {
-
-}
-
 void grid::randomshape(point refrance,shape* randshape , int size, int rotat, int fli) {
 	for (int i = 0; i < size; i++) {
 		switch (resize(size)) {
@@ -240,33 +236,6 @@ void grid::delete_shapelist() {
 	}
 	shapeCount = 0;
 }
-//void grid::Check_Matching() {
-//	point base = activeShape->getRefPoint();
-//	int number = 0;
-//	for (int i = 0; i < shapeCount; i++) {
-//		shape* tem_shape = shapeList[i];
-//		point* tem_point = &tem_shape->getRefPoint();
-//		if (tem_point->x == base.x && tem_point->y == base.y && tem_shape->getSize() == activeShape->getSize() && tem_shape->MyType() == activeShape->MyType()) {
-//			delete tem_shape;
-//			int n = pGame->getlives();
-//			pGame->setlives(n + 2);
-//			number += 1;
-//			matchedShape += 1;
-//			window* winn = pGame->getWind();
-//			winn->SetPen(BLACK);
-//			winn->SetFont(20, BOLD | ITALICIZED, BY_NAME, "Arial");
-//			winn->DrawString(config.windWidth / 2, config.windHeight - 40, "The number of matched shapes "+matchedShape);
-//			break;
-//		}
-//		delete tem_point;
-//	}
-//	if (number) {
-//		int n = pGame->getlives();
-//		pGame->setlives(n - 1);
-//	}
-//}
-
-
 void grid::Load()
 {
 	/////shapeList->deleteList();////

@@ -20,8 +20,6 @@ class game
 	grid* shapesGrid;
 	int level = 4;
 	int lives = 5;
-	int score = 0;
-
 	int score = 5;
 	bool isExit = false;
 

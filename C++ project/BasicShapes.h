@@ -31,7 +31,6 @@ public:
 	int getwdth()const;
 	~Rect();
 
-	string MyType() ;
 };
 
 
@@ -52,7 +51,6 @@ public:
 	int getrad()const;
 	~circle();
 
-	string MyType();
 };
 
 
@@ -74,5 +72,4 @@ public:
 	int getlength()const;
 	int gethight()const;
 
-	string MyType() ;
 };
