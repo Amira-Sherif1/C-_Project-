@@ -65,7 +65,6 @@ public:
 	void setShtype(int s);
 	void save(ofstream& outfile);	//Save the shape parameters to the file
 	void load(ifstream& Infile);	//Load the shape parameters to the file
-	//virtual string MyType() = 0;		// to know the type of the shape "the divered shape" 
 	virtual string MyType() = 0;		// to know the type of the shape "the divered shape"
 	virtual void Setcolor();
 

@@ -43,8 +43,8 @@ public:
 	void checkoverlaping();
 	void delete_shapelist()const;
 	void delete_item_shapelist(int i);
+	void Save();
 	void Check_Matching();
 	shape* GetHintShape();
-	void Save();
 };
 

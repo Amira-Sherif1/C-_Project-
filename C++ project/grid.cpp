@@ -302,7 +302,7 @@ void grid::Save()
 	for (int i = 0; i < 2 * pGame->getlevel() - 1; i++)
 	{
 
-		outfile << shapeList[i]->getShtype();
+		outfile << shapeList[i]->MyType();
 		shapeList[i]->save(outfile);
 		if (pGame->getlevel() < 3) { outfile << " " << shapeList[i]->getfillcolor(); }
 	}
