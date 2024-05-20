@@ -38,7 +38,6 @@ public:
 	color getcolor(int x)const;
 	void delete_shapelist();
 	bool overlap();
-
 	int getShType()const;
 	void Load();
 	void checkoverlaping();
@@ -46,5 +45,6 @@ public:
 	void delete_item_shapelist(int i);
 	void Check_Matching();
 	shape* GetHintShape();
+	void Save();
 };
 

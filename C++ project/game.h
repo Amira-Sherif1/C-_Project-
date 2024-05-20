@@ -18,11 +18,9 @@ class game
 	
 	window* pWind;	//Pointer to the CMU graphics window
 	grid* shapesGrid;
-	int level = 4;
+	int level = 2;
 	int lives = 5;
 	int score = 0;
-	//int score = 5;
-	int score = 5;
 	bool isExit = false;
 
 public:
