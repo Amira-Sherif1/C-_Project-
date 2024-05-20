@@ -18,5 +18,5 @@ C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project
 C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\gameConfig.h(71,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
   (compiling source file 'grid.cpp')
   
-C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\grid.cpp(166,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\grid.cpp(164,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   CIE202-project.vcxproj -> C:\Users\moham\OneDrive\Desktop\C++\Project\secong checkpoint\new one\C-_Project-\C++ project\Debug\CIE202-project.exe
