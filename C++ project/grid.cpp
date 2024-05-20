@@ -110,9 +110,6 @@ shape* grid::GetHintShape() {
 
 }
 
-void grid::Save() {
-
-}
 
 void grid::randomshape(point refrance,shape* randshape , int size, int rotat, int fli) {
 	for (int i = 0; i < size; i++) {
@@ -388,6 +385,8 @@ void grid::delete_item_shapelist(int e) {
 		return;
 	shapeList[e] = nullptr;
 }
+
+
 void grid::Check_Matching() {
 	point base = activeShape->getRefPoint();
 	int number = 0;

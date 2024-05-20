@@ -199,7 +199,6 @@ void operRefresh::Act() {
 		}*/
 		pGrid->delete_shapelist();
 		pGrid->Random_Shapes_Generator();
-		//pGrid->checkoverlaping();
 		pGrid->draw();
 		pGame->setlives(pGame->getlives() - 1);
 	}
@@ -259,6 +258,7 @@ void operVerticalflip::Act() {
 	//sh->VerticalFlip();
 }
 operHint::operHint(game* r_pGame) :operation(r_pGame) {}
+
 void operHint::Act() {
 
 	if (pGame->getlevel() >= 3) {
