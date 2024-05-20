@@ -108,11 +108,6 @@ point shape::getRefPoint()const {
 	return RefPoint;
 }
 double shape::getSize()const {
-
-point shape::getRefPoint() const{
-	return RefPoint;
-}
-
-double shape::getSize() const {
 	return size;
 }
+
