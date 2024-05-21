@@ -257,7 +257,7 @@ void operHint::Act() {
 		shape* sh = pGrid->GetHintShape();
 		sh->Setcolor();
 		Sleep(2000);
-		pGame->setScore(pGame->GetScore() - 1);
+		pGame->setscore(pGame->GetScore() - 1);
 
 	}
 

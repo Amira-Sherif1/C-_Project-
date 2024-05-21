@@ -68,6 +68,8 @@ public:
 	virtual string MyType() = 0;		// to know the type of the shape "the divered shape"
 	virtual void Setcolor();
 
+	int GetSteps();
+
 	//-- The following functions should be supported by the shape class
 	//-- It should be overridden by each inherited shape
 	//-- Decide the parameters that you should pass to each function	

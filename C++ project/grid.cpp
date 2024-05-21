@@ -387,3 +387,8 @@ void grid::Check_Matching() {
 		pGame->setlives(n - 1);
 	}
 }
+
+void grid::ScoreCalculator() {
+	int steps = activeShape->GetSteps();
+	pGame->setscore(2000 - (17 * steps));
+}

@@ -5,8 +5,8 @@ class game;
 
 class grid
 {
-	enum { MaxShapeCount = 1000  };	//assuming max shape count = 1000
-	
+	enum { MaxShapeCount = 1000 };	//assuming max shape count = 1000
+
 	int rows, cols;	//numner of rows and columns in the grid to draw grid points
 	int height, width;
 	point uprLeft;	//upper left point of the grid
@@ -19,8 +19,8 @@ class grid
 	shape* activeShape;	//The shape that the user works on to match to the ranom shapes
 
 	int shapeCount;		//current number of shapes in the list
-	int matchedShape = 0 ;   //the number of matched shapes
-	
+	int matchedShape = 0;   //the number of matched shapes
+
 	game* pGame;
 	enum shapes { sign, tree, butter, home, cat, Car };
 	enum resize { up, down };
@@ -34,7 +34,7 @@ public:
 	void deleteShape();
 	shape* getactiveshap()const;
 	void Random_Shapes_Generator();
-	void randomshape(point refrance,shape* ranshape , int size,int rortat, int fli);
+	void randomshape(point refrance, shape* ranshape, int size, int rortat, int fli);
 	color getcolor(int x)const;
 	void delete_shapelist();
 	bool overlap();
@@ -46,5 +46,7 @@ public:
 	void Save();
 	void Check_Matching();
 	shape* GetHintShape();
+
+	void ScoreCalculator();
 };
 

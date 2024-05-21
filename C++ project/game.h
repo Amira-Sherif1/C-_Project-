@@ -48,7 +48,6 @@ public:
 	void setscore(int x);
 	int getscore()const;
 	void setlevel(int x);
-	void setScore(int s);
 	int GetScore();
 	void SetExit();
 

@@ -110,3 +110,7 @@ point shape::getRefPoint()const {
 double shape::getSize()const {
 	return size;
 }
+
+int shape::GetSteps() {
+	return stepsCounter;
+}

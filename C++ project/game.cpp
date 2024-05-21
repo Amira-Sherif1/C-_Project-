@@ -365,10 +365,7 @@ int game::getscore()const
 {
 	return score;
 }
-void game::setScore(int s) {
-	score = s;
 
-}
 int game::GetScore() {
 
 	return score;
