@@ -31,7 +31,8 @@ public:
 	int gethght()const;
 	int getwdth()const;
 	~Rect();
-
+	
+	
 };
 
 
@@ -62,12 +63,12 @@ public:
 class Triangle : public shape
 {
 protected:
-	int length,hight ;
+	int length, hight;
 public:
-	Triangle(game* r_pgame, int len,point ref);
+	Triangle(game* r_pgame, int len, point ref);
 	~Triangle();
 	virtual void draw() const;
-	virtual void ResizeUp() ;
+	virtual void ResizeUp();
 	virtual void ResizeDown();
 	virtual void move(char step);
 	void rotate(int angle);

@@ -267,6 +267,9 @@ void game::run()
 					if (Key == ' ') {
 						shapesGrid->Check_Matching();
 					}
+					if ('R' == Key || 'r' == Key) {
+						shapesGrid->RandomMode();
+					}
 				}
 				else if(ktype == ESCAPE)
 					stillmoving =false;
@@ -361,14 +364,16 @@ void game::setscore(int x)
 	x = score;
 }
 
+void game::addscore(int x)
+{
+	score += x;
+}
+
 int game::getscore()const
 {
 	return score;
 }
-void game::setScore(int s) {
-	score = s;
 
-}
 int game::GetScore() {
 
 	return score;
@@ -376,3 +381,115 @@ int game::GetScore() {
 void game::SetExit() {
 	isExit = true;
 }
+
+void game::semirun(int &ra)
+{
+	//This function reads the position where the user clicks to determine the desired operation
+	int x, y;
+	bool isExit = false;
+
+	//Change the title
+	pWind->ChangeTitle("- - - - - - - - - - SHAPE HUNT (CIE 101 / CIE202 - project) - - - - - - - - - -");
+	toolbarItem clickedItem = ITM_CNT;
+
+
+	if (level < 3) {
+		do {
+			shapesGrid->delete_shapelist();
+			shapesGrid->Random_Shapes_Generator();
+		} while (shapesGrid->overlap());
+		shapesGrid->draw();
+	}
+
+	else if (level >= 3) {
+		do {
+			shapesGrid->delete_shapelist();
+			shapesGrid->Random_Shapes_Generator();
+		} while (!(shapesGrid->overlap()));
+		shapesGrid->draw();
+
+	}
+	//shapesGrid->Random_Shapes_Generator();
+	//shapesGrid->checkoverlaping();
+	//shapesGrid->draw();
+
+
+	do
+	{
+		//printMessage("Ready...");
+		//1- Get user click
+		pWind->WaitMouseClick(x, y);	//Get the coordinates of the user click
+
+		//2-Explain the user click
+		//If user clicks on the Toolbar, ask toolbar which item is clicked
+		if (y >= 0 && y < config.toolBarHeight)
+		{
+			clickedItem = gameToolbar->getItemClicked(x);
+
+			//3-create the approp operation accordin to item clicked by the user
+			operation* op = createRequiredOperation(clickedItem);
+			if (op)
+				op->Act();
+
+			//4-Redraw the grid after each action
+
+			shapesGrid->draw();
+
+
+			ToolbarClicker(clickedItem);
+		}
+
+		keytype ktype;
+		char Key;
+		bool stillmoving = true;
+		shape* Mirror = shapesGrid->getactiveshap();
+		while (stillmoving)
+		{
+			shapesGrid->draw();
+			pWind->FlushKeyQueue();
+			ktype = pWind->WaitKeyPress(Key);
+
+			if (ktype == ARROW) {    // Call the function to handle the arrow key based on the active shape
+
+				shape* activeShape = shapesGrid->getactiveshap();
+
+				if (activeShape) {
+					switch (Key) {
+					case 8:
+						activeShape->move(8);
+						stillmoving = true;
+						break;
+					case 2:
+						activeShape->move(2);
+						stillmoving = true;
+						break;
+					case 6:
+						activeShape->move(6);
+						stillmoving = true;
+						break;
+					case 4:
+						activeShape->move(4);
+						stillmoving = true;
+						break;
+					}
+				}
+			}
+			if (ktype == ASCII) {
+				if (Key == ' ') {
+					shapesGrid->Check_Matching();
+				}
+			}
+			else if (ktype == ESCAPE)
+				stillmoving = false;
+
+			shapesGrid->setActiveShape(Mirror);
+		}
+		if (shapesGrid->getactiveshap()->GetSteps() >= ra) {
+			ra = getlevel();
+			break;
+		}
+	} while (clickedItem != ITM_EXIT);
+
+
+};
+

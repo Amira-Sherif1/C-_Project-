@@ -111,3 +111,6 @@ double shape::getSize()const {
 	return size;
 }
 
+int shape::GetSteps() {
+	return stepsCounter;
+}

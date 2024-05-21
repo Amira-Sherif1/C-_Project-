@@ -16,7 +16,6 @@ operAddSign::operAddSign(game* r_pGame):operation(r_pGame)
 
 void operAddSign::Act()
 {
-	window* pw = pGame->getWind();
 
 	//TODO:
 	// Don't allow adding new shape if there is alreday an active shape
@@ -43,7 +42,6 @@ operAddTree::operAddTree(game* p_Game): operation(p_Game)
 {
 }
 void operAddTree::Act() {
-	window* pw= pGame->getWind();
 
 	int xGrid = config.RefX - config.RefX % config.gridSpacing;
 	int yGrid = config.RefY - config.RefY % config.gridSpacing;
@@ -79,7 +77,6 @@ operAddButterfly::operAddButterfly(game* p_Game) : operation(p_Game)
 {
 }
 void operAddButterfly::Act() {
-	window* win = pGame->getWind();
 	int xw = config.RefX - config.RefX % config.gridSpacing;
 	int yw = config.RefY - config.RefY % config.gridSpacing;
 	point ButterflyPointRef = { xw , yw };
@@ -96,7 +93,6 @@ operAddHome::operAddHome(game* r_pGame) :operation(r_pGame)
 
 void operAddHome::Act()
 {
-	window* pw = pGame->getWind();
 	int xw = config.RefX - config.RefX % config.gridSpacing;
 	int yw = config.RefY - config.RefY % config.gridSpacing;
 	point HomeRef = { xw,yw };
@@ -114,7 +110,6 @@ operAddCat::operAddCat(game* r_pGame) :operation(r_pGame)
 
 void operAddCat::Act()
 {
-	window* pw = pGame->getWind();
 	int xGrid = config.RefX - config.RefX % config.gridSpacing;
 	int yGrid = config.RefY - config.RefY % config.gridSpacing;
 	point CatRef = { xGrid,yGrid };
@@ -128,7 +123,6 @@ void operAddCat::Act()
 operAddcar::operAddcar(game* r_pGame) : operation(r_pGame) {
 }
 void operAddcar::Act() {
-	window* pw =  pGame->getWind();
 
 	int xGrid = config.RefX - config.RefX % config.gridSpacing;
 	int yGrid = config.RefY - config.RefY % config.gridSpacing;
@@ -146,7 +140,6 @@ operResizeUp::operResizeUp(game* r_pGame) :operation(r_pGame) {
 
 }
 void operResizeUp::Act() {
-	window* pw = pGame->getWind();
 	grid* pGrid = pGame->getGrid();
 	shape* sh= pGrid->getactiveshap();
 	sh->ResizeUp();
@@ -157,7 +150,6 @@ operResizeDown::operResizeDown(game* r_pGame) :operation(r_pGame) {
 }
 
 void operResizeDown::Act() {
-	window* pw = pGame->getWind();
 	grid* pgrid = pGame->getGrid();
 	shape* sh = pgrid->getactiveshap();
 	sh->ResizeDown();
@@ -171,7 +163,6 @@ operDelete::operDelete(game* r_pGame) :operation(r_pGame)
 
 void operDelete::Act()
 {
-	window* pw = pGame->getWind();
 	grid* pGrid = pGame->getGrid();
 	pGrid->deleteShape();
 }
@@ -266,7 +257,7 @@ void operHint::Act() {
 		shape* sh = pGrid->GetHintShape();
 		sh->Setcolor();
 		Sleep(2000);
-		pGame->setScore(pGame->GetScore() - 1);
+		pGame->setscore(pGame->GetScore() - 1);
 
 	}
 

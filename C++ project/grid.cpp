@@ -302,7 +302,7 @@ void grid::Save()
 	for (int i = 0; i < 2 * pGame->getlevel() - 1; i++)
 	{
 
-		outfile << shapeList[i]->getShtype();
+		outfile << shapeList[i]->MyType();
 		shapeList[i]->save(outfile);
 		if (pGame->getlevel() < 3) { outfile << " " << shapeList[i]->getfillcolor(); }
 	}
@@ -369,6 +369,9 @@ void grid::Check_Matching() {
 			point* tem_point = &tem_shape->getRefPoint();
 			if (tem_point->x == base.x && tem_point->y == base.y && tem_shape->getSize() == activeShape->getSize() && tem_shape->MyType() == activeShape->MyType()) {
 				delete_item_shapelist(i);
+				if (!shapeCount) {
+					//Updatelevel();
+				}
 				int n = pGame->getlives();
 				pGame->setlives(n + 2);
 				number += 1;
@@ -386,4 +389,20 @@ void grid::Check_Matching() {
 		int n = pGame->getlives();
 		pGame->setlives(n - 1);
 	}
+}
+
+void grid::ScoreCalculator() {
+	int steps = activeShape->GetSteps();
+	pGame->addscore(2000 - (17 * steps));
+}
+
+void grid::RandomMode() {
+	int ra = 50 + rand() % 100;
+	game u;
+	u.semirun(ra);
+	window* winn = pGame->getWind();
+	pGame->clearStatusBar();
+	winn->SetPen(BLACK);
+	winn->SetFont(20, BOLD | ITALICIZED, BY_NAME, "Arial");
+	winn->DrawString(10, config.windHeight - 40, "Your maximum level In Random mode is ==> " + to_string(ra-2));
 }

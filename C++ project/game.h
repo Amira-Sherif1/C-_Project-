@@ -20,7 +20,7 @@ class game
 	grid* shapesGrid;
 	int level = 2;
 	int lives = 5;
-	int score = 0;
+	int score = 5;
 	bool isExit = false;
 
 public:
@@ -46,11 +46,13 @@ public:
 	int getlives() const;
 	void setlives(int x);
 	void setscore(int x);
+	void addscore(int x);
 	int getscore()const;
 	void setlevel(int x);
-	void setScore(int s);
 	int GetScore();
 	void SetExit();
+
+	void semirun(int &ra);
 
 };
 
