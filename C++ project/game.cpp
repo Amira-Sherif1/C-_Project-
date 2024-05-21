@@ -364,6 +364,11 @@ void game::setscore(int x)
 	x = score;
 }
 
+void game::addscore(int x)
+{
+	score += x;
+}
+
 int game::getscore()const
 {
 	return score;

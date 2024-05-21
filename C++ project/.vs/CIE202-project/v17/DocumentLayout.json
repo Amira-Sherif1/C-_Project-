@@ -3,32 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\moham\\OneDrive\\Desktop\\C\u002B\u002B\\Project\\secong checkpoint\\new one\\C-_Project-\\C\u002B\u002B project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1AC3DDD7-FDDE-487E-A2A4-52A8FCF7BDB9}|CIE202-project.vcxproj|C:\\Users\\moham\\OneDrive\\Desktop\\C\u002B\u002B\\Project\\secong checkpoint\\new one\\C-_Project-\\C\u002B\u002B project\\grid.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{1AC3DDD7-FDDE-487E-A2A4-52A8FCF7BDB9}|CIE202-project.vcxproj|solutionrelative:grid.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1AC3DDD7-FDDE-487E-A2A4-52A8FCF7BDB9}|CIE202-project.vcxproj|C:\\Users\\moham\\OneDrive\\Desktop\\C\u002B\u002B\\Project\\secong checkpoint\\new one\\C-_Project-\\C\u002B\u002B project\\game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{1AC3DDD7-FDDE-487E-A2A4-52A8FCF7BDB9}|CIE202-project.vcxproj|solutionrelative:game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1AC3DDD7-FDDE-487E-A2A4-52A8FCF7BDB9}|CIE202-project.vcxproj|C:\\Users\\moham\\OneDrive\\Desktop\\C\u002B\u002B\\Project\\secong checkpoint\\new one\\C-_Project-\\C\u002B\u002B project\\grid.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{1AC3DDD7-FDDE-487E-A2A4-52A8FCF7BDB9}|CIE202-project.vcxproj|solutionrelative:grid.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1AC3DDD7-FDDE-487E-A2A4-52A8FCF7BDB9}|CIE202-project.vcxproj|C:\\Users\\moham\\OneDrive\\Desktop\\C\u002B\u002B\\Project\\secong checkpoint\\new one\\C-_Project-\\C\u002B\u002B project\\gameConfig.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{1AC3DDD7-FDDE-487E-A2A4-52A8FCF7BDB9}|CIE202-project.vcxproj|solutionrelative:gameConfig.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1AC3DDD7-FDDE-487E-A2A4-52A8FCF7BDB9}|CIE202-project.vcxproj|C:\\Users\\moham\\OneDrive\\Desktop\\C\u002B\u002B\\Project\\secong checkpoint\\new one\\C-_Project-\\C\u002B\u002B project\\game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{1AC3DDD7-FDDE-487E-A2A4-52A8FCF7BDB9}|CIE202-project.vcxproj|solutionrelative:game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1AC3DDD7-FDDE-487E-A2A4-52A8FCF7BDB9}|CIE202-project.vcxproj|C:\\Users\\moham\\OneDrive\\Desktop\\C\u002B\u002B\\Project\\secong checkpoint\\new one\\C-_Project-\\C\u002B\u002B project\\shape.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{1AC3DDD7-FDDE-487E-A2A4-52A8FCF7BDB9}|CIE202-project.vcxproj|solutionrelative:shape.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{1AC3DDD7-FDDE-487E-A2A4-52A8FCF7BDB9}|CIE202-project.vcxproj|C:\\Users\\moham\\OneDrive\\Desktop\\C\u002B\u002B\\Project\\secong checkpoint\\new one\\C-_Project-\\C\u002B\u002B project\\grid.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1AC3DDD7-FDDE-487E-A2A4-52A8FCF7BDB9}|CIE202-project.vcxproj|solutionrelative:grid.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1AC3DDD7-FDDE-487E-A2A4-52A8FCF7BDB9}|CIE202-project.vcxproj|C:\\Users\\moham\\OneDrive\\Desktop\\C\u002B\u002B\\Project\\secong checkpoint\\new one\\C-_Project-\\C\u002B\u002B project\\toolbar.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{1AC3DDD7-FDDE-487E-A2A4-52A8FCF7BDB9}|CIE202-project.vcxproj|solutionrelative:toolbar.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{1AC3DDD7-FDDE-487E-A2A4-52A8FCF7BDB9}|CIE202-project.vcxproj|C:\\Users\\moham\\OneDrive\\Desktop\\C\u002B\u002B\\Project\\secong checkpoint\\new one\\C-_Project-\\C\u002B\u002B project\\grid.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1AC3DDD7-FDDE-487E-A2A4-52A8FCF7BDB9}|CIE202-project.vcxproj|solutionrelative:grid.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1AC3DDD7-FDDE-487E-A2A4-52A8FCF7BDB9}|CIE202-project.vcxproj|C:\\Users\\moham\\OneDrive\\Desktop\\C\u002B\u002B\\Project\\secong checkpoint\\new one\\C-_Project-\\C\u002B\u002B project\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -37,6 +25,18 @@
     {
       "AbsoluteMoniker": "D:0:0:{1AC3DDD7-FDDE-487E-A2A4-52A8FCF7BDB9}|CIE202-project.vcxproj|C:\\Users\\moham\\OneDrive\\Desktop\\C\u002B\u002B\\Project\\secong checkpoint\\new one\\C-_Project-\\C\u002B\u002B project\\operations.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{1AC3DDD7-FDDE-487E-A2A4-52A8FCF7BDB9}|CIE202-project.vcxproj|solutionrelative:operations.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AC3DDD7-FDDE-487E-A2A4-52A8FCF7BDB9}|CIE202-project.vcxproj|C:\\Users\\moham\\OneDrive\\Desktop\\C\u002B\u002B\\Project\\secong checkpoint\\new one\\C-_Project-\\C\u002B\u002B project\\gameConfig.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1AC3DDD7-FDDE-487E-A2A4-52A8FCF7BDB9}|CIE202-project.vcxproj|solutionrelative:gameConfig.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AC3DDD7-FDDE-487E-A2A4-52A8FCF7BDB9}|CIE202-project.vcxproj|C:\\Users\\moham\\OneDrive\\Desktop\\C\u002B\u002B\\Project\\secong checkpoint\\new one\\C-_Project-\\C\u002B\u002B project\\shape.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1AC3DDD7-FDDE-487E-A2A4-52A8FCF7BDB9}|CIE202-project.vcxproj|solutionrelative:shape.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AC3DDD7-FDDE-487E-A2A4-52A8FCF7BDB9}|CIE202-project.vcxproj|C:\\Users\\moham\\OneDrive\\Desktop\\C\u002B\u002B\\Project\\secong checkpoint\\new one\\C-_Project-\\C\u002B\u002B project\\toolbar.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1AC3DDD7-FDDE-487E-A2A4-52A8FCF7BDB9}|CIE202-project.vcxproj|solutionrelative:toolbar.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1AC3DDD7-FDDE-487E-A2A4-52A8FCF7BDB9}|CIE202-project.vcxproj|C:\\Users\\moham\\OneDrive\\Desktop\\C\u002B\u002B\\Project\\secong checkpoint\\new one\\C-_Project-\\C\u002B\u002B project\\shape.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -73,7 +73,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -85,13 +85,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 5,
               "Title": "operations.cpp",
               "DocumentMoniker": "C:\\Users\\moham\\OneDrive\\Desktop\\C\u002B\u002B\\Project\\secong checkpoint\\new one\\C-_Project-\\C\u002B\u002B project\\operations.cpp",
               "RelativeDocumentMoniker": "operations.cpp",
               "ToolTip": "C:\\Users\\moham\\OneDrive\\Desktop\\C\u002B\u002B\\Project\\secong checkpoint\\new one\\C-_Project-\\C\u002B\u002B project\\operations.cpp",
               "RelativeToolTip": "operations.cpp",
-              "ViewState": "AQIAAPEAAAAAAAAAAAASwAMBAAANAAAA",
+              "ViewState": "AQIAAFgAAAAAAAAAAAASwGUAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-20T16:37:22.893Z",
               "EditorCaption": ""
@@ -110,7 +110,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "shape.cpp",
               "DocumentMoniker": "C:\\Users\\moham\\OneDrive\\Desktop\\C\u002B\u002B\\Project\\secong checkpoint\\new one\\C-_Project-\\C\u002B\u002B project\\shape.cpp",
               "RelativeDocumentMoniker": "shape.cpp",
@@ -118,8 +118,7 @@
               "RelativeToolTip": "shape.cpp",
               "ViewState": "AQIAAGUAAAAAAAAAAAAIwHEAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-19T06:44:47.005Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-19T06:44:47.005Z"
             },
             {
               "$type": "Document",
@@ -159,39 +158,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "grid.cpp",
               "DocumentMoniker": "C:\\Users\\moham\\OneDrive\\Desktop\\C\u002B\u002B\\Project\\secong checkpoint\\new one\\C-_Project-\\C\u002B\u002B project\\grid.cpp",
               "RelativeDocumentMoniker": "grid.cpp",
               "ToolTip": "C:\\Users\\moham\\OneDrive\\Desktop\\C\u002B\u002B\\Project\\secong checkpoint\\new one\\C-_Project-\\C\u002B\u002B project\\grid.cpp",
               "RelativeToolTip": "grid.cpp",
-              "ViewState": "AQIAAIsBAAAAAAAAAAAIwJYBAABXAAAA",
+              "ViewState": "AQIAAA4BAAAAAAAAAAAAAHgBAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-19T06:36:25.459Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "grid.h",
               "DocumentMoniker": "C:\\Users\\moham\\OneDrive\\Desktop\\C\u002B\u002B\\Project\\secong checkpoint\\new one\\C-_Project-\\C\u002B\u002B project\\grid.h",
               "RelativeDocumentMoniker": "grid.h",
               "ToolTip": "C:\\Users\\moham\\OneDrive\\Desktop\\C\u002B\u002B\\Project\\secong checkpoint\\new one\\C-_Project-\\C\u002B\u002B project\\grid.h",
               "RelativeToolTip": "grid.h",
-              "ViewState": "AQIAADAAAAAAAAAAAAAAADIAAAAQAAAA",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAADIAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-05-19T06:36:27.603Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "game.h",
               "DocumentMoniker": "C:\\Users\\moham\\OneDrive\\Desktop\\C\u002B\u002B\\Project\\secong checkpoint\\new one\\C-_Project-\\C\u002B\u002B project\\game.h",
               "RelativeDocumentMoniker": "game.h",
               "ToolTip": "C:\\Users\\moham\\OneDrive\\Desktop\\C\u002B\u002B\\Project\\secong checkpoint\\new one\\C-_Project-\\C\u002B\u002B project\\game.h",
               "RelativeToolTip": "game.h",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAIwDUAAAATAAAA",
+              "ViewState": "AQIAACsAAAAAAAAAAAAIwDAAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-05-19T06:44:40.258Z",
               "EditorCaption": ""
@@ -210,13 +209,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "game.cpp",
               "DocumentMoniker": "C:\\Users\\moham\\OneDrive\\Desktop\\C\u002B\u002B\\Project\\secong checkpoint\\new one\\C-_Project-\\C\u002B\u002B project\\game.cpp",
               "RelativeDocumentMoniker": "game.cpp",
               "ToolTip": "C:\\Users\\moham\\OneDrive\\Desktop\\C\u002B\u002B\\Project\\secong checkpoint\\new one\\C-_Project-\\C\u002B\u002B project\\game.cpp",
               "RelativeToolTip": "game.cpp",
-              "ViewState": "AQIAAFABAAAAAAAAAAD4v1gBAAASAAAA",
+              "ViewState": "AQIAAGUBAAAAAAAAAAD4v3ABAAALAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-19T16:27:57.948Z",
               "EditorCaption": ""
@@ -247,7 +246,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "toolbar.cpp",
               "DocumentMoniker": "C:\\Users\\moham\\OneDrive\\Desktop\\C\u002B\u002B\\Project\\secong checkpoint\\new one\\C-_Project-\\C\u002B\u002B project\\toolbar.cpp",
               "RelativeDocumentMoniker": "toolbar.cpp",
@@ -255,12 +254,11 @@
               "RelativeToolTip": "toolbar.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-20T15:29:27.166Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-20T15:29:27.166Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "gameConfig.h",
               "DocumentMoniker": "C:\\Users\\moham\\OneDrive\\Desktop\\C\u002B\u002B\\Project\\secong checkpoint\\new one\\C-_Project-\\C\u002B\u002B project\\gameConfig.h",
               "RelativeDocumentMoniker": "gameConfig.h",
@@ -268,12 +266,11 @@
               "RelativeToolTip": "gameConfig.h",
               "ViewState": "AQIAAG0AAAAAAAAAAAAAAHsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-20T16:19:45.985Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-20T16:19:45.985Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 4,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\moham\\OneDrive\\Desktop\\C\u002B\u002B\\Project\\secong checkpoint\\new one\\C-_Project-\\C\u002B\u002B project\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",

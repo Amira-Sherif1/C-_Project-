@@ -393,7 +393,7 @@ void grid::Check_Matching() {
 
 void grid::ScoreCalculator() {
 	int steps = activeShape->GetSteps();
-	pGame->setscore(2000 - (17 * steps));
+	pGame->addscore(2000 - (17 * steps));
 }
 
 void grid::RandomMode() {

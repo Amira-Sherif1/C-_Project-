@@ -46,6 +46,7 @@ public:
 	int getlives() const;
 	void setlives(int x);
 	void setscore(int x);
+	void addscore(int x);
 	int getscore()const;
 	void setlevel(int x);
 	int GetScore();
