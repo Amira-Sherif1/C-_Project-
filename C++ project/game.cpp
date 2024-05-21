@@ -16,7 +16,6 @@ game::game()
 	//Create and draw the grid
 	createGrid();
 	shapesGrid->draw();	//draw the grid and all shapes it contains.
-
 	//Create and clear the status bar
 	clearStatusBar();
 }
@@ -165,7 +164,8 @@ string game::getSrting() const
 grid* game::getGrid() const
 {
 	// TODO: Add your implementation code here.
-	return shapesGrid;
+	if(shapesGrid!= nullptr)
+		return shapesGrid;
 }
 
 
