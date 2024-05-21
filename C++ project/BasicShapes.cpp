@@ -84,6 +84,9 @@ int Rect::getwdth()const {
 void Rect::VerticalFlip() {
 	hght = hght * (-1);
 }
+string Rect::MyType() {
+	return " ";
+}
 
 
 
@@ -132,6 +135,9 @@ void circle::move(char step) {
 	}
 }
 void circle::rotate(int angle){}
+string circle::MyType() {
+	return " ";
+}
 
 ////////////////////////////////////////////////////  class triangle  ///////////////////////////////////////
 //TODO: Add implementation for class triangle here
@@ -215,4 +221,7 @@ void Triangle::rotate(int angle) {
 }
 void Triangle::VerticalFlip() {
 	hight = (-1) * hight;
+}
+string Triangle::MyType() {
+	return " ";
 }

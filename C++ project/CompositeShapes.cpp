@@ -645,7 +645,6 @@ Cat::Cat(game* r_pGame, point ref) :shape(pGame, ref)
 	point refEar2 = { ref.x + config.Cat.base /2 -config.Cat.len2,ref.y - config.Cat.hght / 2 };
 	point refC1 = { ref.x - config.Cat.len1 / 2 ,ref.y + ((config.Cat.hght) / 2 + (config.Cat.len1 * cos(3.14 / 3))) };
 	point refC2 = { ref.x + config.Cat.len1 / 2 ,ref.y + ((config.Cat.hght) / 2 + (config.Cat.len1 * cos(3.14 / 3))) };
-	//face = new Rect(pGame, refFace, config.Cat.hght, config.Cat.base);
 	face = new Rect(r_pGame, refFace, config.Cat.hght, config.Cat.base); 
 	body = new Triangle(r_pGame, config.Cat.len1, refbody);
 	ear1 = new Triangle(r_pGame, config.Cat.len2, refEar1);
@@ -730,7 +729,7 @@ void Cat::move(char step) {
 			rFoot->move(step);
 			draw();
 		}
-		else if (step == 2&& RefPoint.y < y2)
+		else if (step == 2 && RefPoint.y < y2)
 		{
 			RefPoint.y = RefPoint.y + config.gridSpacing;
 			pGrid->deleteShape();

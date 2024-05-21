@@ -24,6 +24,7 @@ public:
 	virtual void ResizeDown();
 
 	virtual void move(char step);
+	virtual string MyType();
 
 	void rotate(int angle);
 	virtual void VerticalFlip();
@@ -47,6 +48,8 @@ public:
 	virtual void ResizeUp();
 	virtual void ResizeDown();
 	virtual void move(char step);
+	virtual string MyType();
+
 	void rotate(int angle);
 	int getrad()const;
 	~circle();
@@ -71,5 +74,5 @@ public:
 	virtual void VerticalFlip();
 	int getlength()const;
 	int gethight()const;
-
+	virtual string MyType();
 };
