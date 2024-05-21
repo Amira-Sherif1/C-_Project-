@@ -48,5 +48,6 @@ public:
 	shape* GetHintShape();
 
 	void ScoreCalculator();
+	void RandomMode();
 };
 

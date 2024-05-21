@@ -51,5 +51,7 @@ public:
 	int GetScore();
 	void SetExit();
 
+	void semirun(int &ra);
+
 };
 
